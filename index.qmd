@@ -4,12 +4,27 @@ page-layout: full
 title-block-banner: false
 
 listing:
-  contents: posts
-  type: grid
-  sort: "date desc"
-  categories: false
-  fields: [image, title, description]
-  grid-columns: 3
+  - id: featured-projects
+    contents: posts
+    type: grid
+    sort: "date desc"
+    categories: false
+    fields: [image, title, description]
+    grid-columns: 3
+    include:
+      categories: "*featured*"
+    sort-ui: false
+    filter-ui: false
+
+  - id: all-projects
+    contents: posts
+    type: grid
+    sort: "date desc"
+    categories: false
+    fields: [image, title, description]
+    grid-columns: 3
+    sort-ui: false
+    filter-ui: false
 ---
 
 ::: {.hero}
@@ -26,3 +41,11 @@ I use quantitative tools to explore how neighborhoods work, how policy affects p
 :::
 
 ## Featured Projects {#projects}
+
+::: {#featured-projects}
+:::
+
+## All Projects
+
+::: {#all-projects}
+:::

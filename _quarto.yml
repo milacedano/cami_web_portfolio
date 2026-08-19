@@ -10,11 +10,15 @@ website:
   title: "Maria Camila Cedano"
   navbar:
     right:
-      - about.qmd
+      - text: "All Projects"
+        href: index.qmd#all-projects-section
+      - text: "About"
+        href: about.qmd
       - icon: github
         href: https://github.com/milacedano
       - icon: linkedin
         href: https://www.linkedin.com/in/maria-camila-cedano/
+
 format:
   html:
     theme: flatly
@@ -22,4 +26,3 @@ format:
     title-block-banner: false
 
 editor: visual
-

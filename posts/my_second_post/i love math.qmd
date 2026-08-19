@@ -2,7 +2,7 @@
 title: "i love math"
 author: "Maria Camila Cedano"
 date: "2026-08-16"
-categories: [testing, goals]
+categories: [featured, goals]
 ---
 
 Math is the best i love it. no idea whats going on
