@@ -9,15 +9,19 @@ about:
       href: https://twitter.com
     - icon: linkedin
       text: LinkedIn
-      href: https://linkedin.com
+      href: https://www.linkedin.com/in/maria-camila-cedano/
     - icon: github
       text: Github
-      href: https://github.com
+      href: https://github.com/milacedano
 ---
 
-## Bio
+Hi, I’m Camila! 👋
 
-Camila Cedano is....
+I’m a Mathematics student at Dominican University interested in the intersection of data, public policy, and community impact.
+
+I’m especially interested in using quantitative analysis and data to better understand the challenges facing cities and communities: from housing and transportation to urban development and access to public resources. My experiences in local government, education, and community-based work have shaped my interest in turning data into insights that can support more informed and equitable public decisions.
+
+This portfolio documents my growth in data analytics and quantitative research through projects focused on real-world questions, particularly those affecting Chicago and its communities.
 
 ## Education
 
@@ -25,7 +29,19 @@ Camila Cedano is....
 
 Bachelor's in Mathematics | August 2025 - May 2027
 
+Relevant Coursework: Calculus I-III • Linear Algebra • Differential Equations • Statistics I-II • Introduction to Proofs • Computer Programming (Java) • Introduction to R Programming for Data Science • Financial Mathematics • Numerical Modeling • Introduction to Sociology
+
 ## Experience
 
 **26th Ward - Alderperson Jessie Fuentes** | Intern | June 2026 - Present
+
+As an intern with the 26th Ward Office of Alderperson Jessie Fuentes, I support community engagement, constituent services, policy-related research, and neighborhood initiatives. My work includes engaging directly with residents through canvassing and community events, assisting with constituent needs and access to city resources, organizing and analyzing information related to community issues, and supporting projects and events across the ward. This experience has given me firsthand insight into local government and strengthened my interest in using data, research, and community input to better understand neighborhood needs and inform public policy.
+
+**After School Matters** | Communication & Leadership Instructor | September 2025 - Present
+
+As a Communication and Leadership Instructor, I design and facilitate programming that helps Chicago teens strengthen their leadership, communication, research, and civic engagement skills. I guide participants through independent research projects on issues affecting Chicago communities, teaching them how to evaluate sources, analyze data, conduct surveys and interviews, engage with community stakeholders, and develop evidence-based recommendations. I also lead activities including debates, Model United Nations simulations, financial literacy programming, and discussions on local government and current issues. Through this role, I create opportunities for young people to connect their interests and lived experiences to research, public policy, and meaningful civic participation.
+
+**After School Matters** | ComEd Youth Ambassadors Instructor | June 2025 - August 2025
+
+As a ComEd Youth Ambassadors Instructor, I teach Chicago teens about energy, sustainability, and technology through hands-on learning. I introduce students to basic C++ programming and Arduino, guiding them through coding and electronics projects that build foundational programming, problem-solving, and technical skills. I also facilitate activities focused on energy and environmental topics while helping participants strengthen their communication, teamwork, leadership, and professional skills.
 
