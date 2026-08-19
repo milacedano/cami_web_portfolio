@@ -3,7 +3,7 @@ project:
   output-dir: docs
 
 website:
-  title: "quartoCourseBlog"
+  title: "Camila Cedano's Portfolio"
   navbar:
     right:
       - about.qmd
@@ -13,7 +13,7 @@ website:
         href: https://twitter.com/MattCrumpLab
 format:
   html:
-    theme: minty
+    theme: flatly
     css: styles.css
 
 editor: visual
