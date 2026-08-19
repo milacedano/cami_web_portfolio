@@ -1,1 +1,270 @@
-/* css styles */
+/* =========================================
+   CAMILA CEDANO — PORTFOLIO
+   ========================================= */
+
+:root {
+  --cream: #fffaf5;
+  --sage: #536b57;
+  --sage-dark: #405444;
+  --sage-light: #e8eee8;
+  --pink: #d99aa8;
+  --pink-light: #f7e9ec;
+  --brown: #4e403b;
+  --border: #eadfd9;
+  --white: #ffffff;
+}
+
+
+/* =========================================
+   PAGE
+   ========================================= */
+
+body {
+  background-color: var(--cream);
+  color: var(--brown);
+  font-family: "Segoe UI", sans-serif;
+  line-height: 1.7;
+}
+
+main {
+  max-width: 1150px;
+  margin: auto;
+}
+
+
+/* =========================================
+   NAVBAR
+   ========================================= */
+
+.navbar {
+  background-color: var(--cream) !important;
+  border-bottom: 1px solid var(--border);
+  padding: 1rem 2rem;
+}
+
+.navbar-brand {
+  color: var(--sage) !important;
+  font-weight: 700;
+  font-size: 1.15rem;
+}
+
+.navbar-nav .nav-link {
+  color: var(--brown) !important;
+  font-weight: 500;
+}
+
+.navbar-nav .nav-link:hover {
+  color: var(--pink) !important;
+}
+
+
+/* =========================================
+   HERO
+   ========================================= */
+
+.hero {
+  padding: 6rem 2rem 5rem;
+  max-width: 900px;
+  margin: auto;
+  text-align: center;
+}
+
+.hero h1 {
+  color: var(--sage);
+  font-size: clamp(3rem, 7vw, 5rem);
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+  margin-bottom: 1.5rem;
+}
+
+.hero p {
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 1.2rem;
+  line-height: 1.8;
+}
+
+
+/* =========================================
+   HEADINGS
+   ========================================= */
+
+h1,
+h2,
+h3,
+h4 {
+  color: var(--sage);
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 2rem;
+  margin-top: 4rem;
+  margin-bottom: 2rem;
+}
+
+
+/* =========================================
+   LINKS
+   ========================================= */
+
+a {
+  color: var(--sage);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--pink);
+}
+
+
+/* =========================================
+   BUTTONS
+   ========================================= */
+
+.btn {
+  border-radius: 999px;
+  padding: 0.7rem 1.4rem;
+  margin: 1rem 0.25rem 0;
+  font-weight: 600;
+}
+
+.btn-primary {
+  background-color: var(--sage);
+  border-color: var(--sage);
+}
+
+.btn-primary:hover {
+  background-color: var(--sage-dark);
+  border-color: var(--sage-dark);
+}
+
+.btn-outline-primary {
+  color: var(--pink);
+  border-color: var(--pink);
+}
+
+.btn-outline-primary:hover {
+  color: var(--brown);
+  background-color: var(--pink-light);
+  border-color: var(--pink);
+}
+
+
+/* =========================================
+   PROJECT LISTING
+   ========================================= */
+
+.quarto-listing-container-grid {
+  margin-top: 2rem;
+}
+
+.quarto-listing-container-grid .list-grid {
+  gap: 1.5rem;
+}
+
+
+/* =========================================
+   PROJECT CARDS
+   ========================================= */
+
+.quarto-grid-item {
+  background-color: var(--white) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 22px !important;
+  overflow: hidden;
+  box-shadow: none !important;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.quarto-grid-item:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(78, 64, 59, 0.10) !important;
+}
+
+
+/* =========================================
+   PROJECT IMAGES
+   ========================================= */
+
+.quarto-grid-item .card-img-top {
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+}
+
+
+/* =========================================
+   PROJECT CARD CONTENT
+   ========================================= */
+
+.quarto-grid-item .card-body {
+  padding: 1.5rem;
+}
+
+.quarto-grid-item .listing-title {
+  color: var(--sage);
+  font-size: 1.35rem;
+  font-weight: 700;
+  line-height: 1.3;
+  margin-bottom: 0.75rem;
+}
+
+.quarto-grid-item .listing-description {
+  color: var(--brown);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+
+/* =========================================
+   HIDE BLOG-LIKE INFORMATION
+   ========================================= */
+
+.quarto-grid-item .listing-date,
+.quarto-grid-item .listing-author {
+  display: none;
+}
+
+
+/* =========================================
+   CATEGORY TAGS
+   ========================================= */
+
+.quarto-grid-item .listing-category {
+  background-color: var(--pink-light);
+  color: var(--brown);
+  border: none;
+  border-radius: 999px;
+  padding: 0.25rem 0.6rem;
+  font-size: 0.75rem;
+}
+
+
+/* =========================================
+   MOBILE
+   ========================================= */
+
+@media (max-width: 800px) {
+
+  .hero {
+    padding: 4rem 1.25rem 3rem;
+  }
+
+  .hero h1 {
+    font-size: 3rem;
+  }
+
+  .hero p {
+    font-size: 1.05rem;
+  }
+
+  .navbar {
+    padding: 0.75rem 1rem;
+  }
+
+}
