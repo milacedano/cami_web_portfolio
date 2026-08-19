@@ -330,3 +330,74 @@ pre {
   }
 
 }
+
+/* =========================================
+   WHAT I DO
+   ========================================= */
+
+.what-i-do {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin: 1.5rem 0 4rem;
+}
+
+.skill-card {
+  padding: 2rem;
+  border-radius: 24px;
+  border: 1px solid var(--border);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.skill-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(45, 48, 71, 0.08);
+}
+
+.skill-card h3 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  color: var(--indigo);
+  font-size: 1.35rem;
+}
+
+.skill-card p {
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+/* soft feminine card colors */
+
+.data-card {
+  background-color: var(--teal-light);
+}
+
+.research-card {
+  background-color: var(--pink-light);
+}
+
+.policy-card {
+  background-color: var(--peach-light);
+}
+
+/* little skill tags */
+
+.skill-card code {
+  display: inline-block;
+  background-color: rgba(255, 255, 255, 0.7);
+  color: var(--indigo);
+  border: 1px solid rgba(45, 48, 71, 0.08);
+  border-radius: 999px;
+  padding: 0.3rem 0.65rem;
+  margin: 0.15rem;
+  font-family: "Segoe UI", sans-serif;
+  font-size: 0.78rem;
+}
+
+/* stack cards on phones */
+
+@media (max-width: 800px) {
+  .what-i-do {
+    grid-template-columns: 1fr;
+  }
+}

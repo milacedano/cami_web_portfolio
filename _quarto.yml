@@ -10,8 +10,6 @@ website:
   title: "Maria Camila Cedano"
   navbar:
     right:
-      - text: "All Projects"
-        href: index.qmd#all-projects-section
       - text: "About"
         href: about.qmd
       - icon: github

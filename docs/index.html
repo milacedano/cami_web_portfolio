@@ -98,34 +98,6 @@ ul.task-list li input[type="checkbox"] {
       window['quarto-listing-loaded']();
     }
   })
-  
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-all-projects .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-image','listing-title','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-all-projects'] = new List('listing-all-projects', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
   </script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
@@ -179,10 +151,6 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html#all-projects-section"> 
-<span class="menu-text">All Projects</span></a>
-  </li>  
-  <li class="nav-item">
     <a class="nav-link" href="./about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
@@ -234,7 +202,7 @@ window.Quarto = {
 <h1>Hi, I’m Camila</h1>
 <p>I’m a mathematics student interested in <strong>data, public policy, cities, and community research</strong>.</p>
 <p>I use quantitative tools to explore how neighborhoods work, how policy affects people, and how data can help tell those stories.</p>
-<p><a href="#projects" class="btn btn-primary">View My Work</a> <a href="./about.html" class="btn btn-outline-primary">About Me</a></p>
+<p><a href="./projects.html" class="btn btn-primary">View My Work</a> <a href="./about.html" class="btn btn-outline-primary">Background</a></p>
 </section>
 <section id="projects" class="level2">
 <h2 class="anchored" data-anchor-id="projects">Featured Projects</h2>
@@ -258,55 +226,31 @@ Math is the best i love it. no idea whats going on
 <div class="listing-no-matching d-none">No matching items</div>
 </div>
 </section>
-<section id="all-projects" class="level2">
-<h2 class="anchored" data-anchor-id="all-projects">All Projects</h2>
-<div id="listing-all-projects" class="quarto-listing quarto-listing-container-grid">
-<div class="list grid quarto-listing-cols-3">
-<div class="g-col-1" data-index="0" data-categories="Z29hbHMlMkNnZW5lcmFs" data-listing-date-sort="1787097600000" data-listing-file-modified-sort="1787162106121" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="14">
-<a href="./posts/Example_assignment/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<div class="listing-item-img-placeholder card-img-top" style="height: 150px;">&nbsp;</div>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-i &lt;3 research
-</h5>
-<div class="card-text listing-description delink">
-meow meow meow
+<section id="what-i-do" class="level2">
+<h2 class="anchored" data-anchor-id="what-i-do">What I Do</h2>
+<div class="what-i-do">
+<section id="data-analysis" class="level3 skill-card data-card">
+<h3 class="anchored" data-anchor-id="data-analysis">Data Analysis</h3>
+<p>I use <strong>R, statistics, and data visualization</strong> to explore patterns, answer questions, and communicate findings clearly.</p>
+<p><code>R</code> <code>Statistics</code> <code>Data Visualization</code></p>
+</section>
+<section id="research" class="level3 skill-card research-card">
+<h3 class="anchored" data-anchor-id="research">Research</h3>
+<p>I combine <strong>quantitative analysis and community perspectives</strong> to investigate questions about cities and the people who live in them.</p>
+<p><code>Quantitative Research</code> <code>Community Research</code> <code>Data Collection</code></p>
+</section>
+<section id="public-policy" class="level3 skill-card policy-card">
+<h3 class="anchored" data-anchor-id="public-policy">Public Policy</h3>
+<p>I’m interested in using data and research to understand <strong>local government, urban policy, and community issues</strong>, especially in Chicago.</p>
+<p><code>Policy Analysis</code> <code>Local Government</code> <code>Urban Issues</code></p>
+</section>
 </div>
-</div>
-</div></a>
-</div>
-<div class="g-col-1" data-index="1" data-categories="ZmVhdHVyZWQlMkNnb2Fscw==" data-listing-date-sort="1786838400000" data-listing-file-modified-sort="1787165254404" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="42">
-<a href="./posts/my_second_post/i love math.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top"><img src="posts/my_second_post/i-love-math_files/figure-html/unnamed-chunk-1-1.png" style="height: 150px;"  class="thumbnail-image card-img"/></p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-i love math
-</h5>
-<div class="card-text listing-description delink">
-Math is the best i love it. no idea whats going on
-</div>
-</div>
-</div></a>
-</div>
-<div class="g-col-1" data-index="2" data-categories="Z29hbHMlMkNnZW5lcmFs" data-listing-date-sort="1666310400000" data-listing-file-modified-sort="1787161824747" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="98">
-<a href="./posts/my_first_post/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top"><img src="posts/my_first_post/thumbnail.jpg" style="height: 150px;"  class="thumbnail-image card-img"/></p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-My First post
-</h5>
-<div class="card-text listing-description delink">
-This is an example first post. Whatever you write here will appear inside your post.
-</div>
-</div>
-</div></a>
-</div>
-</div>
-<div class="listing-no-matching d-none">No matching items</div>
-</div>
+</section>
+<section id="a-little-about-me" class="level2">
+<h2 class="anchored" data-anchor-id="a-little-about-me">A Little About Me</h2>
+<p>Chicago has always been home, and growing up here has given me a real appreciation for the city, its neighborhoods, and the communities that make each one unique. As a Colombian-American, I also value the different cultures and perspectives that shape the places around us—something that has naturally influenced my interest in community and public policy.</p>
+<p>Outside of work and school, I spend a lot of my free time on puzzles, especially GeoGuessr and, lately, puzzles from the Magic Puzzle Company. I’m also a big coffee person and always appreciate finding a good coffee shop around the city.</p>
+<p><a href="./about.html">View My Background</a></p>
 
 
 
