@@ -2,6 +2,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/my_second_post/i love math.html",
       "/posts/Example_assignment/index.html",
       "/posts/my_first_post/index.html"
     ]

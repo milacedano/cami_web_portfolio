@@ -14,53 +14,11 @@
     "text": "This is a second level heading\nYou can include images, and many other kinds of content.\nIf you are using the visual editor in Rstudio you can drag images onto the editor to insert them into the document. Otherwise, you need to place the image inside of the folder for this post, and then you can insert it to your post directly, like this:\n\nThe first image in a blog post will also be used on the listings page."
   },
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
+    "objectID": "posts/my_second_post/i love math.html",
+    "href": "posts/my_second_post/i love math.html",
+    "title": "i love math",
     "section": "",
-    "text": "Hi, I’m Camila! 👋\nI’m a Mathematics student at Dominican University interested in the intersection of data, public policy, and community impact.\nI’m especially interested in using quantitative analysis and data to better understand the challenges facing cities and communities: from housing and transportation to urban development and access to public resources. My experiences in local government, education, and community-based work have shaped my interest in turning data into insights that can support more informed and equitable public decisions.\nThis portfolio documents my growth in data analytics and quantitative research through projects focused on real-world questions, particularly those affecting Chicago and its communities."
-  },
-  {
-    "objectID": "about.html#education",
-    "href": "about.html#education",
-    "title": "About",
-    "section": "Education",
-    "text": "Education\nDOMINICAN UNIVERSITY | River Forest, Illinois\nBachelor’s in Mathematics | August 2025 - May 2027\nRelevant Coursework: Calculus I-III • Linear Algebra • Differential Equations • Statistics I-II • Introduction to Proofs • Computer Programming (Java) • Introduction to R Programming for Data Science • Financial Mathematics • Numerical Modeling • Introduction to Sociology"
-  },
-  {
-    "objectID": "about.html#experience",
-    "href": "about.html#experience",
-    "title": "About",
-    "section": "Experience",
-    "text": "Experience\n26th Ward - Alderperson Jessie Fuentes | Intern | June 2026 - Present\nAs an intern with the 26th Ward Office of Alderperson Jessie Fuentes, I support community engagement, constituent services, policy-related research, and neighborhood initiatives. My work includes engaging directly with residents through canvassing and community events, assisting with constituent needs and access to city resources, organizing and analyzing information related to community issues, and supporting projects and events across the ward. This experience has given me firsthand insight into local government and strengthened my interest in using data, research, and community input to better understand neighborhood needs and inform public policy.\nAfter School Matters | Communication & Leadership Instructor | September 2025 - Present\nAs a Communication and Leadership Instructor, I design and facilitate programming that helps Chicago teens strengthen their leadership, communication, research, and civic engagement skills. I guide participants through independent research projects on issues affecting Chicago communities, teaching them how to evaluate sources, analyze data, conduct surveys and interviews, engage with community stakeholders, and develop evidence-based recommendations. I also lead activities including debates, Model United Nations simulations, financial literacy programming, and discussions on local government and current issues. Through this role, I create opportunities for young people to connect their interests and lived experiences to research, public policy, and meaningful civic participation.\nAfter School Matters | ComEd Youth Ambassadors Instructor | June 2025 - August 2025\nAs a ComEd Youth Ambassadors Instructor, I teach Chicago teens about energy, sustainability, and technology through hands-on learning. I introduce students to basic C++ programming and Arduino, guiding them through coding and electronics projects that build foundational programming, problem-solving, and technical skills. I also facilitate activities focused on energy and environmental topics while helping participants strengthen their communication, teamwork, leadership, and professional skills."
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Data, Policy & Community",
-    "section": "",
-    "text": "I’m a mathematics student interested in data, public policy, cities, and community research.\nI use quantitative tools to explore how neighborhoods work, how policy affects people, and how data can help tell those stories.\nView My Work About Me"
-  },
-  {
-    "objectID": "index.html#projects",
-    "href": "index.html#projects",
-    "title": "Data, Policy & Community",
-    "section": "Featured Projects",
-    "text": "Featured Projects\n\n\nChicago Community Data\nExploring neighborhood-level data to understand patterns in city services, development, and community needs.\nR · Data Analysis · Policy\nView project →\n\n\nPublic Policy Research\nResearch examining local policy issues through community perspectives, quantitative evidence, and public data.\nResearch · Policy · Visualization\nView project →\n\n\nData Science Projects\nStatistical and computational projects using R, mathematics, and data visualization.\nR · Statistics · Modeling\nView project →"
-  },
-  {
-    "objectID": "index.html#a-little-about-me",
-    "href": "index.html#a-little-about-me",
-    "title": "Data, Policy & Community",
-    "section": "A little about me",
-    "text": "A little about me\nI’m especially interested in the intersection of mathematics, cities, public policy, and community engagement."
-  },
-  {
-    "objectID": "index.html#currently-im-building-my-skills-in-data-analysis-statistical-modeling-programming-and-research-while-working-on-projects-connected-to-chicago-communities.",
-    "href": "index.html#currently-im-building-my-skills-in-data-analysis-statistical-modeling-programming-and-research-while-working-on-projects-connected-to-chicago-communities.",
-    "title": "Data, Policy & Community",
-    "section": "Currently, I’m building my skills in data analysis, statistical modeling, programming, and research while working on projects connected to Chicago communities.",
-    "text": "Currently, I’m building my skills in data analysis, statistical modeling, programming, and research while working on projects connected to Chicago communities."
+    "text": "Math is the best i love it"
   },
   {
     "objectID": "readme.html",
@@ -145,6 +103,41 @@
     "title": "Using this quarto course blog template",
     "section": "",
     "text": "See this growing list of quarto resources for much, much more:\nhttps://github.com/mcanouil/awesome-quarto"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Data, Policy & Community",
+    "section": "",
+    "text": "I’m a mathematics student interested in data, public policy, cities, and community research.\nI use quantitative tools to explore how neighborhoods work, how policy affects people, and how data can help tell those stories.\nView My Work About Me"
+  },
+  {
+    "objectID": "index.html#projects",
+    "href": "index.html#projects",
+    "title": "Data, Policy & Community",
+    "section": "Featured Projects",
+    "text": "Featured Projects"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "Hi, I’m Camila! 👋\nI’m a Mathematics student at Dominican University interested in the intersection of data, public policy, and community impact.\nI’m especially interested in using quantitative analysis and data to better understand the challenges facing cities and communities: from housing and transportation to urban development and access to public resources. My experiences in local government, education, and community-based work have shaped my interest in turning data into insights that can support more informed and equitable public decisions.\nThis portfolio documents my growth in data analytics and quantitative research through projects focused on real-world questions, particularly those affecting Chicago and its communities."
+  },
+  {
+    "objectID": "about.html#education",
+    "href": "about.html#education",
+    "title": "About",
+    "section": "Education",
+    "text": "Education\nDOMINICAN UNIVERSITY | River Forest, Illinois\nBachelor’s in Mathematics | August 2025 - May 2027\nRelevant Coursework: Calculus I-III • Linear Algebra • Differential Equations • Statistics I-II • Introduction to Proofs • Computer Programming (Java) • Introduction to R Programming for Data Science • Financial Mathematics • Numerical Modeling • Introduction to Sociology"
+  },
+  {
+    "objectID": "about.html#experience",
+    "href": "about.html#experience",
+    "title": "About",
+    "section": "Experience",
+    "text": "Experience\n26th Ward - Alderperson Jessie Fuentes | Intern | June 2026 - Present\nAs an intern with the 26th Ward Office of Alderperson Jessie Fuentes, I support community engagement, constituent services, policy-related research, and neighborhood initiatives. My work includes engaging directly with residents through canvassing and community events, assisting with constituent needs and access to city resources, organizing and analyzing information related to community issues, and supporting projects and events across the ward. This experience has given me firsthand insight into local government and strengthened my interest in using data, research, and community input to better understand neighborhood needs and inform public policy.\nAfter School Matters | Communication & Leadership Instructor | September 2025 - Present\nAs a Communication and Leadership Instructor, I design and facilitate programming that helps Chicago teens strengthen their leadership, communication, research, and civic engagement skills. I guide participants through independent research projects on issues affecting Chicago communities, teaching them how to evaluate sources, analyze data, conduct surveys and interviews, engage with community stakeholders, and develop evidence-based recommendations. I also lead activities including debates, Model United Nations simulations, financial literacy programming, and discussions on local government and current issues. Through this role, I create opportunities for young people to connect their interests and lived experiences to research, public policy, and meaningful civic participation.\nAfter School Matters | ComEd Youth Ambassadors Instructor | June 2025 - August 2025\nAs a ComEd Youth Ambassadors Instructor, I teach Chicago teens about energy, sustainability, and technology through hands-on learning. I introduce students to basic C++ programming and Arduino, guiding them through coding and electronics projects that build foundational programming, problem-solving, and technical skills. I also facilitate activities focused on energy and environmental topics while helping participants strengthen their communication, teamwork, leadership, and professional skills."
   },
   {
     "objectID": "posts/Example_assignment/index.html",

@@ -3,15 +3,23 @@
    ========================================= */
 
 :root {
-  --cream: #fffaf5;
-  --sage: #536b57;
-  --sage-dark: #405444;
-  --sage-light: #e8eee8;
-  --pink: #d99aa8;
-  --pink-light: #f7e9ec;
-  --brown: #4e403b;
-  --border: #eadfd9;
+  --cream: #fffdf7;
+
+  --sage: #2d3047;
+  --sage-dark: #202238;
+  --sage-light: #e8f4f2;
+
+  --pink: #e84855;
+  --pink-light: #fff0e9;
+
+  --brown: #2d3047;
+  --border: #e8e5df;
   --white: #ffffff;
+
+  --teal: #1b998b;
+  --yellow: #fffd82;
+  --orange: #ff9b71;
+  --red: #e84855;
 }
 
 
@@ -181,6 +189,27 @@ a:hover {
     box-shadow 0.2s ease;
 }
 
+/* alternating project card colors */
+
+.quarto-grid-item:nth-child(5n + 1) {
+  background-color: #edf9f7 !important;
+}
+
+.quarto-grid-item:nth-child(5n + 2) {
+  background-color: #fff1eb !important;
+}
+
+.quarto-grid-item:nth-child(5n + 3) {
+  background-color: #fffedb !important;
+}
+
+.quarto-grid-item:nth-child(5n + 4) {
+  background-color: #fff0f2 !important;
+}
+
+.quarto-grid-item:nth-child(5n + 5) {
+  background-color: #f1f2f7 !important;
+}
 .quarto-grid-item:hover {
   transform: translateY(-6px);
   box-shadow: 0 12px 30px rgba(78, 64, 59, 0.10) !important;
@@ -267,4 +296,20 @@ a:hover {
     padding: 0.75rem 1rem;
   }
 
+}
+
+/* =========================================
+   INDIVIDUAL PROJECT PAGE
+   ========================================= */
+
+/* Move page content closer to navbar */
+main.content {
+  padding-top: 2rem !important;
+  margin-top: 0 !important;
+}
+
+/* Keep project pages comfortably wide */
+#quarto-document-content {
+  max-width: 900px;
+  width: 100%;
 }

@@ -1,0 +1,6 @@
+---
+title: "i love math"
+format: html
+---
+
+Math is the best i love it

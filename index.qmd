@@ -2,6 +2,7 @@
 title: "Data, Policy & Community"
 page-layout: full
 title-block-banner: false
+
 listing:
   contents: posts
   type: grid
@@ -13,7 +14,7 @@ listing:
 
 ::: {.hero}
 
-# Hi, I'm Camila ♡
+# Hi, I'm Camila
 
 I'm a mathematics student interested in **data, public policy, cities, and community research**.
 
@@ -25,44 +26,3 @@ I use quantitative tools to explore how neighborhoods work, how policy affects p
 :::
 
 ## Featured Projects {#projects}
-
-::: {.project-grid}
-
-::: {.project-card}
-### Chicago Community Data
-
-Exploring neighborhood-level data to understand patterns in city services, development, and community needs.
-
-**R · Data Analysis · Policy**
-
-[View project →](#)
-:::
-
-::: {.project-card}
-### Public Policy Research
-
-Research examining local policy issues through community perspectives, quantitative evidence, and public data.
-
-**Research · Policy · Visualization**
-
-[View project →](#)
-:::
-
-::: {.project-card}
-### Data Science Projects
-
-Statistical and computational projects using R, mathematics, and data visualization.
-
-**R · Statistics · Modeling**
-
-[View project →](#)
-:::
-
-:::
-
-## A little about me
-
-I’m especially interested in the intersection of **mathematics, cities, public policy, and community engagement**.
-
-Currently, I’m building my skills in data analysis, statistical modeling, programming, and research while working on projects connected to Chicago communities.
----
