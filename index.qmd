@@ -1,6 +1,6 @@
 ---
-title: "Portfolio"
-subtitle: "Camila Cedano's web portfolio"
+title: "Data, Policy & Community"
+subtitle: "Exploring how mathematics, data, and research can help us better understand cities and the communities within them."
 listing:
   contents: posts
   sort: "date desc"

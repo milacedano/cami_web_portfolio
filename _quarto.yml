@@ -3,14 +3,14 @@ project:
   output-dir: docs
 
 website:
-  title: "Camila Cedano's Portfolio"
+  title: "Camila Cedano | Data & Policy Portfolio"
   navbar:
     right:
       - about.qmd
       - icon: github
-        href: https://github.com/CrumpLab/quartoCourseBlog
-      - icon: twitter
-        href: https://twitter.com/MattCrumpLab
+        href: https://github.com/milacedano
+      - icon: linkedin
+        href: https://www.linkedin.com/in/maria-camila-cedano/
 format:
   html:
     theme: flatly
