@@ -18,7 +18,28 @@
     "href": "about.html",
     "title": "About",
     "section": "",
-    "text": "The content on this page is from about.qmd. Edit that file to change how this page looks.\n“About” pages are special quarto template pages, with multiple options: https://quarto.org/docs/websites/website-about.html.\nTry changing the template type from jolla to one of the other options for a different look and feel."
+    "text": "Camila Cedano is…."
+  },
+  {
+    "objectID": "about.html#bio",
+    "href": "about.html#bio",
+    "title": "About",
+    "section": "",
+    "text": "Camila Cedano is…."
+  },
+  {
+    "objectID": "about.html#education",
+    "href": "about.html#education",
+    "title": "About",
+    "section": "Education",
+    "text": "Education\nDOMINICAN UNIVERSITY | River Forest, Illinois\nBachelor’s in Mathematics | August 2025 - May 2027"
+  },
+  {
+    "objectID": "about.html#experience",
+    "href": "about.html#experience",
+    "title": "About",
+    "section": "Experience",
+    "text": "Experience\n26th Ward - Alderperson Jessie Fuentes | Intern | June 2026 - Present"
   },
   {
     "objectID": "index.html",
