@@ -1,8 +1,8 @@
 ---
 title: "About"
-image: profile.jpg
+image: pfp.jpg
 about:
-  template: jolla
+  template: solana
   links:
     - icon: twitter
       text: Twitter
@@ -15,9 +15,17 @@ about:
       href: https://github.com
 ---
 
-The content on this page is from `about.qmd`. Edit that file to change how this page looks.
+## Bio
 
-"About" pages are special quarto template pages, with multiple options: <https://quarto.org/docs/websites/website-about.html>.
+Camila Cedano is....
 
-Try changing the template type from `jolla` to one of the other options for a different look and feel.
+## Education
+
+**DOMINICAN UNIVERSITY** | River Forest, Illinois
+
+Bachelor's in Mathematics | August 2025 - May 2027
+
+## Experience
+
+**26th Ward - Alderperson Jessie Fuentes** | Intern | June 2026 - Present
 
