@@ -18,7 +18,7 @@
     "href": "posts/my_second_post/i love math.html",
     "title": "i love math",
     "section": "",
-    "text": "Math is the best i love it"
+    "text": "Math is the best i love it. no idea whats going on\n\nlibrary(ggplot2)\nlibrary(tidyverse)\nggplot(\n  data = mpg,\n  mapping = aes(\n    x = hwy,\n    y = cty,\n    color = year\n  )\n)+\n  geom_point()"
   },
   {
     "objectID": "readme.html",
@@ -123,14 +123,14 @@
     "href": "about.html",
     "title": "About",
     "section": "",
-    "text": "Hi, I’m Camila! 👋\nI’m a Mathematics student at Dominican University interested in the intersection of data, public policy, and community impact.\nI’m especially interested in using quantitative analysis and data to better understand the challenges facing cities and communities: from housing and transportation to urban development and access to public resources. My experiences in local government, education, and community-based work have shaped my interest in turning data into insights that can support more informed and equitable public decisions.\nThis portfolio documents my growth in data analytics and quantitative research through projects focused on real-world questions, particularly those affecting Chicago and its communities."
+    "text": "DOMINICAN UNIVERSITY | River Forest, Illinois\nBachelor’s in Mathematics | August 2025 - May 2027\nRelevant Coursework: Calculus I-III • Linear Algebra • Differential Equations • Statistics I-II • Introduction to Proofs • Computer Programming (Java) • Introduction to R Programming for Data Science • Financial Mathematics • Numerical Modeling • Introduction to Sociology"
   },
   {
     "objectID": "about.html#education",
     "href": "about.html#education",
     "title": "About",
-    "section": "Education",
-    "text": "Education\nDOMINICAN UNIVERSITY | River Forest, Illinois\nBachelor’s in Mathematics | August 2025 - May 2027\nRelevant Coursework: Calculus I-III • Linear Algebra • Differential Equations • Statistics I-II • Introduction to Proofs • Computer Programming (Java) • Introduction to R Programming for Data Science • Financial Mathematics • Numerical Modeling • Introduction to Sociology"
+    "section": "",
+    "text": "DOMINICAN UNIVERSITY | River Forest, Illinois\nBachelor’s in Mathematics | August 2025 - May 2027\nRelevant Coursework: Calculus I-III • Linear Algebra • Differential Equations • Statistics I-II • Introduction to Proofs • Computer Programming (Java) • Introduction to R Programming for Data Science • Financial Mathematics • Numerical Modeling • Introduction to Sociology"
   },
   {
     "objectID": "about.html#experience",

@@ -1,9 +1,13 @@
 project:
   type: website
   output-dir: docs
+  
+execute:
+  warning: false
+  message: false
 
 website:
-  title: "Camila Cedano"
+  title: "Maria Camila Cedano"
   navbar:
     right:
       - about.qmd

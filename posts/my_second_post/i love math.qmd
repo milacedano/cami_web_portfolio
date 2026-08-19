@@ -1,6 +1,23 @@
 ---
 title: "i love math"
-format: html
+author: "Maria Camila Cedano"
+date: "2026-08-16"
+categories: [testing, goals]
 ---
 
-Math is the best i love it
+Math is the best i love it. no idea whats going on
+
+```{r}
+library(ggplot2)
+library(tidyverse)
+ggplot(
+  data = mpg,
+  mapping = aes(
+    x = hwy,
+    y = cty,
+    color = year
+  )
+)+
+  geom_point()
+
+```
