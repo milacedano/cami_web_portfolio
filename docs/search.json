@@ -14,11 +14,18 @@
     "text": "This is a second level heading\nYou can include images, and many other kinds of content.\nIf you are using the visual editor in Rstudio you can drag images onto the editor to insert them into the document. Otherwise, you need to place the image inside of the folder for this post, and then you can insert it to your post directly, like this:\n\nThe first image in a blog post will also be used on the listings page."
   },
   {
-    "objectID": "posts/a_good_blog_post/ahhh.html",
-    "href": "posts/a_good_blog_post/ahhh.html",
-    "title": "ahhh",
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
     "section": "",
-    "text": "this is ahhhhh post"
+    "text": "The content on this page is from about.qmd. Edit that file to change how this page looks.\n“About” pages are special quarto template pages, with multiple options: https://quarto.org/docs/websites/website-about.html.\nTry changing the template type from jolla to one of the other options for a different look and feel."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "quartoCourseBlog",
+    "section": "",
+    "text": "front page test\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExample assignment\n\n\n\ngoals\n\ngeneral\n\n\n\n\n\n\n\n\n\nOct 21, 2022\n\n\nMatt Crump\n\n\n\n\n\n\n\n\n\n\n\n\nMy First post\n\n\n\ngoals\n\ngeneral\n\n\n\n\n\n\n\n\n\nOct 21, 2022\n\n\nMatt Crump\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "readme.html",
@@ -103,20 +110,6 @@
     "title": "Using this quarto course blog template",
     "section": "",
     "text": "See this growing list of quarto resources for much, much more:\nhttps://github.com/mcanouil/awesome-quarto"
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "quartoCourseBlog",
-    "section": "",
-    "text": "ahhh\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExample assignment\n\n\n\ngoals\n\ngeneral\n\n\n\n\n\n\n\n\n\nOct 21, 2022\n\n\nMatt Crump\n\n\n\n\n\n\n\n\n\n\n\n\nMy First post\n\n\n\ngoals\n\ngeneral\n\n\n\n\n\n\n\n\n\nOct 21, 2022\n\n\nMatt Crump\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
-    "section": "",
-    "text": "The content on this page is from about.qmd. Edit that file to change how this page looks.\n“About” pages are special quarto template pages, with multiple options: https://quarto.org/docs/websites/website-about.html.\nTry changing the template type from jolla to one of the other options for a different look and feel."
   },
   {
     "objectID": "posts/Example_assignment/index.html",
