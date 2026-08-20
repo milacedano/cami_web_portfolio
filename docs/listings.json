@@ -2,33 +2,34 @@
   {
     "listing": "/projects.html",
     "items": [
+      "/posts/CTA_Rideship_Red/index.html",
       "/posts/my_second_post/i love math.html",
-      "/posts/Example_assignment/city-council-july15.html",
-      "/posts/my_first_post/index.html"
+      "/posts/July_15_CC/city-council-july15.html"
     ]
   },
   {
     "listing": "/public-policy.html",
     "items": [
       "/posts/my_second_post/i love math.html",
-      "/posts/Example_assignment/city-council-july15.html"
+      "/posts/July_15_CC/city-council-july15.html"
     ]
   },
   {
     "listing": "/index.html",
     "items": [
+      "/posts/CTA_Rideship_Red/index.html",
       "/posts/my_second_post/i love math.html",
-      "/posts/Example_assignment/city-council-july15.html"
+      "/posts/July_15_CC/city-council-july15.html"
     ]
   },
   {
     "listing": "/research.html",
-    "items": [
-      "/posts/my_first_post/index.html"
-    ]
+    "items": []
   },
   {
     "listing": "/data-analysis.html",
-    "items": []
+    "items": [
+      "/posts/CTA_Rideship_Red/index.html"
+    ]
   }
 ]

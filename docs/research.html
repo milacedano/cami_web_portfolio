@@ -82,7 +82,7 @@ ul.task-list li input[type="checkbox"] {
     const options = {
       valueNames: ['listing-image','listing-title','listing-description','listing-date','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
       
-      searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description"],
+      searchColumns: ["listing-image"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -205,34 +205,7 @@ window.Quarto = {
 
 <div class="quarto-listing quarto-listing-container-grid" id="listing-listing">
 <div class="list grid quarto-listing-cols-3">
-<div class="g-col-1" data-index="0" data-categories="Z29hbHMlMkNnZW5lcmFsJTJDcmVzZWFyY2g=" data-listing-date-sort="1666310400000" data-listing-file-modified-sort="1787183203803" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="98">
-<a href="./posts/my_first_post/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top"><img src="posts/my_first_post/thumbnail.jpg" style="height: 150px;"  class="thumbnail-image card-img"/></p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-My First post
-</h5>
-<div class="listing-categories">
 
-<div class="listing-category" onclick="window.quartoListingCategory('Z29hbHM='); return false;">goals</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('Z2VuZXJhbA=='); return false;">general</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('cmVzZWFyY2g='); return false;">research</div>
-
-</div>
-<div class="card-text listing-description delink">
-This is an example first post. Whatever you write here will appear inside your post.
-</div>
-<div class="card-attribution card-text-small end">
-<div class="listing-date">
-Oct 21, 2022
-</div>
-</div>
-</div>
-</div></a>
-</div>
 </div>
 <div class="listing-no-matching d-none">No matching items</div>
 </div></main> <!-- /main -->
