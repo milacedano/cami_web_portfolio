@@ -4,7 +4,7 @@
     "href": "projects.html",
     "title": "Projects & Research",
     "section": "",
-    "text": "Here are all of my projects, organized from newest to oldest. Click on the categories to filter them out.\n\n\n\n\n\n\n    \n      \n      \n    \n\n\n\n\n\n\n\n\nExploring CTA Red Line Ridership with R\n\n\n\ndata analysis\n\ntransportation\n\nfeatured\n\n\n\nAnalyzing monthly ridership trends across CTA Red Line stations using R.\n\n\n\nAug 20, 2026\n\n\n\n\n\n\n\n\n\n\n\nCTY vs HWY\n\n\n\nfeatured\n\ntransportation\n\npublic policy\n\n\n\n\n\n\n\nAug 16, 2026\n\n\n\n\n\n\n\n\n\n\n\nWhat Chicagoans Should Know from the July 15 City Council Meeting\n\n\n\npublic policy\n\nfeatured\n\n\n\n\n\n\n\nJun 19, 2026\n\n\n\n\n\n\nNo matching items"
+    "text": "Here are all of my projects, organized from newest to oldest. Click on the categories to filter them out.\n\n\n\n\n\n\n    \n      \n      \n    \n\n\n\n\n\n\n\n\nCTA Blue Line Ridership Analysis\n\n\n\ndata analysis\n\nfeatured\n\ntransportation\n\n\n\nAn analysis of monthly ridership patterns across CTA Blue Line stations.\n\n\n\nAug 20, 2026\n\n\n\n\n\n\n\n\n\n\n\nExploring CTA Red Line Ridership with R\n\n\n\ndata analysis\n\ntransportation\n\nfeatured\n\n\n\nAnalyzing monthly ridership trends across CTA Red Line stations using R.\n\n\n\nAug 20, 2026\n\n\n\n\n\n\n\n\n\n\n\nCTY vs HWY\n\n\n\nfeatured\n\ntransportation\n\npublic policy\n\n\n\n\n\n\n\nAug 16, 2026\n\n\n\n\n\n\n\n\n\n\n\nWhat Chicagoans Should Know from the July 15 City Council Meeting\n\n\n\npublic policy\n\nfeatured\n\n\n\n\n\n\n\nJun 19, 2026\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/July_15_CC/city-council-july15.html",
@@ -70,18 +70,137 @@
     "text": "The bigger picture\nA City Council meeting can contain hundreds of individual pieces of legislation. Many are hyperlocal — a parking restriction on one block, a sign permit for one business, or an honorary street designation.\nBut taken together, the July 15 meeting also shows some of the larger policy questions Chicago is dealing with.\nHow should Chicago approach public safety technology?\nHow should a city built around street parking transition toward electric vehicles?\nWhat should Chicago do with publicly owned vacant land?\nHow can neighborhood development create housing and public spaces without leaving existing residents behind?\nAnd perhaps most importantly: how much say should Chicagoans have in those decisions?\nThe individual ordinances may look technical. Their effects are not.\n\n\nSources\nThis summary is based on the official legislative records and actions of the Chicago City Council for its July 15, 2026 meeting.\nChicago Office of the City Clerk\nChicago City Council Legislative Information Center"
   },
   {
-    "objectID": "posts/my_second_post/i love math.html",
-    "href": "posts/my_second_post/i love math.html",
-    "title": "CTY vs HWY",
+    "objectID": "posts/CTA_Rideship_Blue/index.html",
+    "href": "posts/CTA_Rideship_Blue/index.html",
+    "title": "CTA Blue Line Ridership Analysis",
     "section": "",
-    "text": "This is a graph that shows…\n\nlibrary(ggplot2)\nlibrary(tidyverse)\nggplot(\n  data = mpg,\n  mapping = aes(\n    x = hwy,\n    y = cty,\n    color = year\n  )\n)+\n  geom_point()"
+    "text": "The CTA Blue Line is one of Chicago’s major rail lines, connecting O’Hare International Airport and the Northwest Side to Downtown Chicago before continuing west through the Near West Side, West Side, and into the western suburbs.\nThis analysis examines monthly station ridership across the Blue Line to identify differences in ridership patterns between stations and different parts of the route.\nRather than examining the Blue Line as a single system, stations are grouped geographically to better understand how ridership varies across different sections of the line.\nThe analysis uses monthly CTA station-entry data."
   },
   {
-    "objectID": "public-policy.html",
-    "href": "public-policy.html",
-    "title": "Public Policy",
+    "objectID": "posts/CTA_Rideship_Blue/index.html#introduction",
+    "href": "posts/CTA_Rideship_Blue/index.html#introduction",
+    "title": "CTA Blue Line Ridership Analysis",
     "section": "",
-    "text": "CTY vs HWY\n\n\n\nfeatured\n\ntransportation\n\npublic policy\n\n\n\n\n\n\n\nAug 16, 2026\n\n\n\n\n\n\n\n\n\n\n\nWhat Chicagoans Should Know from the July 15 City Council Meeting\n\n\n\npublic policy\n\nfeatured\n\n\n\n\n\n\n\nJun 19, 2026\n\n\n\n\n\n\nNo matching items"
+    "text": "The CTA Blue Line is one of Chicago’s major rail lines, connecting O’Hare International Airport and the Northwest Side to Downtown Chicago before continuing west through the Near West Side, West Side, and into the western suburbs.\nThis analysis examines monthly station ridership across the Blue Line to identify differences in ridership patterns between stations and different parts of the route.\nRather than examining the Blue Line as a single system, stations are grouped geographically to better understand how ridership varies across different sections of the line.\nThe analysis uses monthly CTA station-entry data."
+  },
+  {
+    "objectID": "posts/CTA_Rideship_Blue/index.html#ohare",
+    "href": "posts/CTA_Rideship_Blue/index.html#ohare",
+    "title": "CTA Blue Line Ridership Analysis",
+    "section": "O’Hare",
+    "text": "O’Hare\nO’Hare is analyzed separately from the other Far Northwest Side stations because of its unique role as an airport station.\n\n\nKey Findings\n\nO’Hare Airport: O’Hare has some of the highest ridership on the Blue Line and shows a strong seasonal pattern. Ridership falls substantially during the winter and rebounds during the spring and summer. Unlike a typical neighborhood station, O’Hare directly connects the CTA system with O’Hare International Airport and the Airport Transit System. Its ridership therefore includes airport passengers and employees in addition to other CTA riders. Seasonal changes in air travel may contribute to the pattern seen in the graph, although station-level data alone cannot establish causation."
+  },
+  {
+    "objectID": "posts/CTA_Rideship_Blue/index.html#far-northwest-side",
+    "href": "posts/CTA_Rideship_Blue/index.html#far-northwest-side",
+    "title": "CTA Blue Line Ridership Analysis",
+    "section": "Far Northwest Side",
+    "text": "Far Northwest Side\nThe Far Northwest Side follows the O’Hare branch from Rosemont through Irving Park.\n\n\nKey Findings\n\nRosemont: Rosemont has some of the highest ridership in this section. The station serves as a major suburban connection point, with a Park & Ride facility and connections to numerous Pace bus routes. This allows the station to draw riders from a much larger area than its immediate surroundings. Its proximity to O’Hare and the hotels, employment, and entertainment destinations in Rosemont may also contribute to demand.\nCumberland: Cumberland also maintains relatively high ridership and functions as another gateway between suburban transportation and the Blue Line. The station has parking and connections to CTA, Pace, and intercity bus service. Its ridership therefore may include commuters who reach the station by bus or car rather than only residents within walking distance.\nHarlem-O’Hare: Harlem has substantially lower ridership than Rosemont and Cumberland despite also offering parking and connections to CTA and Pace buses. This suggests that simply providing connecting services does not automatically produce high ridership; the number and type of connections, surrounding destinations, and location may also matter.\nJefferson Park: Jefferson Park is one of the strongest examples of a multimodal transportation hub on the Blue Line. Riders can transfer between the Blue Line, Metra’s Union Pacific Northwest Line, Pace Pulse, several Pace routes, and numerous CTA bus routes. Its relatively high ridership may therefore reflect a much larger service area than the Jefferson Park neighborhood itself.\nMontrose-O’Hare: Montrose has comparatively low ridership despite having access to the nearby Mayfair Metra station and the #78 Montrose bus. This provides an interesting contrast with Jefferson Park and suggests that the presence of a Metra connection alone does not necessarily generate high CTA station ridership.\nIrving Park-O’Hare: Irving Park has stronger ridership than several nearby stations and is located near the Irving Park Metra station on the Union Pacific Northwest Line. It also connects with multiple CTA bus routes. These connections may allow the station to attract riders from a wider area than stations with fewer transportation options."
+  },
+  {
+    "objectID": "posts/CTA_Rideship_Blue/index.html#northwest-side",
+    "href": "posts/CTA_Rideship_Blue/index.html#northwest-side",
+    "title": "CTA Blue Line Ridership Analysis",
+    "section": "Northwest Side",
+    "text": "Northwest Side\nThis section follows the Milwaukee Avenue corridor from Addison through Damen.\n\n\nKey Findings\n\nAddison-O’Hare: Addison has the lowest ridership among the stations in this group. It connects with the #152 Addison bus but does not function as a major rail or regional transportation hub. This also distinguishes it from the Red Line Addison station, which directly serves Wrigley Field and experiences substantial baseball-season ridership.\nBelmont-O’Hare: Belmont maintains moderate ridership and connects with the #77 Belmont and #82 Kimball/Homan buses. Its location between the Kennedy Expressway and surrounding residential neighborhoods gives it a different station environment from the Milwaukee Avenue stations farther southeast.\nLogan Square: Logan Square is one of the busiest neighborhood stations in this section. Although it does not connect with another rail system, it connects with several CTA bus routes and sits within a dense residential and commercial area. Its relatively high ridership demonstrates that a station does not need to be a major rail-transfer hub to generate substantial demand.\nCalifornia/Milwaukee: California has lower ridership than Logan Square but benefits from connections to the #56 Milwaukee and #94 California buses. Its proximity to other Blue Line stations along Milwaukee Avenue may also distribute riders among several nearby stations.\nWestern/Milwaukee: Western maintains relatively strong ridership and has particularly extensive bus connectivity, including Western Avenue and Milwaukee Avenue service. These connections allow passengers traveling north or south to transfer to the east-west Blue Line corridor.\nDamen/Milwaukee: Damen is one of the highest-ridership stations in this section despite not connecting with another rail line. Its location in the Wicker Park commercial district places it near dense housing, restaurants, retail, nightlife, and other destinations, while several CTA bus routes provide additional connections. Its ridership likely reflects a mixture of commuting and non-work travel."
+  },
+  {
+    "objectID": "posts/CTA_Rideship_Blue/index.html#near-northwest-side",
+    "href": "posts/CTA_Rideship_Blue/index.html#near-northwest-side",
+    "title": "CTA Blue Line Ridership Analysis",
+    "section": "Near Northwest Side",
+    "text": "Near Northwest Side\nThe Near Northwest Side group includes Division, Chicago, and Grand.\n\n\nKey Findings\n\nDivision/Milwaukee: Division consistently has the highest ridership of the three stations in this group. It sits at the intersection of Division, Milwaukee, and Ashland and connects with several major CTA bus routes. Its location within a dense residential and commercial area may help explain why it consistently attracts more riders than Chicago and Grand.\nChicago/Milwaukee: Chicago shows a noticeable decline during the later portion of the period before beginning to recover. The station connects with the #56 Milwaukee and #66 Chicago buses, but its graph differs considerably from nearby Division. The available connection information does not provide an obvious explanation for the decline, making this a pattern that would require additional research.\nGrand/Milwaukee: Grand shows substantial growth toward the end of the period analyzed. The station connects with bus service along Grand, Halsted, and Milwaukee. Its increase is especially interesting when compared with Chicago because the two stations are geographically close but follow different ridership trends. This suggests that ridership changes can be highly localized rather than occurring uniformly along a section of the Blue Line."
+  },
+  {
+    "objectID": "posts/CTA_Rideship_Blue/index.html#downtown",
+    "href": "posts/CTA_Rideship_Blue/index.html#downtown",
+    "title": "CTA Blue Line Ridership Analysis",
+    "section": "Downtown",
+    "text": "Downtown\nThe Downtown section follows the Dearborn subway from Clark/Lake through LaSalle.\n\n\nKey Findings\n\nClark/Lake: Clark/Lake is by far the busiest station in this section and rises particularly sharply during 2026. It is also the Blue Line’s most significant rail-transfer hub: passengers can connect with the Brown, Green, Orange, Pink, and Purple lines. Its high ridership therefore reflects its role within the broader CTA network rather than simply demand generated by the surrounding blocks.\nWashington/Dearborn: Washington maintains some of the highest ridership among the Downtown stations. In addition to its central Loop location, passengers can connect with the Red Line at Lake through the pedestrian connection. The station is also served by numerous bus routes. Its combination of Downtown destinations and transit connections likely contributes to its high usage.\nMonroe/Dearborn: Monroe has moderate ridership compared with Washington and Clark/Lake. Although numerous bus routes operate nearby, it does not provide the same direct rail-transfer opportunities as Clark/Lake. This provides another example of how ridership can vary substantially even among stations located only a few blocks apart.\nJackson/Dearborn: Jackson functions as another important Downtown transfer point. Passengers can connect with the Red Line at Jackson and reach the elevated Brown, Orange, Pink, and Purple lines through the nearby Harold Washington Library station. These connections may contribute to its relatively strong ridership.\nLaSalle: LaSalle has the lowest ridership among the Downtown stations analyzed despite its location in the Loop. The station provides access to the nearby LaSalle Street Station and Metra’s Rock Island District, but its ridership remains substantially below Clark/Lake and Washington. This demonstrates that simply being located Downtown or near another rail service does not guarantee high CTA station entries."
+  },
+  {
+    "objectID": "posts/CTA_Rideship_Blue/index.html#near-west-side",
+    "href": "posts/CTA_Rideship_Blue/index.html#near-west-side",
+    "title": "CTA Blue Line Ridership Analysis",
+    "section": "Near West Side",
+    "text": "Near West Side\nThe Near West Side section follows the Forest Park branch from Clinton through Kedzie-Homan.\n\n\nKey Findings\n\nClinton-Forest Park: Clinton serves an important transportation area near Chicago Union Station. Union Station provides access to several Metra lines and Amtrak intercity and long-distance trains, while the surrounding area is also served by multiple CTA bus routes. Clinton can therefore function as a connection between the Blue Line and Chicago’s regional and national rail network. However, its ridership remains considerably below the busiest Downtown Blue Line stations.\nUIC-Halsted: UIC-Halsted shows the most dramatic fluctuations in this section. Ridership rises sharply during some portions of the year and falls during others. Because the station directly serves the University of Illinois Chicago, the academic calendar may contribute to this pattern. Its connections with several CTA bus routes further expand the area from which riders can reach the station.\nRacine: Racine has considerably lower ridership than neighboring UIC-Halsted. Although the two stations share several east-west bus connections, Racine does not directly serve a destination comparable in scale to UIC. This contrast demonstrates how a major institution can potentially affect ridership at one station without producing the same demand at the next station.\nIllinois Medical District: Illinois Medical District maintains comparatively consistent ridership. The station directly serves one of the country’s largest concentrations of hospitals and medical institutions, creating travel demand from employees, patients, students, and visitors throughout the year. This may help explain why its ridership pattern is less seasonal than UIC-Halsted.\nWestern-Forest Park: Western has relatively low ridership despite connections with Western Avenue and Harrison bus service. Its totals begin to show the broader pattern seen farther west on the Forest Park branch, where station entries are substantially lower than Downtown and much of the O’Hare branch.\nKedzie-Homan: Kedzie-Homan also records relatively low ridership despite connections with several CTA bus routes. Together with Western, its graph marks the beginning of a sustained stretch of lower-ridership stations along the western portion of the Forest Park branch."
+  },
+  {
+    "objectID": "posts/CTA_Rideship_Blue/index.html#west-side",
+    "href": "posts/CTA_Rideship_Blue/index.html#west-side",
+    "title": "CTA Blue Line Ridership Analysis",
+    "section": "West Side",
+    "text": "West Side\nThe West Side section follows the Forest Park branch from Pulaski to Forest Park.\n\n\nKey Findings\n\nPulaski: Pulaski records relatively low but generally stable ridership. It connects with Harrison and Pulaski bus service but does not function as a major regional transportation hub.\nCicero: Cicero also has relatively low ridership, although it has more connecting services than several neighboring stations. In addition to CTA buses, the station connects with several Pace routes. Its low station totals therefore show that bus connectivity alone does not fully explain differences in Blue Line ridership.\nAustin: Austin maintains low station-entry totals and has CTA and Pace bus connections. Like several other stations on this portion of the Forest Park branch, its graph is considerably less volatile than major destination stations such as O’Hare or UIC-Halsted.\nOak Park: Oak Park has somewhat stronger ridership than several neighboring stations. It serves the suburb of Oak Park and connects with Pace bus service, although it remains considerably below the busiest stations on the O’Hare branch and Downtown.\nHarlem-Forest Park: Harlem has modest ridership and provides a connection to Pace service near the boundary between Oak Park and Forest Park. Its totals remain considerably below the Forest Park terminal despite the stations being relatively close geographically.\nForest Park: Forest Park has the highest ridership in this section. As the western terminal of the Blue Line, it includes parking and connections to numerous Pace bus routes serving surrounding suburban communities. This gives the station a much larger potential service area than stations that primarily serve nearby neighborhoods."
+  },
+  {
+    "objectID": "posts/CTA_Rideship_Blue/index.html#overall-findings",
+    "href": "posts/CTA_Rideship_Blue/index.html#overall-findings",
+    "title": "CTA Blue Line Ridership Analysis",
+    "section": "Overall Findings",
+    "text": "Overall Findings\nSeveral broader patterns emerge when Blue Line ridership is examined geographically.\nFirst, station connectivity appears to be an important part of the geography of Blue Line ridership. Some of the line’s busiest stations also function as major connections to other transportation systems. O’Hare connects the CTA with air travel, Jefferson Park connects with Metra and an extensive bus network, and Clark/Lake connects the Blue Line with five other CTA rail lines. This suggests that station ridership cannot always be understood solely by examining the neighborhood immediately surrounding a station.\nSecond, the Blue Line functions as both an urban rail line and a regional transportation link. On the O’Hare branch, stations such as Rosemont, Cumberland, and Jefferson Park connect suburban travelers with the CTA through Pace, Metra, parking, or a combination of these services. On the Forest Park branch, Forest Park performs a similar role as a terminal and suburban bus connection.\nThird, major destinations can generate distinctive ridership patterns even without extensive rail connections. UIC-Halsted’s large fluctuations may partly reflect the academic calendar at UIC, while Illinois Medical District serves a concentration of hospitals and medical institutions. Damen and Logan Square also maintain substantial ridership despite lacking direct connections with other rail lines, showing the importance of dense residential and commercial areas.\nFourth, more transportation connections do not automatically result in higher ridership. Montrose provides access to nearby Metra service but remains substantially below Jefferson Park. Cicero connects with both CTA and Pace buses but remains a relatively low-ridership station. LaSalle is located near Metra service but records considerably fewer entries than Clark/Lake. The type of connection, surrounding land use, nearby destinations, service frequency, and ease of transferring may therefore matter as much as the number of connections.\nFinally, there is a major geographic difference between the O’Hare and Forest Park branches. Much of the O’Hare branch and the Milwaukee Avenue corridor records substantially higher station ridership than the western portion of the Forest Park branch. The connection data suggests that differences in regional connectivity may explain part of this pattern, but infrastructure conditions, service quality, neighborhood characteristics, population, employment, and land use would need to be examined before determining why the difference exists."
+  },
+  {
+    "objectID": "posts/CTA_Rideship_Blue/index.html#data-limitations",
+    "href": "posts/CTA_Rideship_Blue/index.html#data-limitations",
+    "title": "CTA Blue Line Ridership Analysis",
+    "section": "Data Limitations",
+    "text": "Data Limitations\nThis analysis measures entries into CTA stations, not complete passenger trips. The dataset does not identify where passengers traveled after entering a station, where they exited, why they traveled, or how they reached the station.\nTransportation connections provide useful context but should not be interpreted as proof that those connections caused a station’s ridership level. For example, Jefferson Park’s extensive transfer network may contribute to its high ridership, but this dataset does not identify how many passengers arrived by Metra, Pace, CTA bus, walking, biking, or another mode.\nThe same limitation applies to nearby destinations. Patterns at O’Hare, UIC-Halsted, Illinois Medical District, and other stations are consistent with the types of destinations they serve, but station-level monthly data cannot determine how many riders were airport passengers, students, employees, patients, visitors, or residents.\nMonthly totals are also affected by the number of days in each month, and temporary factors such as construction, station closures, service disruptions, weather, special events, and changes in connecting transit service can affect individual months.\nFor these reasons, the findings should be interpreted as patterns and possible relationships rather than causal conclusions. Additional data on daily ridership, transfers, service levels, land use, population, employment, and major destinations would be needed to determine why individual stations experience different levels and patterns of ridership."
+  },
+  {
+    "objectID": "research.html",
+    "href": "research.html",
+    "title": "Research",
+    "section": "",
+    "text": "No matching items"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "Background",
+    "section": "",
+    "text": "DOMINICAN UNIVERSITY | River Forest, Illinois\nBachelor’s in Mathematics | August 2025 - May 2027\nRelevant Coursework: Calculus I-III • Linear Algebra • Differential Equations • Statistics I-II • Introduction to Proofs • Computer Programming (Java) • Introduction to R Programming for Data Science • Financial Mathematics • Numerical Modeling • Introduction to Sociology"
+  },
+  {
+    "objectID": "about.html#education",
+    "href": "about.html#education",
+    "title": "Background",
+    "section": "",
+    "text": "DOMINICAN UNIVERSITY | River Forest, Illinois\nBachelor’s in Mathematics | August 2025 - May 2027\nRelevant Coursework: Calculus I-III • Linear Algebra • Differential Equations • Statistics I-II • Introduction to Proofs • Computer Programming (Java) • Introduction to R Programming for Data Science • Financial Mathematics • Numerical Modeling • Introduction to Sociology"
+  },
+  {
+    "objectID": "about.html#experience",
+    "href": "about.html#experience",
+    "title": "Background",
+    "section": "Experience",
+    "text": "Experience\n26th Ward - Alderperson Jessie Fuentes | Intern | June 2026 - Present\nAs an intern with the 26th Ward Office of Alderperson Jessie Fuentes, I support community engagement, constituent services, policy-related research, and neighborhood initiatives. My work includes engaging directly with residents through canvassing and community events, assisting with constituent needs and access to city resources, organizing and analyzing information related to community issues, and supporting projects and events across the ward. This experience has given me firsthand insight into local government and strengthened my interest in using data, research, and community input to better understand neighborhood needs and inform public policy.\nAfter School Matters | Communication & Leadership Instructor | September 2025 - Present\nAs a Communication and Leadership Instructor, I design and facilitate programming that helps Chicago teens strengthen their leadership, communication, research, and civic engagement skills. I guide participants through independent research projects on issues affecting Chicago communities, teaching them how to evaluate sources, analyze data, conduct surveys and interviews, engage with community stakeholders, and develop evidence-based recommendations. I also lead activities including debates, Model United Nations simulations, financial literacy programming, and discussions on local government and current issues. Through this role, I create opportunities for young people to connect their interests and lived experiences to research, public policy, and meaningful civic participation.\nAfter School Matters | ComEd Youth Ambassadors Instructor | June 2025 - August 2025\nAs a ComEd Youth Ambassadors Instructor, I teach Chicago teens about energy, sustainability, and technology through hands-on learning. I introduce students to basic C++ programming and Arduino, guiding them through coding and electronics projects that build foundational programming, problem-solving, and technical skills. I also facilitate activities focused on energy and environmental topics while helping participants strengthen their communication, teamwork, leadership, and professional skills."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Hi, I’m Camila",
+    "section": "",
+    "text": "I’m a mathematics student interested in data, public policy, cities, and community research.\nI use quantitative tools to explore how neighborhoods work, how policy affects people, and how data can help tell those stories.\nView My Work Background"
+  },
+  {
+    "objectID": "index.html#projects",
+    "href": "index.html#projects",
+    "title": "Hi, I’m Camila",
+    "section": "Featured Projects",
+    "text": "Featured Projects\n\n\n\n\n\n\n\n\nCTA Blue Line Ridership Analysis\n\n\n\ndata analysis\n\nfeatured\n\ntransportation\n\n\n\nAn analysis of monthly ridership patterns across CTA Blue Line stations.\n\n\n\n\n\n\n\n\n\n\nExploring CTA Red Line Ridership with R\n\n\n\ndata analysis\n\ntransportation\n\nfeatured\n\n\n\nAnalyzing monthly ridership trends across CTA Red Line stations using R.\n\n\n\n\n\n\n\n\n\n\nCTY vs HWY\n\n\n\nfeatured\n\ntransportation\n\npublic policy\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWhat Chicagoans Should Know from the July 15 City Council Meeting\n\n\n\npublic policy\n\nfeatured\n\n\n\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "index.html#what-i-do",
+    "href": "index.html#what-i-do",
+    "title": "Hi, I’m Camila",
+    "section": "What I Do",
+    "text": "What I Do\n\n\nData Analysis\nI use R, statistics, and data visualization to explore patterns, answer questions, and communicate findings clearly.\nR Statistics Data Visualization\n\n\nResearch\nI combine quantitative analysis and community perspectives to investigate questions about cities and the people who live in them.\nQuantitative Research Community Research Data Collection\n\n\nPublic Policy\nI’m interested in using data and research to understand local government, urban policy, and community issues, especially in Chicago.\nPolicy Analysis Local Government Urban Issues"
+  },
+  {
+    "objectID": "index.html#a-little-about-me",
+    "href": "index.html#a-little-about-me",
+    "title": "Hi, I’m Camila",
+    "section": "A Little About Me",
+    "text": "A Little About Me\nChicago has always been home, and growing up here has given me a real appreciation for the city, its neighborhoods, and the communities that make each one unique. As a Colombian-American, I also value the different cultures and perspectives that shape the places around us, which is something that has naturally influenced my interest in community and public policy.\nOutside of work and school, I spend a lot of my free time on puzzles, especially GeoGuessr and, lately, puzzles from the Magic Puzzle Company. I’m also a big coffee person and always appreciate finding a good coffee shop around the city.\nView My Background"
   },
   {
     "objectID": "readme.html",
@@ -168,60 +287,18 @@
     "text": "See this growing list of quarto resources for much, much more:\nhttps://github.com/mcanouil/awesome-quarto"
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Hi, I’m Camila",
+    "objectID": "public-policy.html",
+    "href": "public-policy.html",
+    "title": "Public Policy",
     "section": "",
-    "text": "I’m a mathematics student interested in data, public policy, cities, and community research.\nI use quantitative tools to explore how neighborhoods work, how policy affects people, and how data can help tell those stories.\nView My Work Background"
+    "text": "CTY vs HWY\n\n\n\nfeatured\n\ntransportation\n\npublic policy\n\n\n\n\n\n\n\nAug 16, 2026\n\n\n\n\n\n\n\n\n\n\n\nWhat Chicagoans Should Know from the July 15 City Council Meeting\n\n\n\npublic policy\n\nfeatured\n\n\n\n\n\n\n\nJun 19, 2026\n\n\n\n\n\n\nNo matching items"
   },
   {
-    "objectID": "index.html#projects",
-    "href": "index.html#projects",
-    "title": "Hi, I’m Camila",
-    "section": "Featured Projects",
-    "text": "Featured Projects\n\n\n\n\n\n\n\n\nExploring CTA Red Line Ridership with R\n\n\n\ndata analysis\n\ntransportation\n\nfeatured\n\n\n\nAnalyzing monthly ridership trends across CTA Red Line stations using R.\n\n\n\n\n\n\n\n\n\n\nCTY vs HWY\n\n\n\nfeatured\n\ntransportation\n\npublic policy\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWhat Chicagoans Should Know from the July 15 City Council Meeting\n\n\n\npublic policy\n\nfeatured\n\n\n\n\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "index.html#what-i-do",
-    "href": "index.html#what-i-do",
-    "title": "Hi, I’m Camila",
-    "section": "What I Do",
-    "text": "What I Do\n\n\nData Analysis\nI use R, statistics, and data visualization to explore patterns, answer questions, and communicate findings clearly.\nR Statistics Data Visualization\n\n\nResearch\nI combine quantitative analysis and community perspectives to investigate questions about cities and the people who live in them.\nQuantitative Research Community Research Data Collection\n\n\nPublic Policy\nI’m interested in using data and research to understand local government, urban policy, and community issues, especially in Chicago.\nPolicy Analysis Local Government Urban Issues"
-  },
-  {
-    "objectID": "index.html#a-little-about-me",
-    "href": "index.html#a-little-about-me",
-    "title": "Hi, I’m Camila",
-    "section": "A Little About Me",
-    "text": "A Little About Me\nChicago has always been home, and growing up here has given me a real appreciation for the city, its neighborhoods, and the communities that make each one unique. As a Colombian-American, I also value the different cultures and perspectives that shape the places around us, which is something that has naturally influenced my interest in community and public policy.\nOutside of work and school, I spend a lot of my free time on puzzles, especially GeoGuessr and, lately, puzzles from the Magic Puzzle Company. I’m also a big coffee person and always appreciate finding a good coffee shop around the city.\nView My Background"
-  },
-  {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "Background",
+    "objectID": "posts/my_second_post/i love math.html",
+    "href": "posts/my_second_post/i love math.html",
+    "title": "CTY vs HWY",
     "section": "",
-    "text": "DOMINICAN UNIVERSITY | River Forest, Illinois\nBachelor’s in Mathematics | August 2025 - May 2027\nRelevant Coursework: Calculus I-III • Linear Algebra • Differential Equations • Statistics I-II • Introduction to Proofs • Computer Programming (Java) • Introduction to R Programming for Data Science • Financial Mathematics • Numerical Modeling • Introduction to Sociology"
-  },
-  {
-    "objectID": "about.html#education",
-    "href": "about.html#education",
-    "title": "Background",
-    "section": "",
-    "text": "DOMINICAN UNIVERSITY | River Forest, Illinois\nBachelor’s in Mathematics | August 2025 - May 2027\nRelevant Coursework: Calculus I-III • Linear Algebra • Differential Equations • Statistics I-II • Introduction to Proofs • Computer Programming (Java) • Introduction to R Programming for Data Science • Financial Mathematics • Numerical Modeling • Introduction to Sociology"
-  },
-  {
-    "objectID": "about.html#experience",
-    "href": "about.html#experience",
-    "title": "Background",
-    "section": "Experience",
-    "text": "Experience\n26th Ward - Alderperson Jessie Fuentes | Intern | June 2026 - Present\nAs an intern with the 26th Ward Office of Alderperson Jessie Fuentes, I support community engagement, constituent services, policy-related research, and neighborhood initiatives. My work includes engaging directly with residents through canvassing and community events, assisting with constituent needs and access to city resources, organizing and analyzing information related to community issues, and supporting projects and events across the ward. This experience has given me firsthand insight into local government and strengthened my interest in using data, research, and community input to better understand neighborhood needs and inform public policy.\nAfter School Matters | Communication & Leadership Instructor | September 2025 - Present\nAs a Communication and Leadership Instructor, I design and facilitate programming that helps Chicago teens strengthen their leadership, communication, research, and civic engagement skills. I guide participants through independent research projects on issues affecting Chicago communities, teaching them how to evaluate sources, analyze data, conduct surveys and interviews, engage with community stakeholders, and develop evidence-based recommendations. I also lead activities including debates, Model United Nations simulations, financial literacy programming, and discussions on local government and current issues. Through this role, I create opportunities for young people to connect their interests and lived experiences to research, public policy, and meaningful civic participation.\nAfter School Matters | ComEd Youth Ambassadors Instructor | June 2025 - August 2025\nAs a ComEd Youth Ambassadors Instructor, I teach Chicago teens about energy, sustainability, and technology through hands-on learning. I introduce students to basic C++ programming and Arduino, guiding them through coding and electronics projects that build foundational programming, problem-solving, and technical skills. I also facilitate activities focused on energy and environmental topics while helping participants strengthen their communication, teamwork, leadership, and professional skills."
-  },
-  {
-    "objectID": "research.html",
-    "href": "research.html",
-    "title": "Research",
-    "section": "",
-    "text": "No matching items"
+    "text": "This is a graph that shows…\n\nlibrary(ggplot2)\nlibrary(tidyverse)\nggplot(\n  data = mpg,\n  mapping = aes(\n    x = hwy,\n    y = cty,\n    color = year\n  )\n)+\n  geom_point()"
   },
   {
     "objectID": "posts/CTA_Rideship_Red/index.html",
@@ -312,6 +389,6 @@
     "href": "data-analysis.html",
     "title": "Data Analysis",
     "section": "",
-    "text": "Exploring CTA Red Line Ridership with R\n\n\n\ndata analysis\n\ntransportation\n\nfeatured\n\n\n\nAnalyzing monthly ridership trends across CTA Red Line stations using R.\n\n\n\nAug 20, 2026\n\n\n\n\n\n\nNo matching items"
+    "text": "CTA Blue Line Ridership Analysis\n\n\n\ndata analysis\n\nfeatured\n\ntransportation\n\n\n\nAn analysis of monthly ridership patterns across CTA Blue Line stations.\n\n\n\nAug 20, 2026\n\n\n\n\n\n\n\n\n\n\n\nExploring CTA Red Line Ridership with R\n\n\n\ndata analysis\n\ntransportation\n\nfeatured\n\n\n\nAnalyzing monthly ridership trends across CTA Red Line stations using R.\n\n\n\nAug 20, 2026\n\n\n\n\n\n\nNo matching items"
   }
 ]

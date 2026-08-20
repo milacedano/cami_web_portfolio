@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.27">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="dcterms.date" content="2026-08-20">
+<meta name="description" content="An analysis of monthly ridership patterns across CTA Blue Line stations.">
+
+<title>CTA Blue Line Ridership Analysis – Camila Cedano | Data, Policy &amp; Community</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-4d0a8ab1528a2302dba6d67982759051.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed fullcontent quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Camila Cedano | Data, Policy &amp; Community</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/milacedano"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/maria-camila-cedano/"> <i class="bi bi-linkedin" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">CTA Blue Line Ridership Analysis</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">data analysis</div>
+    <div class="quarto-category">featured</div>
+    <div class="quarto-category">transportation</div>
+  </div>
+  </div>
+
+<div>
+  <div class="description">
+    An analysis of monthly ridership patterns across CTA Blue Line stations.
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">August 20, 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p>The CTA Blue Line is one of Chicago’s major rail lines, connecting O’Hare International Airport and the Northwest Side to Downtown Chicago before continuing west through the Near West Side, West Side, and into the western suburbs.</p>
+<p>This analysis examines monthly station ridership across the Blue Line to identify differences in ridership patterns between stations and different parts of the route.</p>
+<p>Rather than examining the Blue Line as a single system, stations are grouped geographically to better understand how ridership varies across different sections of the line.</p>
+<p>The analysis uses monthly CTA station-entry data.</p>
+<hr>
+</section>
+<section id="ohare" class="level2">
+<h2 class="anchored" data-anchor-id="ohare">O’Hare</h2>
+<p>O’Hare is analyzed separately from the other Far Northwest Side stations because of its unique role as an airport station.</p>
+<p><img src="images-bl/blue-line-ohare.png" class="img-fluid"></p>
+<section id="key-findings" class="level3">
+<h3 class="anchored" data-anchor-id="key-findings">Key Findings</h3>
+<ul>
+<li><strong>O’Hare Airport:</strong> O’Hare has some of the highest ridership on the Blue Line and shows a strong seasonal pattern. Ridership falls substantially during the winter and rebounds during the spring and summer. Unlike a typical neighborhood station, O’Hare directly connects the CTA system with O’Hare International Airport and the Airport Transit System. Its ridership therefore includes airport passengers and employees in addition to other CTA riders. Seasonal changes in air travel may contribute to the pattern seen in the graph, although station-level data alone cannot establish causation.</li>
+</ul>
+</section>
+</section>
+<section id="far-northwest-side" class="level2">
+<h2 class="anchored" data-anchor-id="far-northwest-side">Far Northwest Side</h2>
+<p>The Far Northwest Side follows the O’Hare branch from Rosemont through Irving Park.</p>
+<p><img src="images-bl/blue-line-far-nw.png" class="img-fluid"></p>
+<section id="key-findings-1" class="level3">
+<h3 class="anchored" data-anchor-id="key-findings-1">Key Findings</h3>
+<ul>
+<li><p><strong>Rosemont:</strong> Rosemont has some of the highest ridership in this section. The station serves as a major suburban connection point, with a Park &amp; Ride facility and connections to numerous Pace bus routes. This allows the station to draw riders from a much larger area than its immediate surroundings. Its proximity to O’Hare and the hotels, employment, and entertainment destinations in Rosemont may also contribute to demand.</p></li>
+<li><p><strong>Cumberland:</strong> Cumberland also maintains relatively high ridership and functions as another gateway between suburban transportation and the Blue Line. The station has parking and connections to CTA, Pace, and intercity bus service. Its ridership therefore may include commuters who reach the station by bus or car rather than only residents within walking distance.</p></li>
+<li><p><strong>Harlem-O’Hare:</strong> Harlem has substantially lower ridership than Rosemont and Cumberland despite also offering parking and connections to CTA and Pace buses. This suggests that simply providing connecting services does not automatically produce high ridership; the number and type of connections, surrounding destinations, and location may also matter.</p></li>
+<li><p><strong>Jefferson Park:</strong> Jefferson Park is one of the strongest examples of a multimodal transportation hub on the Blue Line. Riders can transfer between the Blue Line, Metra’s Union Pacific Northwest Line, Pace Pulse, several Pace routes, and numerous CTA bus routes. Its relatively high ridership may therefore reflect a much larger service area than the Jefferson Park neighborhood itself.</p></li>
+<li><p><strong>Montrose-O’Hare:</strong> Montrose has comparatively low ridership despite having access to the nearby Mayfair Metra station and the #78 Montrose bus. This provides an interesting contrast with Jefferson Park and suggests that the presence of a Metra connection alone does not necessarily generate high CTA station ridership.</p></li>
+<li><p><strong>Irving Park-O’Hare:</strong> Irving Park has stronger ridership than several nearby stations and is located near the Irving Park Metra station on the Union Pacific Northwest Line. It also connects with multiple CTA bus routes. These connections may allow the station to attract riders from a wider area than stations with fewer transportation options.</p></li>
+</ul>
+</section>
+</section>
+<section id="northwest-side" class="level2">
+<h2 class="anchored" data-anchor-id="northwest-side">Northwest Side</h2>
+<p>This section follows the Milwaukee Avenue corridor from Addison through Damen.</p>
+<p><img src="images-bl/blue-line-nw.png" class="img-fluid"></p>
+<section id="key-findings-2" class="level3">
+<h3 class="anchored" data-anchor-id="key-findings-2">Key Findings</h3>
+<ul>
+<li><p><strong>Addison-O’Hare:</strong> Addison has the lowest ridership among the stations in this group. It connects with the #152 Addison bus but does not function as a major rail or regional transportation hub. This also distinguishes it from the Red Line Addison station, which directly serves Wrigley Field and experiences substantial baseball-season ridership.</p></li>
+<li><p><strong>Belmont-O’Hare:</strong> Belmont maintains moderate ridership and connects with the #77 Belmont and #82 Kimball/Homan buses. Its location between the Kennedy Expressway and surrounding residential neighborhoods gives it a different station environment from the Milwaukee Avenue stations farther southeast.</p></li>
+<li><p><strong>Logan Square:</strong> Logan Square is one of the busiest neighborhood stations in this section. Although it does not connect with another rail system, it connects with several CTA bus routes and sits within a dense residential and commercial area. Its relatively high ridership demonstrates that a station does not need to be a major rail-transfer hub to generate substantial demand.</p></li>
+<li><p><strong>California/Milwaukee:</strong> California has lower ridership than Logan Square but benefits from connections to the #56 Milwaukee and #94 California buses. Its proximity to other Blue Line stations along Milwaukee Avenue may also distribute riders among several nearby stations.</p></li>
+<li><p><strong>Western/Milwaukee:</strong> Western maintains relatively strong ridership and has particularly extensive bus connectivity, including Western Avenue and Milwaukee Avenue service. These connections allow passengers traveling north or south to transfer to the east-west Blue Line corridor.</p></li>
+<li><p><strong>Damen/Milwaukee:</strong> Damen is one of the highest-ridership stations in this section despite not connecting with another rail line. Its location in the Wicker Park commercial district places it near dense housing, restaurants, retail, nightlife, and other destinations, while several CTA bus routes provide additional connections. Its ridership likely reflects a mixture of commuting and non-work travel.</p></li>
+</ul>
+</section>
+</section>
+<section id="near-northwest-side" class="level2">
+<h2 class="anchored" data-anchor-id="near-northwest-side">Near Northwest Side</h2>
+<p>The Near Northwest Side group includes Division, Chicago, and Grand.</p>
+<p><img src="images-bl/blue-line-near-nw.png" class="img-fluid"></p>
+<section id="key-findings-3" class="level3">
+<h3 class="anchored" data-anchor-id="key-findings-3">Key Findings</h3>
+<ul>
+<li><p><strong>Division/Milwaukee:</strong> Division consistently has the highest ridership of the three stations in this group. It sits at the intersection of Division, Milwaukee, and Ashland and connects with several major CTA bus routes. Its location within a dense residential and commercial area may help explain why it consistently attracts more riders than Chicago and Grand.</p></li>
+<li><p><strong>Chicago/Milwaukee:</strong> Chicago shows a noticeable decline during the later portion of the period before beginning to recover. The station connects with the #56 Milwaukee and #66 Chicago buses, but its graph differs considerably from nearby Division. The available connection information does not provide an obvious explanation for the decline, making this a pattern that would require additional research.</p></li>
+<li><p><strong>Grand/Milwaukee:</strong> Grand shows substantial growth toward the end of the period analyzed. The station connects with bus service along Grand, Halsted, and Milwaukee. Its increase is especially interesting when compared with Chicago because the two stations are geographically close but follow different ridership trends. This suggests that ridership changes can be highly localized rather than occurring uniformly along a section of the Blue Line.</p></li>
+</ul>
+</section>
+</section>
+<section id="downtown" class="level2">
+<h2 class="anchored" data-anchor-id="downtown">Downtown</h2>
+<p>The Downtown section follows the Dearborn subway from Clark/Lake through LaSalle.</p>
+<p><img src="images-bl/blue-line-downtown.png" class="img-fluid"></p>
+<section id="key-findings-4" class="level3">
+<h3 class="anchored" data-anchor-id="key-findings-4">Key Findings</h3>
+<ul>
+<li><p><strong>Clark/Lake:</strong> Clark/Lake is by far the busiest station in this section and rises particularly sharply during 2026. It is also the Blue Line’s most significant rail-transfer hub: passengers can connect with the Brown, Green, Orange, Pink, and Purple lines. Its high ridership therefore reflects its role within the broader CTA network rather than simply demand generated by the surrounding blocks.</p></li>
+<li><p><strong>Washington/Dearborn:</strong> Washington maintains some of the highest ridership among the Downtown stations. In addition to its central Loop location, passengers can connect with the Red Line at Lake through the pedestrian connection. The station is also served by numerous bus routes. Its combination of Downtown destinations and transit connections likely contributes to its high usage.</p></li>
+<li><p><strong>Monroe/Dearborn:</strong> Monroe has moderate ridership compared with Washington and Clark/Lake. Although numerous bus routes operate nearby, it does not provide the same direct rail-transfer opportunities as Clark/Lake. This provides another example of how ridership can vary substantially even among stations located only a few blocks apart.</p></li>
+<li><p><strong>Jackson/Dearborn:</strong> Jackson functions as another important Downtown transfer point. Passengers can connect with the Red Line at Jackson and reach the elevated Brown, Orange, Pink, and Purple lines through the nearby Harold Washington Library station. These connections may contribute to its relatively strong ridership.</p></li>
+<li><p><strong>LaSalle:</strong> LaSalle has the lowest ridership among the Downtown stations analyzed despite its location in the Loop. The station provides access to the nearby LaSalle Street Station and Metra’s Rock Island District, but its ridership remains substantially below Clark/Lake and Washington. This demonstrates that simply being located Downtown or near another rail service does not guarantee high CTA station entries.</p></li>
+</ul>
+</section>
+</section>
+<section id="near-west-side" class="level2">
+<h2 class="anchored" data-anchor-id="near-west-side">Near West Side</h2>
+<p>The Near West Side section follows the Forest Park branch from Clinton through Kedzie-Homan.</p>
+<p><img src="images-bl/blue-line-near-w.png" class="img-fluid"></p>
+<section id="key-findings-5" class="level3">
+<h3 class="anchored" data-anchor-id="key-findings-5">Key Findings</h3>
+<ul>
+<li><p><strong>Clinton-Forest Park:</strong> Clinton serves an important transportation area near Chicago Union Station. Union Station provides access to several Metra lines and Amtrak intercity and long-distance trains, while the surrounding area is also served by multiple CTA bus routes. Clinton can therefore function as a connection between the Blue Line and Chicago’s regional and national rail network. However, its ridership remains considerably below the busiest Downtown Blue Line stations.</p></li>
+<li><p><strong>UIC-Halsted:</strong> UIC-Halsted shows the most dramatic fluctuations in this section. Ridership rises sharply during some portions of the year and falls during others. Because the station directly serves the University of Illinois Chicago, the academic calendar may contribute to this pattern. Its connections with several CTA bus routes further expand the area from which riders can reach the station.</p></li>
+<li><p><strong>Racine:</strong> Racine has considerably lower ridership than neighboring UIC-Halsted. Although the two stations share several east-west bus connections, Racine does not directly serve a destination comparable in scale to UIC. This contrast demonstrates how a major institution can potentially affect ridership at one station without producing the same demand at the next station.</p></li>
+<li><p><strong>Illinois Medical District:</strong> Illinois Medical District maintains comparatively consistent ridership. The station directly serves one of the country’s largest concentrations of hospitals and medical institutions, creating travel demand from employees, patients, students, and visitors throughout the year. This may help explain why its ridership pattern is less seasonal than UIC-Halsted.</p></li>
+<li><p><strong>Western-Forest Park:</strong> Western has relatively low ridership despite connections with Western Avenue and Harrison bus service. Its totals begin to show the broader pattern seen farther west on the Forest Park branch, where station entries are substantially lower than Downtown and much of the O’Hare branch.</p></li>
+<li><p><strong>Kedzie-Homan:</strong> Kedzie-Homan also records relatively low ridership despite connections with several CTA bus routes. Together with Western, its graph marks the beginning of a sustained stretch of lower-ridership stations along the western portion of the Forest Park branch.</p></li>
+</ul>
+</section>
+</section>
+<section id="west-side" class="level2">
+<h2 class="anchored" data-anchor-id="west-side">West Side</h2>
+<p>The West Side section follows the Forest Park branch from Pulaski to Forest Park.</p>
+<p><img src="images-bl/blue-line-west.png" class="img-fluid"></p>
+<section id="key-findings-6" class="level3">
+<h3 class="anchored" data-anchor-id="key-findings-6">Key Findings</h3>
+<ul>
+<li><p><strong>Pulaski:</strong> Pulaski records relatively low but generally stable ridership. It connects with Harrison and Pulaski bus service but does not function as a major regional transportation hub.</p></li>
+<li><p><strong>Cicero:</strong> Cicero also has relatively low ridership, although it has more connecting services than several neighboring stations. In addition to CTA buses, the station connects with several Pace routes. Its low station totals therefore show that bus connectivity alone does not fully explain differences in Blue Line ridership.</p></li>
+<li><p><strong>Austin:</strong> Austin maintains low station-entry totals and has CTA and Pace bus connections. Like several other stations on this portion of the Forest Park branch, its graph is considerably less volatile than major destination stations such as O’Hare or UIC-Halsted.</p></li>
+<li><p><strong>Oak Park:</strong> Oak Park has somewhat stronger ridership than several neighboring stations. It serves the suburb of Oak Park and connects with Pace bus service, although it remains considerably below the busiest stations on the O’Hare branch and Downtown.</p></li>
+<li><p><strong>Harlem-Forest Park:</strong> Harlem has modest ridership and provides a connection to Pace service near the boundary between Oak Park and Forest Park. Its totals remain considerably below the Forest Park terminal despite the stations being relatively close geographically.</p></li>
+<li><p><strong>Forest Park:</strong> Forest Park has the highest ridership in this section. As the western terminal of the Blue Line, it includes parking and connections to numerous Pace bus routes serving surrounding suburban communities. This gives the station a much larger potential service area than stations that primarily serve nearby neighborhoods.</p></li>
+</ul>
+</section>
+</section>
+<section id="overall-findings" class="level2">
+<h2 class="anchored" data-anchor-id="overall-findings">Overall Findings</h2>
+<p>Several broader patterns emerge when Blue Line ridership is examined geographically.</p>
+<p>First, <strong>station connectivity appears to be an important part of the geography of Blue Line ridership</strong>. Some of the line’s busiest stations also function as major connections to other transportation systems. O’Hare connects the CTA with air travel, Jefferson Park connects with Metra and an extensive bus network, and Clark/Lake connects the Blue Line with five other CTA rail lines. This suggests that station ridership cannot always be understood solely by examining the neighborhood immediately surrounding a station.</p>
+<p>Second, <strong>the Blue Line functions as both an urban rail line and a regional transportation link</strong>. On the O’Hare branch, stations such as Rosemont, Cumberland, and Jefferson Park connect suburban travelers with the CTA through Pace, Metra, parking, or a combination of these services. On the Forest Park branch, Forest Park performs a similar role as a terminal and suburban bus connection.</p>
+<p>Third, <strong>major destinations can generate distinctive ridership patterns even without extensive rail connections</strong>. UIC-Halsted’s large fluctuations may partly reflect the academic calendar at UIC, while Illinois Medical District serves a concentration of hospitals and medical institutions. Damen and Logan Square also maintain substantial ridership despite lacking direct connections with other rail lines, showing the importance of dense residential and commercial areas.</p>
+<p>Fourth, <strong>more transportation connections do not automatically result in higher ridership</strong>. Montrose provides access to nearby Metra service but remains substantially below Jefferson Park. Cicero connects with both CTA and Pace buses but remains a relatively low-ridership station. LaSalle is located near Metra service but records considerably fewer entries than Clark/Lake. The type of connection, surrounding land use, nearby destinations, service frequency, and ease of transferring may therefore matter as much as the number of connections.</p>
+<p>Finally, <strong>there is a major geographic difference between the O’Hare and Forest Park branches</strong>. Much of the O’Hare branch and the Milwaukee Avenue corridor records substantially higher station ridership than the western portion of the Forest Park branch. The connection data suggests that differences in regional connectivity may explain part of this pattern, but infrastructure conditions, service quality, neighborhood characteristics, population, employment, and land use would need to be examined before determining why the difference exists.</p>
+</section>
+<section id="data-limitations" class="level2">
+<h2 class="anchored" data-anchor-id="data-limitations">Data Limitations</h2>
+<p>This analysis measures <strong>entries into CTA stations</strong>, not complete passenger trips. The dataset does not identify where passengers traveled after entering a station, where they exited, why they traveled, or how they reached the station.</p>
+<p>Transportation connections provide useful context but should not be interpreted as proof that those connections caused a station’s ridership level. For example, Jefferson Park’s extensive transfer network may contribute to its high ridership, but this dataset does not identify how many passengers arrived by Metra, Pace, CTA bus, walking, biking, or another mode.</p>
+<p>The same limitation applies to nearby destinations. Patterns at O’Hare, UIC-Halsted, Illinois Medical District, and other stations are consistent with the types of destinations they serve, but station-level monthly data cannot determine how many riders were airport passengers, students, employees, patients, visitors, or residents.</p>
+<p>Monthly totals are also affected by the number of days in each month, and temporary factors such as construction, station closures, service disruptions, weather, special events, and changes in connecting transit service can affect individual months.</p>
+<p>For these reasons, the findings should be interpreted as <strong>patterns and possible relationships rather than causal conclusions</strong>. Additional data on daily ridership, transfers, service levels, land use, population, employment, and major destinations would be needed to determine why individual stations experience different levels and patterns of ridership.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
