@@ -4,29 +4,26 @@
     "items": [
       "/posts/CTA_Rideship_Blue/index.html",
       "/posts/CTA_Rideship_Red/index.html",
-      "/posts/my_second_post/i love math.html",
-      "/posts/July_15_CC/city-council-july15.html"
-    ]
-  },
-  {
-    "listing": "/research.html",
-    "items": []
-  },
-  {
-    "listing": "/index.html",
-    "items": [
-      "/posts/CTA_Rideship_Blue/index.html",
-      "/posts/CTA_Rideship_Red/index.html",
-      "/posts/my_second_post/i love math.html",
       "/posts/July_15_CC/city-council-july15.html"
     ]
   },
   {
     "listing": "/public-policy.html",
     "items": [
-      "/posts/my_second_post/i love math.html",
       "/posts/July_15_CC/city-council-july15.html"
     ]
+  },
+  {
+    "listing": "/index.html",
+    "items": [
+      "/posts/CTA_Rideship_Blue/index.html",
+      "/posts/CTA_Rideship_Red/index.html",
+      "/posts/July_15_CC/city-council-july15.html"
+    ]
+  },
+  {
+    "listing": "/research.html",
+    "items": []
   },
   {
     "listing": "/data-analysis.html",

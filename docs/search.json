@@ -4,7 +4,7 @@
     "href": "projects.html",
     "title": "Projects & Research",
     "section": "",
-    "text": "Here are all of my projects, organized from newest to oldest. Click on the categories to filter them out.\n\n\n\n\n\n\n    \n      \n      \n    \n\n\n\n\n\n\n\n\nCTA Blue Line Ridership Analysis\n\n\n\ndata analysis\n\nfeatured\n\ntransportation\n\n\n\nAn analysis of monthly ridership patterns across CTA Blue Line stations.\n\n\n\nAug 20, 2026\n\n\n\n\n\n\n\n\n\n\n\nExploring CTA Red Line Ridership with R\n\n\n\ndata analysis\n\ntransportation\n\nfeatured\n\n\n\nAnalyzing monthly ridership trends across CTA Red Line stations using R.\n\n\n\nAug 20, 2026\n\n\n\n\n\n\n\n\n\n\n\nCTY vs HWY\n\n\n\nfeatured\n\ntransportation\n\npublic policy\n\n\n\n\n\n\n\nAug 16, 2026\n\n\n\n\n\n\n\n\n\n\n\nWhat Chicagoans Should Know from the July 15 City Council Meeting\n\n\n\npublic policy\n\nfeatured\n\n\n\n\n\n\n\nJun 19, 2026\n\n\n\n\n\n\nNo matching items"
+    "text": "Here are all of my projects, organized from newest to oldest. Click on the categories to filter them out.\n\n\n\n\n\n\n    \n      \n      \n    \n\n\n\n\n\n\n\n\nCTA Blue Line Ridership Analysis\n\n\n\ndata analysis\n\nfeatured\n\ntransportation\n\n\n\nAn analysis of monthly ridership patterns across CTA Blue Line stations.\n\n\n\nAug 20, 2026\n\n\n\n\n\n\n\n\n\n\n\nExploring CTA Red Line Ridership with R\n\n\n\ndata analysis\n\ntransportation\n\nfeatured\n\n\n\nAnalyzing monthly ridership trends across CTA Red Line stations using R.\n\n\n\nAug 20, 2026\n\n\n\n\n\n\n\n\n\n\n\nWhat Chicagoans Should Know from the July 15 City Council Meeting\n\n\n\npublic policy\n\nfeatured\n\n\n\n\n\n\n\nJun 19, 2026\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/July_15_CC/city-council-july15.html",
@@ -147,60 +147,11 @@
     "text": "Data Limitations\nThis analysis measures entries into CTA stations, not complete passenger trips. The dataset does not identify where passengers traveled after entering a station, where they exited, why they traveled, or how they reached the station.\nTransportation connections provide useful context but should not be interpreted as proof that those connections caused a station’s ridership level. For example, Jefferson Park’s extensive transfer network may contribute to its high ridership, but this dataset does not identify how many passengers arrived by Metra, Pace, CTA bus, walking, biking, or another mode.\nThe same limitation applies to nearby destinations. Patterns at O’Hare, UIC-Halsted, Illinois Medical District, and other stations are consistent with the types of destinations they serve, but station-level monthly data cannot determine how many riders were airport passengers, students, employees, patients, visitors, or residents.\nMonthly totals are also affected by the number of days in each month, and temporary factors such as construction, station closures, service disruptions, weather, special events, and changes in connecting transit service can affect individual months.\nFor these reasons, the findings should be interpreted as patterns and possible relationships rather than causal conclusions. Additional data on daily ridership, transfers, service levels, land use, population, employment, and major destinations would be needed to determine why individual stations experience different levels and patterns of ridership."
   },
   {
-    "objectID": "research.html",
-    "href": "research.html",
-    "title": "Research",
+    "objectID": "public-policy.html",
+    "href": "public-policy.html",
+    "title": "Public Policy",
     "section": "",
-    "text": "No matching items"
-  },
-  {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "Background",
-    "section": "",
-    "text": "DOMINICAN UNIVERSITY | River Forest, Illinois\nBachelor’s in Mathematics | August 2025 - May 2027\nRelevant Coursework: Calculus I-III • Linear Algebra • Differential Equations • Statistics I-II • Introduction to Proofs • Computer Programming (Java) • Introduction to R Programming for Data Science • Financial Mathematics • Numerical Modeling • Introduction to Sociology"
-  },
-  {
-    "objectID": "about.html#education",
-    "href": "about.html#education",
-    "title": "Background",
-    "section": "",
-    "text": "DOMINICAN UNIVERSITY | River Forest, Illinois\nBachelor’s in Mathematics | August 2025 - May 2027\nRelevant Coursework: Calculus I-III • Linear Algebra • Differential Equations • Statistics I-II • Introduction to Proofs • Computer Programming (Java) • Introduction to R Programming for Data Science • Financial Mathematics • Numerical Modeling • Introduction to Sociology"
-  },
-  {
-    "objectID": "about.html#experience",
-    "href": "about.html#experience",
-    "title": "Background",
-    "section": "Experience",
-    "text": "Experience\n26th Ward - Alderperson Jessie Fuentes | Intern | June 2026 - Present\nAs an intern with the 26th Ward Office of Alderperson Jessie Fuentes, I support community engagement, constituent services, policy-related research, and neighborhood initiatives. My work includes engaging directly with residents through canvassing and community events, assisting with constituent needs and access to city resources, organizing and analyzing information related to community issues, and supporting projects and events across the ward. This experience has given me firsthand insight into local government and strengthened my interest in using data, research, and community input to better understand neighborhood needs and inform public policy.\nAfter School Matters | Communication & Leadership Instructor | September 2025 - Present\nAs a Communication and Leadership Instructor, I design and facilitate programming that helps Chicago teens strengthen their leadership, communication, research, and civic engagement skills. I guide participants through independent research projects on issues affecting Chicago communities, teaching them how to evaluate sources, analyze data, conduct surveys and interviews, engage with community stakeholders, and develop evidence-based recommendations. I also lead activities including debates, Model United Nations simulations, financial literacy programming, and discussions on local government and current issues. Through this role, I create opportunities for young people to connect their interests and lived experiences to research, public policy, and meaningful civic participation.\nAfter School Matters | ComEd Youth Ambassadors Instructor | June 2025 - August 2025\nAs a ComEd Youth Ambassadors Instructor, I teach Chicago teens about energy, sustainability, and technology through hands-on learning. I introduce students to basic C++ programming and Arduino, guiding them through coding and electronics projects that build foundational programming, problem-solving, and technical skills. I also facilitate activities focused on energy and environmental topics while helping participants strengthen their communication, teamwork, leadership, and professional skills."
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Hi, I’m Camila",
-    "section": "",
-    "text": "I’m a mathematics student interested in data, public policy, cities, and community research.\nI use quantitative tools to explore how neighborhoods work, how policy affects people, and how data can help tell those stories.\nView My Work Background"
-  },
-  {
-    "objectID": "index.html#projects",
-    "href": "index.html#projects",
-    "title": "Hi, I’m Camila",
-    "section": "Featured Projects",
-    "text": "Featured Projects\n\n\n\n\n\n\n\n\nCTA Blue Line Ridership Analysis\n\n\n\ndata analysis\n\nfeatured\n\ntransportation\n\n\n\nAn analysis of monthly ridership patterns across CTA Blue Line stations.\n\n\n\n\n\n\n\n\n\n\nExploring CTA Red Line Ridership with R\n\n\n\ndata analysis\n\ntransportation\n\nfeatured\n\n\n\nAnalyzing monthly ridership trends across CTA Red Line stations using R.\n\n\n\n\n\n\n\n\n\n\nCTY vs HWY\n\n\n\nfeatured\n\ntransportation\n\npublic policy\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWhat Chicagoans Should Know from the July 15 City Council Meeting\n\n\n\npublic policy\n\nfeatured\n\n\n\n\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "index.html#what-i-do",
-    "href": "index.html#what-i-do",
-    "title": "Hi, I’m Camila",
-    "section": "What I Do",
-    "text": "What I Do\n\n\nData Analysis\nI use R, statistics, and data visualization to explore patterns, answer questions, and communicate findings clearly.\nR Statistics Data Visualization\n\n\nResearch\nI combine quantitative analysis and community perspectives to investigate questions about cities and the people who live in them.\nQuantitative Research Community Research Data Collection\n\n\nPublic Policy\nI’m interested in using data and research to understand local government, urban policy, and community issues, especially in Chicago.\nPolicy Analysis Local Government Urban Issues"
-  },
-  {
-    "objectID": "index.html#a-little-about-me",
-    "href": "index.html#a-little-about-me",
-    "title": "Hi, I’m Camila",
-    "section": "A Little About Me",
-    "text": "A Little About Me\nChicago has always been home, and growing up here has given me a real appreciation for the city, its neighborhoods, and the communities that make each one unique. As a Colombian-American, I also value the different cultures and perspectives that shape the places around us, which is something that has naturally influenced my interest in community and public policy.\nOutside of work and school, I spend a lot of my free time on puzzles, especially GeoGuessr and, lately, puzzles from the Magic Puzzle Company. I’m also a big coffee person and always appreciate finding a good coffee shop around the city.\nView My Background"
+    "text": "What Chicagoans Should Know from the July 15 City Council Meeting\n\n\n\npublic policy\n\nfeatured\n\n\n\n\n\n\n\nJun 19, 2026\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "readme.html",
@@ -287,18 +238,60 @@
     "text": "See this growing list of quarto resources for much, much more:\nhttps://github.com/mcanouil/awesome-quarto"
   },
   {
-    "objectID": "public-policy.html",
-    "href": "public-policy.html",
-    "title": "Public Policy",
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Hi, I’m Camila",
     "section": "",
-    "text": "CTY vs HWY\n\n\n\nfeatured\n\ntransportation\n\npublic policy\n\n\n\n\n\n\n\nAug 16, 2026\n\n\n\n\n\n\n\n\n\n\n\nWhat Chicagoans Should Know from the July 15 City Council Meeting\n\n\n\npublic policy\n\nfeatured\n\n\n\n\n\n\n\nJun 19, 2026\n\n\n\n\n\n\nNo matching items"
+    "text": "I’m a mathematics student interested in data, public policy, cities, and community research.\nI use quantitative tools to explore how neighborhoods work, how policy affects people, and how data can help tell those stories.\nView My Work Background"
   },
   {
-    "objectID": "posts/my_second_post/i love math.html",
-    "href": "posts/my_second_post/i love math.html",
-    "title": "CTY vs HWY",
+    "objectID": "index.html#projects",
+    "href": "index.html#projects",
+    "title": "Hi, I’m Camila",
+    "section": "Featured Projects",
+    "text": "Featured Projects\n\n\n\n\n\n\n\n\nCTA Blue Line Ridership Analysis\n\n\n\ndata analysis\n\nfeatured\n\ntransportation\n\n\n\nAn analysis of monthly ridership patterns across CTA Blue Line stations.\n\n\n\n\n\n\n\n\n\n\nExploring CTA Red Line Ridership with R\n\n\n\ndata analysis\n\ntransportation\n\nfeatured\n\n\n\nAnalyzing monthly ridership trends across CTA Red Line stations using R.\n\n\n\n\n\n\n\n\n\n\nWhat Chicagoans Should Know from the July 15 City Council Meeting\n\n\n\npublic policy\n\nfeatured\n\n\n\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "index.html#what-i-do",
+    "href": "index.html#what-i-do",
+    "title": "Hi, I’m Camila",
+    "section": "What I Do",
+    "text": "What I Do\n\n\nData Analysis\nI use R, statistics, and data visualization to explore patterns, answer questions, and communicate findings clearly.\nR Statistics Data Visualization\n\n\nResearch\nI combine quantitative analysis and community perspectives to investigate questions about cities and the people who live in them.\nQuantitative Research Community Research Data Collection\n\n\nPublic Policy\nI’m interested in using data and research to understand local government, urban policy, and community issues, especially in Chicago.\nPolicy Analysis Local Government Urban Issues"
+  },
+  {
+    "objectID": "index.html#a-little-about-me",
+    "href": "index.html#a-little-about-me",
+    "title": "Hi, I’m Camila",
+    "section": "A Little About Me",
+    "text": "A Little About Me\nChicago has always been home, and growing up here has given me a real appreciation for the city, its neighborhoods, and the communities that make each one unique. As a Colombian-American, I also value the different cultures and perspectives that shape the places around us, which is something that has naturally influenced my interest in community and public policy.\nOutside of work and school, I spend a lot of my free time on puzzles, especially GeoGuessr and, lately, puzzles from the Magic Puzzle Company. I’m also a big coffee person and always appreciate finding a good coffee shop around the city.\nView My Background"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "Background",
     "section": "",
-    "text": "This is a graph that shows…\n\nlibrary(ggplot2)\nlibrary(tidyverse)\nggplot(\n  data = mpg,\n  mapping = aes(\n    x = hwy,\n    y = cty,\n    color = year\n  )\n)+\n  geom_point()"
+    "text": "DOMINICAN UNIVERSITY | River Forest, Illinois\nBachelor’s in Mathematics | August 2025 - May 2027\nRelevant Coursework: Calculus I-III • Linear Algebra • Differential Equations • Statistics I-II • Introduction to Proofs • Computer Programming (Java) • Introduction to R Programming for Data Science • Financial Mathematics • Numerical Modeling • Introduction to Sociology"
+  },
+  {
+    "objectID": "about.html#education",
+    "href": "about.html#education",
+    "title": "Background",
+    "section": "",
+    "text": "DOMINICAN UNIVERSITY | River Forest, Illinois\nBachelor’s in Mathematics | August 2025 - May 2027\nRelevant Coursework: Calculus I-III • Linear Algebra • Differential Equations • Statistics I-II • Introduction to Proofs • Computer Programming (Java) • Introduction to R Programming for Data Science • Financial Mathematics • Numerical Modeling • Introduction to Sociology"
+  },
+  {
+    "objectID": "about.html#experience",
+    "href": "about.html#experience",
+    "title": "Background",
+    "section": "Experience",
+    "text": "Experience\n26th Ward - Alderperson Jessie Fuentes | Intern | June 2026 - Present\nAs an intern with the 26th Ward Office of Alderperson Jessie Fuentes, I support community engagement, constituent services, policy-related research, and neighborhood initiatives. My work includes engaging directly with residents through canvassing and community events, assisting with constituent needs and access to city resources, organizing and analyzing information related to community issues, and supporting projects and events across the ward. This experience has given me firsthand insight into local government and strengthened my interest in using data, research, and community input to better understand neighborhood needs and inform public policy.\nAfter School Matters | Communication & Leadership Instructor | September 2025 - Present\nAs a Communication and Leadership Instructor, I design and facilitate programming that helps Chicago teens strengthen their leadership, communication, research, and civic engagement skills. I guide participants through independent research projects on issues affecting Chicago communities, teaching them how to evaluate sources, analyze data, conduct surveys and interviews, engage with community stakeholders, and develop evidence-based recommendations. I also lead activities including debates, Model United Nations simulations, financial literacy programming, and discussions on local government and current issues. Through this role, I create opportunities for young people to connect their interests and lived experiences to research, public policy, and meaningful civic participation.\nAfter School Matters | ComEd Youth Ambassadors Instructor | June 2025 - August 2025\nAs a ComEd Youth Ambassadors Instructor, I teach Chicago teens about energy, sustainability, and technology through hands-on learning. I introduce students to basic C++ programming and Arduino, guiding them through coding and electronics projects that build foundational programming, problem-solving, and technical skills. I also facilitate activities focused on energy and environmental topics while helping participants strengthen their communication, teamwork, leadership, and professional skills."
+  },
+  {
+    "objectID": "research.html",
+    "href": "research.html",
+    "title": "Research",
+    "section": "",
+    "text": "No matching items"
   },
   {
     "objectID": "posts/CTA_Rideship_Red/index.html",
