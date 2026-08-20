@@ -3,6 +3,7 @@ title: "CTA Blue Line Ridership Analysis"
 description: "An analysis of monthly ridership patterns across CTA Blue Line stations."
 date: "2026-08-20"
 categories: [data analysis, featured, transportation]
+image: images-bl/california-blue-line.jpg
 ---
 
 ## Introduction

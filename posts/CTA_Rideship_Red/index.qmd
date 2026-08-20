@@ -4,6 +4,7 @@ description: "Analyzing monthly ridership trends across CTA Red Line stations us
 author: "Camila Cedano"
 date: 2026-08-20
 categories: [data analysis, transportation, featured]
+image: images/red-line-pic.jpg
 ---
 ## Overview
 How does ridership vary across CTA Red Line stations?
