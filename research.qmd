@@ -1,0 +1,15 @@
+---
+title: "Research"
+subtitle: "Exploring questions through evidence, analysis, and community perspectives."
+page-layout: full
+
+listing:
+  contents: posts
+  type: grid
+  sort: "date desc"
+  categories: false
+  include:
+    categories: "research"
+  fields: [image, title, description, date, categories]
+  grid-columns: 3
+---

@@ -2,7 +2,7 @@
 title: "My First post"
 author: "Matt Crump"
 date: "2022-10-21"
-categories: [goals,general]
+categories: [goals,general, research]
 ---
 
 This is an example first post. Whatever you write here will appear inside your post.

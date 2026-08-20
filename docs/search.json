@@ -4,77 +4,35 @@
     "href": "projects.html",
     "title": "Projects & Research",
     "section": "",
-    "text": "Here are all of my projects, organized from newest to oldest. Click on the categories to filter them out.\n\n\n\n\n\n\n    \n      \n      \n    \n\n\n\n\n\n\n\n\ni &lt;3 research\n\n\n\ngoals\n\ngeneral\n\n\n\n\n\n\n\nAug 19, 2026\n\n\n\n\n\n\n\n\n\n\n\ni love math\n\n\n\nfeatured\n\ngoals\n\n\n\n\n\n\n\nAug 16, 2026\n\n\n\n\n\n\n\n\n\n\n\nMy First post\n\n\n\ngoals\n\ngeneral\n\n\n\n\n\n\n\nOct 21, 2022\n\n\n\n\n\n\nNo matching items"
+    "text": "Here are all of my projects, organized from newest to oldest. Click on the categories to filter them out.\n\n\n\n\n\n\n    \n      \n      \n    \n\n\n\n\n\n\n\n\nCTY vs HWY\n\n\n\nfeatured\n\ntransportation\n\npublic policy\n\n\n\n\n\n\n\nAug 16, 2026\n\n\n\n\n\n\n\n\n\n\n\nWhat Chicagoans Should Know from the July 15 City Council Meeting\n\n\n\npublic policy\n\nfeatured\n\n\n\n\n\n\n\nJun 19, 2026\n\n\n\n\n\n\n\n\n\n\n\nMy First post\n\n\n\ngoals\n\ngeneral\n\nresearch\n\n\n\n\n\n\n\nOct 21, 2022\n\n\n\n\n\n\nNo matching items"
   },
   {
-    "objectID": "posts/Example_assignment/index.html",
-    "href": "posts/Example_assignment/index.html",
-    "title": "i <3 research",
+    "objectID": "posts/my_first_post/index.html",
+    "href": "posts/my_first_post/index.html",
+    "title": "My First post",
     "section": "",
-    "text": "meow meow meow"
+    "text": "This is an example first post. Whatever you write here will appear inside your post.\nIt is possible to write lists:\nAnd make headers"
   },
   {
-    "objectID": "posts/Example_assignment/index.html#why-do-i-like-research",
-    "href": "posts/Example_assignment/index.html#why-do-i-like-research",
-    "title": "i <3 research",
+    "objectID": "posts/my_first_post/index.html#this-is-a-second-level-heading",
+    "href": "posts/my_first_post/index.html#this-is-a-second-level-heading",
+    "title": "My First post",
+    "section": "This is a second level heading",
+    "text": "This is a second level heading\nYou can include images, and many other kinds of content.\nIf you are using the visual editor in Rstudio you can drag images onto the editor to insert them into the document. Otherwise, you need to place the image inside of the folder for this post, and then you can insert it to your post directly, like this:\n\nThe first image in a blog post will also be used on the listings page."
+  },
+  {
+    "objectID": "posts/my_second_post/i love math.html",
+    "href": "posts/my_second_post/i love math.html",
+    "title": "CTY vs HWY",
     "section": "",
-    "text": "meow meow meow"
+    "text": "This is a graph that shows…\n\nlibrary(ggplot2)\nlibrary(tidyverse)\nggplot(\n  data = mpg,\n  mapping = aes(\n    x = hwy,\n    y = cty,\n    color = year\n  )\n)+\n  geom_point()"
   },
   {
-    "objectID": "posts/Example_assignment/index.html#dilemma",
-    "href": "posts/Example_assignment/index.html#dilemma",
-    "title": "i <3 research",
-    "section": "Dilemma",
-    "text": "Dilemma\nwhat looks more professional?: Maria Camila Cedano OR just Camila Cedano"
-  },
-  {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "Background",
+    "objectID": "public-policy.html",
+    "href": "public-policy.html",
+    "title": "Public Policy",
     "section": "",
-    "text": "DOMINICAN UNIVERSITY | River Forest, Illinois\nBachelor’s in Mathematics | August 2025 - May 2027\nRelevant Coursework: Calculus I-III • Linear Algebra • Differential Equations • Statistics I-II • Introduction to Proofs • Computer Programming (Java) • Introduction to R Programming for Data Science • Financial Mathematics • Numerical Modeling • Introduction to Sociology"
-  },
-  {
-    "objectID": "about.html#education",
-    "href": "about.html#education",
-    "title": "Background",
-    "section": "",
-    "text": "DOMINICAN UNIVERSITY | River Forest, Illinois\nBachelor’s in Mathematics | August 2025 - May 2027\nRelevant Coursework: Calculus I-III • Linear Algebra • Differential Equations • Statistics I-II • Introduction to Proofs • Computer Programming (Java) • Introduction to R Programming for Data Science • Financial Mathematics • Numerical Modeling • Introduction to Sociology"
-  },
-  {
-    "objectID": "about.html#experience",
-    "href": "about.html#experience",
-    "title": "Background",
-    "section": "Experience",
-    "text": "Experience\n26th Ward - Alderperson Jessie Fuentes | Intern | June 2026 - Present\nAs an intern with the 26th Ward Office of Alderperson Jessie Fuentes, I support community engagement, constituent services, policy-related research, and neighborhood initiatives. My work includes engaging directly with residents through canvassing and community events, assisting with constituent needs and access to city resources, organizing and analyzing information related to community issues, and supporting projects and events across the ward. This experience has given me firsthand insight into local government and strengthened my interest in using data, research, and community input to better understand neighborhood needs and inform public policy.\nAfter School Matters | Communication & Leadership Instructor | September 2025 - Present\nAs a Communication and Leadership Instructor, I design and facilitate programming that helps Chicago teens strengthen their leadership, communication, research, and civic engagement skills. I guide participants through independent research projects on issues affecting Chicago communities, teaching them how to evaluate sources, analyze data, conduct surveys and interviews, engage with community stakeholders, and develop evidence-based recommendations. I also lead activities including debates, Model United Nations simulations, financial literacy programming, and discussions on local government and current issues. Through this role, I create opportunities for young people to connect their interests and lived experiences to research, public policy, and meaningful civic participation.\nAfter School Matters | ComEd Youth Ambassadors Instructor | June 2025 - August 2025\nAs a ComEd Youth Ambassadors Instructor, I teach Chicago teens about energy, sustainability, and technology through hands-on learning. I introduce students to basic C++ programming and Arduino, guiding them through coding and electronics projects that build foundational programming, problem-solving, and technical skills. I also facilitate activities focused on energy and environmental topics while helping participants strengthen their communication, teamwork, leadership, and professional skills."
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Data, Policy & Community",
-    "section": "",
-    "text": "I’m a mathematics student interested in data, public policy, cities, and community research.\nI use quantitative tools to explore how neighborhoods work, how policy affects people, and how data can help tell those stories.\nView My Work Background"
-  },
-  {
-    "objectID": "index.html#projects",
-    "href": "index.html#projects",
-    "title": "Data, Policy & Community",
-    "section": "Featured Projects",
-    "text": "Featured Projects\n\n\n\n\n\n\n\n\ni love math\n\n\n\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "index.html#what-i-do",
-    "href": "index.html#what-i-do",
-    "title": "Data, Policy & Community",
-    "section": "What I Do",
-    "text": "What I Do\n\n\nData Analysis\nI use R, statistics, and data visualization to explore patterns, answer questions, and communicate findings clearly.\nR Statistics Data Visualization\n\n\nResearch\nI combine quantitative analysis and community perspectives to investigate questions about cities and the people who live in them.\nQuantitative Research Community Research Data Collection\n\n\nPublic Policy\nI’m interested in using data and research to understand local government, urban policy, and community issues, especially in Chicago.\nPolicy Analysis Local Government Urban Issues"
-  },
-  {
-    "objectID": "index.html#a-little-about-me",
-    "href": "index.html#a-little-about-me",
-    "title": "Data, Policy & Community",
-    "section": "A Little About Me",
-    "text": "A Little About Me\nChicago has always been home, and growing up here has given me a real appreciation for the city, its neighborhoods, and the communities that make each one unique. As a Colombian-American, I also value the different cultures and perspectives that shape the places around us—something that has naturally influenced my interest in community and public policy.\nOutside of work and school, I spend a lot of my free time on puzzles, especially GeoGuessr and, lately, puzzles from the Magic Puzzle Company. I’m also a big coffee person and always appreciate finding a good coffee shop around the city.\nView My Background"
+    "text": "CTY vs HWY\n\n\n\nfeatured\n\ntransportation\n\npublic policy\n\n\n\n\n\n\n\nAug 16, 2026\n\n\n\n\n\n\n\n\n\n\n\nWhat Chicagoans Should Know from the July 15 City Council Meeting\n\n\n\npublic policy\n\nfeatured\n\n\n\n\n\n\n\nJun 19, 2026\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "readme.html",
@@ -161,24 +119,129 @@
     "text": "See this growing list of quarto resources for much, much more:\nhttps://github.com/mcanouil/awesome-quarto"
   },
   {
-    "objectID": "posts/my_second_post/i love math.html",
-    "href": "posts/my_second_post/i love math.html",
-    "title": "i love math",
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Hi, I’m Camila",
     "section": "",
-    "text": "Math is the best i love it. no idea whats going on\n\nlibrary(ggplot2)\nlibrary(tidyverse)\nggplot(\n  data = mpg,\n  mapping = aes(\n    x = hwy,\n    y = cty,\n    color = year\n  )\n)+\n  geom_point()"
+    "text": "I’m a mathematics student interested in data, public policy, cities, and community research.\nI use quantitative tools to explore how neighborhoods work, how policy affects people, and how data can help tell those stories.\nView My Work Background"
   },
   {
-    "objectID": "posts/my_first_post/index.html",
-    "href": "posts/my_first_post/index.html",
-    "title": "My First post",
-    "section": "",
-    "text": "This is an example first post. Whatever you write here will appear inside your post.\nIt is possible to write lists:\nAnd make headers"
+    "objectID": "index.html#projects",
+    "href": "index.html#projects",
+    "title": "Hi, I’m Camila",
+    "section": "Featured Projects",
+    "text": "Featured Projects\n\n\n\n\n\n\n\n\nCTY vs HWY\n\n\n\nfeatured\n\ntransportation\n\npublic policy\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWhat Chicagoans Should Know from the July 15 City Council Meeting\n\n\n\npublic policy\n\nfeatured\n\n\n\n\n\n\n\n\n\nNo matching items"
   },
   {
-    "objectID": "posts/my_first_post/index.html#this-is-a-second-level-heading",
-    "href": "posts/my_first_post/index.html#this-is-a-second-level-heading",
-    "title": "My First post",
-    "section": "This is a second level heading",
-    "text": "This is a second level heading\nYou can include images, and many other kinds of content.\nIf you are using the visual editor in Rstudio you can drag images onto the editor to insert them into the document. Otherwise, you need to place the image inside of the folder for this post, and then you can insert it to your post directly, like this:\n\nThe first image in a blog post will also be used on the listings page."
+    "objectID": "index.html#what-i-do",
+    "href": "index.html#what-i-do",
+    "title": "Hi, I’m Camila",
+    "section": "What I Do",
+    "text": "What I Do\n\n\nData Analysis\nI use R, statistics, and data visualization to explore patterns, answer questions, and communicate findings clearly.\nR Statistics Data Visualization\n\n\nResearch\nI combine quantitative analysis and community perspectives to investigate questions about cities and the people who live in them.\nQuantitative Research Community Research Data Collection\n\n\nPublic Policy\nI’m interested in using data and research to understand local government, urban policy, and community issues, especially in Chicago.\nPolicy Analysis Local Government Urban Issues"
+  },
+  {
+    "objectID": "index.html#a-little-about-me",
+    "href": "index.html#a-little-about-me",
+    "title": "Hi, I’m Camila",
+    "section": "A Little About Me",
+    "text": "A Little About Me\nChicago has always been home, and growing up here has given me a real appreciation for the city, its neighborhoods, and the communities that make each one unique. As a Colombian-American, I also value the different cultures and perspectives that shape the places around us, which is something that has naturally influenced my interest in community and public policy.\nOutside of work and school, I spend a lot of my free time on puzzles, especially GeoGuessr and, lately, puzzles from the Magic Puzzle Company. I’m also a big coffee person and always appreciate finding a good coffee shop around the city.\nView My Background"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "Background",
+    "section": "",
+    "text": "DOMINICAN UNIVERSITY | River Forest, Illinois\nBachelor’s in Mathematics | August 2025 - May 2027\nRelevant Coursework: Calculus I-III • Linear Algebra • Differential Equations • Statistics I-II • Introduction to Proofs • Computer Programming (Java) • Introduction to R Programming for Data Science • Financial Mathematics • Numerical Modeling • Introduction to Sociology"
+  },
+  {
+    "objectID": "about.html#education",
+    "href": "about.html#education",
+    "title": "Background",
+    "section": "",
+    "text": "DOMINICAN UNIVERSITY | River Forest, Illinois\nBachelor’s in Mathematics | August 2025 - May 2027\nRelevant Coursework: Calculus I-III • Linear Algebra • Differential Equations • Statistics I-II • Introduction to Proofs • Computer Programming (Java) • Introduction to R Programming for Data Science • Financial Mathematics • Numerical Modeling • Introduction to Sociology"
+  },
+  {
+    "objectID": "about.html#experience",
+    "href": "about.html#experience",
+    "title": "Background",
+    "section": "Experience",
+    "text": "Experience\n26th Ward - Alderperson Jessie Fuentes | Intern | June 2026 - Present\nAs an intern with the 26th Ward Office of Alderperson Jessie Fuentes, I support community engagement, constituent services, policy-related research, and neighborhood initiatives. My work includes engaging directly with residents through canvassing and community events, assisting with constituent needs and access to city resources, organizing and analyzing information related to community issues, and supporting projects and events across the ward. This experience has given me firsthand insight into local government and strengthened my interest in using data, research, and community input to better understand neighborhood needs and inform public policy.\nAfter School Matters | Communication & Leadership Instructor | September 2025 - Present\nAs a Communication and Leadership Instructor, I design and facilitate programming that helps Chicago teens strengthen their leadership, communication, research, and civic engagement skills. I guide participants through independent research projects on issues affecting Chicago communities, teaching them how to evaluate sources, analyze data, conduct surveys and interviews, engage with community stakeholders, and develop evidence-based recommendations. I also lead activities including debates, Model United Nations simulations, financial literacy programming, and discussions on local government and current issues. Through this role, I create opportunities for young people to connect their interests and lived experiences to research, public policy, and meaningful civic participation.\nAfter School Matters | ComEd Youth Ambassadors Instructor | June 2025 - August 2025\nAs a ComEd Youth Ambassadors Instructor, I teach Chicago teens about energy, sustainability, and technology through hands-on learning. I introduce students to basic C++ programming and Arduino, guiding them through coding and electronics projects that build foundational programming, problem-solving, and technical skills. I also facilitate activities focused on energy and environmental topics while helping participants strengthen their communication, teamwork, leadership, and professional skills."
+  },
+  {
+    "objectID": "research.html",
+    "href": "research.html",
+    "title": "Research",
+    "section": "",
+    "text": "My First post\n\n\n\ngoals\n\ngeneral\n\nresearch\n\n\n\n\n\n\n\nOct 21, 2022\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "posts/Example_assignment/city-council-july15.html",
+    "href": "posts/Example_assignment/city-council-july15.html",
+    "title": "What Chicagoans Should Know from the July 15 City Council Meeting",
+    "section": "",
+    "text": "Chicagoans could soon be voting on whether the city should bring back gunshot-detection technology. At the same time, City Council is moving forward with curbside EV charging, affordable housing developments, new neighborhood public spaces, and changes to how residents can access government records.\nThose were just some of the decisions to come out of the July 15, 2026 Chicago City Council meeting.\nWith hundreds of items moving through City Council, it can be difficult to tell which decisions actually matter beyond City Hall. So instead of going through every parking permit, zoning change, and appointment, here are some of the decisions from the meeting that Chicagoans should know about."
+  },
+  {
+    "objectID": "posts/Example_assignment/city-council-july15.html#chicagoans-will-vote-on-some-big-questions-this-november",
+    "href": "posts/Example_assignment/city-council-july15.html#chicagoans-will-vote-on-some-big-questions-this-november",
+    "title": "What Chicagoans Should Know from the July 15 City Council Meeting",
+    "section": "Chicagoans will vote on some big questions this November",
+    "text": "Chicagoans will vote on some big questions this November\nTwo citywide advisory questions are headed to Chicago voters for the November 3, 2026 general election.\n\nShould Chicago bring back gunshot-detection technology?\nCity Council adopted R2026-0025451, placing a question on the ballot asking whether Chicago should restart the use of gunshot-detection technology that alerts first responders when gunfire is detected.\nThe question puts the debate over gunshot-detection technology directly before Chicago voters.\n\n\nShould Chicago create a permanent festival and event space?\nCouncil also adopted R2026-0025459, asking voters whether Chicago should develop a permanent outdoor space for festivals and other large-scale events.\nWhile the referendum itself does not build a venue, it gives Chicagoans an opportunity to weigh in on whether the city should pursue the idea.\n\n\nThe 26th Ward will also get its own ballot question\nResidents of the 26th Ward will have an additional local question on their ballots.\nSR2025-0021045 asks voters whether shared housing units in the ward should be limited.\nUnlike the first two questions, this one is specific to voters in the 26th Ward."
+  },
+  {
+    "objectID": "posts/Example_assignment/city-council-july15.html#chicago-is-making-changes-to-how-we-drive-park-and-charge-evs",
+    "href": "posts/Example_assignment/city-council-july15.html#chicago-is-making-changes-to-how-we-drive-park-and-charge-evs",
+    "title": "What Chicagoans Should Know from the July 15 City Council Meeting",
+    "section": "Chicago is making changes to how we drive, park, and charge EVs",
+    "text": "Chicago is making changes to how we drive, park, and charge EVs\nTransportation was another important part of the meeting, with Council approving changes involving electric vehicles, speed limits, parking meters, and street regulations.\n\nCurbside EV charging is coming\nCouncil passed O2026-0025394, establishing an Electric Vehicle Curbside Charging Pilot Program.\nThe program creates a framework for electric vehicle charging infrastructure along Chicago streets.\nThis matters because many Chicago residents, particularly those living in apartments or homes without garages, do not have access to private charging infrastructure. Curbside charging could eventually make owning an electric vehicle more practical for residents who rely on street parking.\n\n\nNew gas stations will face additional review\nCouncil also passed O2026-0025429.\nThe ordinance requires special-use approval for new gas stations. It also applies to additions to existing gas stations involving seven or more electric vehicle chargers.\nThat means certain projects will have to go through an additional approval process rather than automatically being allowed under existing zoning rules.\n\n\nSome streets are getting 20 mph speed limits\nSeveral traffic changes were approved, including new 20 mph speed limits.\nOne ordinance establishes a 20 mph limit on portions of streets around 65th through 70th Streets, including sections of Harvard, Stewart, Normal, Parnell, and Eggleston.\nAnother establishes a 20 mph limit on North California Avenue between Roscoe Street and Addison Street, while another does the same on North Kedzie Avenue between Schubert Avenue and Diversey Avenue.\nOther traffic changes approved during the meeting included new stop signs, parking restrictions, residential permit parking, and changes to parking meters."
+  },
+  {
+    "objectID": "posts/Example_assignment/city-council-july15.html#city-owned-land-is-being-used-for-new-housing-and-development",
+    "href": "posts/Example_assignment/city-council-july15.html#city-owned-land-is-being-used-for-new-housing-and-development",
+    "title": "What Chicagoans Should Know from the July 15 City Council Meeting",
+    "section": "City-owned land is being used for new housing and development",
+    "text": "City-owned land is being used for new housing and development\nA significant group of ordinances involved the sale or transfer of City-owned land.\nSeveral properties were sold through ChiBlockBuilder, the city’s program for returning vacant City-owned land to productive use.\nProperties approved for sale included sites on:\n\nSouth Giles Avenue\nEast 50th Street\nSouth St. Lawrence Avenue\nSouth Calumet Avenue\nWest Kamerling Avenue\nSouth Martin Luther King Jr. Drive\nSouth Langley Avenue\nWest 34th Place\nWest Adams Street and West Jackson Boulevard\nNorth Pine Avenue\n\nSome of these transactions are connected to larger housing initiatives.\n\nMissing-middle housing\nCouncil approved the sale of properties at 2438, 2442, 2444, and 2445 W. 34th Place to M3 Chicago LLC through the ChiBlockBuilder Missing Middle Infill Housing Initiative.\nAnother group of properties — including sites on West Adams Street, West Jackson Boulevard, South Homan Avenue, and West Gladys Avenue — was sold to Citizens Building a Better Community LLC through the same initiative.\nMissing-middle housing generally refers to housing types that fall between detached single-family homes and large apartment buildings, such as duplexes, triplexes, townhomes, and smaller multifamily buildings.\n\n\nAffordable housing in Morgan Park\nCouncil also approved O2026-0026567, involving the sale of City-owned property at 11414 S. Halsted Street to Far South CDC.\nThe property is intended for the development of Morgan Park Commons (Phase 0) under the Low-Income Housing Tax Credit program.\n\n\nAffordable housing in Bronzeville\nAnother ordinance approved an agreement involving HUD and parcels in Bronzeville associated with the Hearts United Phase II project.\nThe agreement allows parcels affected by HUD foreclosure to be reconveyed for affordable housing development.\nTogether, these measures show how City-owned land can become part of Chicago’s broader housing and neighborhood development strategy."
+  },
+  {
+    "objectID": "posts/Example_assignment/city-council-july15.html#six-neighborhood-public-spaces-are-getting-funding",
+    "href": "posts/Example_assignment/city-council-july15.html#six-neighborhood-public-spaces-are-getting-funding",
+    "title": "What Chicagoans Should Know from the July 15 City Council Meeting",
+    "section": "Six neighborhood public spaces are getting funding",
+    "text": "Six neighborhood public spaces are getting funding\nCouncil approved the use of Open Space Impact Fee funds for six projects across Chicago.\nThe projects include:\n\n\n\n\n\n\n\nProject\nLocation\n\n\n\n\nChicago Farmworks\n409 N. Albany Ave. and 411–419 N. Kedzie Ave.\n\n\nMontrose Metra Garden\n4350 N. Ravenswood Ave.\n\n\nGoose Island Overlook\n1111 N. Elston Ave.\n\n\nGarfield Park Community Orchards\n3001 W. Fifth Ave.\n\n\nCircEsteem Plaza\n4730 N. Sheridan Rd.\n\n\nKimball and Wellington Plaza\nN. Kimball Ave. and W. Wellington Ave.\n\n\n\nThese projects range from gardens and orchards to plazas and other public spaces.\nWhile individual projects may appear small compared with major citywide legislation, investments like these can directly affect how residents experience their neighborhoods."
+  },
+  {
+    "objectID": "posts/Example_assignment/city-council-july15.html#development-and-preservation-are-reshaping-parts-of-chicago",
+    "href": "posts/Example_assignment/city-council-july15.html#development-and-preservation-are-reshaping-parts-of-chicago",
+    "title": "What Chicagoans Should Know from the July 15 City Council Meeting",
+    "section": "Development and preservation are reshaping parts of Chicago",
+    "text": "Development and preservation are reshaping parts of Chicago\nSeveral other decisions dealt with economic development, historic preservation, and the physical development of neighborhoods.\n\nThe K Entrepreneurship Hub\nCouncil approved O2026-0026260, a redevelopment agreement providing Neighborhood Opportunity Fund assistance for The K Entrepreneurship Hub Project at 4400 W. Madison Street.\nThe Neighborhood Opportunity Fund uses fees generated by certain downtown developments to support commercial and cultural projects in underserved neighborhoods.\n\n\nThe Chicago Daily News Building is now a landmark\nCouncil approved the historic landmark designation of the Chicago Daily News Building at 2 N. Riverside Plaza / 400 W. Monroe Street.\nThe building was also the subject of a Class L property-tax incentive approved by Council.\nThe Class L program is designed to encourage the rehabilitation and preservation of qualifying historic buildings."
+  },
+  {
+    "objectID": "posts/Example_assignment/city-council-july15.html#city-government-is-changing-some-of-its-own-rules",
+    "href": "posts/Example_assignment/city-council-july15.html#city-government-is-changing-some-of-its-own-rules",
+    "title": "What Chicagoans Should Know from the July 15 City Council Meeting",
+    "section": "City government is changing some of its own rules",
+    "text": "City government is changing some of its own rules\nNot everything approved at the meeting involved physical development.\nSome measures affect how Chicago government itself operates.\n\nCity Council videos must be downloadable\nCouncil adopted R2026-0023364, changing City Council rules to require video recordings of City Council and committee meetings to be downloadable.\nThat may sound like a small technical change, but it makes public meeting records easier for residents, journalists, researchers, and community organizations to save, review, and analyze.\n\n\nCity officials face new restrictions involving prediction markets\nCouncil passed SO2026-0025003, amending Chicago’s ethics rules.\nThe ordinance prohibits current or former City officials and employees from using or disclosing confidential City information for prediction markets or event-based contracts.\n\n\nNew transit board members were approved\nCouncil approved several appointments to the boards overseeing public transportation in Chicago and northeastern Illinois.\nThe appointments included members of the Chicago Transit Board, Metra Commuter Rail Board, Pace Board, and Northern Illinois Transit Authority Board.\nThese appointments matter because these boards help make decisions about the agencies responsible for moving millions of people throughout the Chicago region.\n\n\nChicago has a new Public Health Commissioner\nCouncil also approved the appointment of Dr. Garth Walker as Commissioner of the Chicago Department of Public Health."
+  },
+  {
+    "objectID": "posts/Example_assignment/city-council-july15.html#also-worth-knowing",
+    "href": "posts/Example_assignment/city-council-july15.html#also-worth-knowing",
+    "title": "What Chicagoans Should Know from the July 15 City Council Meeting",
+    "section": "Also worth knowing",
+    "text": "Also worth knowing\nA few other decisions from the meeting are worth highlighting.\nCouncil approved a hiring preference within the Department of Human Resources for children and spouses of Chicago first responders who were killed in the line of duty.\nCouncil adopted a resolution designating July as Disability Pride Month in Chicago.\nCouncil also adopted a resolution calling for Andrew Boutros to resign as U.S. Attorney for the Northern District of Illinois and calling for a Department of Justice review of obligations connected to Operation Midway Blitz, Broadview prosecutions, and related proceedings.\nSeveral honorary street designations were approved, including Mamie and E.L. Till Road, Honorary Jermaine A. Pelt Way, Honorary Terry Kath Way, and others.\nCouncil also approved changes to liquor-license restrictions in several parts of the city."
+  },
+  {
+    "objectID": "posts/Example_assignment/city-council-july15.html#the-bigger-picture",
+    "href": "posts/Example_assignment/city-council-july15.html#the-bigger-picture",
+    "title": "What Chicagoans Should Know from the July 15 City Council Meeting",
+    "section": "The bigger picture",
+    "text": "The bigger picture\nA City Council meeting can contain hundreds of individual pieces of legislation. Many are hyperlocal — a parking restriction on one block, a sign permit for one business, or an honorary street designation.\nBut taken together, the July 15 meeting also shows some of the larger policy questions Chicago is dealing with.\nHow should Chicago approach public safety technology?\nHow should a city built around street parking transition toward electric vehicles?\nWhat should Chicago do with publicly owned vacant land?\nHow can neighborhood development create housing and public spaces without leaving existing residents behind?\nAnd perhaps most importantly: how much say should Chicagoans have in those decisions?\nThe individual ordinances may look technical. Their effects are not.\n\n\nSources\nThis summary is based on the official legislative records and actions of the Chicago City Council for its July 15, 2026 meeting.\nChicago Office of the City Clerk\nChicago City Council Legislative Information Center"
+  },
+  {
+    "objectID": "data-analysis.html",
+    "href": "data-analysis.html",
+    "title": "Data Analysis",
+    "section": "",
+    "text": "No matching items"
   }
 ]

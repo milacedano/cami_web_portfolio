@@ -1,0 +1,15 @@
+---
+title: "Data Analysis"
+subtitle: "Turning data into clear, meaningful insights through statistics, visualization, and code."
+page-layout: full
+
+listing:
+  contents: posts
+  type: grid
+  sort: "date desc"
+  categories: false
+  include:
+    categories: "data analysis"
+  fields: [image, title, description, date, categories]
+  grid-columns: 3
+---

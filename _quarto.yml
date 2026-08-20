@@ -7,7 +7,7 @@ execute:
   message: false
 
 website:
-  title: "Maria Camila Cedano"
+  title: "Camila Cedano | Data, Policy & Community"
   navbar:
     right:
       - text: "About"

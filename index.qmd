@@ -1,5 +1,4 @@
 ---
-title: "Data, Policy & Community"
 page-layout: full
 title-block-banner: false
 
@@ -9,7 +8,7 @@ listing:
     type: grid
     sort: "date desc"
     categories: false
-    fields: [image, title, description]
+    fields: [image, title, description, categories]
     grid-columns: 3
     include:
       categories: "*featured*"
@@ -34,10 +33,9 @@ I use quantitative tools to explore how neighborhoods work, how policy affects p
 
 ## What I Do
 
-::: {.what-i-do}
-
+:::::: what-i-do
 ::: {.skill-card .data-card}
-### Data Analysis
+### [Data Analysis](data-analysis.qmd)
 
 I use **R, statistics, and data visualization** to explore patterns, answer questions, and communicate findings clearly.
 
@@ -45,7 +43,7 @@ I use **R, statistics, and data visualization** to explore patterns, answer ques
 :::
 
 ::: {.skill-card .research-card}
-### Research
+### [Research](research.qmd)
 
 I combine **quantitative analysis and community perspectives** to investigate questions about cities and the people who live in them.
 
@@ -53,21 +51,18 @@ I combine **quantitative analysis and community perspectives** to investigate qu
 :::
 
 ::: {.skill-card .policy-card}
-### Public Policy
+### [Public Policy](public-policy.qmd)
 
 I'm interested in using data and research to understand **local government, urban policy, and community issues**, especially in Chicago.
 
 `Policy Analysis` `Local Government` `Urban Issues`
 :::
-
-:::
+::::::
 
 ## A Little About Me
 
-Chicago has always been home, and growing up here has given me a real appreciation for the city, its neighborhoods, and the communities that make each one unique. As a Colombian-American, I also value the different cultures and perspectives that shape the places around us—, which is something that has naturally influenced my interest in community and public policy.
+Chicago has always been home, and growing up here has given me a real appreciation for the city, its neighborhoods, and the communities that make each one unique. As a Colombian-American, I also value the different cultures and perspectives that shape the places around us, which is something that has naturally influenced my interest in community and public policy.
 
 Outside of work and school, I spend a lot of my free time on puzzles, especially GeoGuessr and, lately, puzzles from the Magic Puzzle Company. I’m also a big coffee person and always appreciate finding a good coffee shop around the city.
 
 [View My Background](about.qmd)
-
-

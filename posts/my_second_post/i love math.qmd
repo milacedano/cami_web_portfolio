@@ -1,11 +1,11 @@
 ---
-title: "i love math"
+title: "CTY vs HWY"
 author: "Maria Camila Cedano"
 date: "2026-08-16"
-categories: [featured, goals]
+categories: [featured, transportation, public policy]
 ---
 
-Math is the best i love it. no idea whats going on
+This is a graph that shows...
 
 ```{r}
 library(ggplot2)
