@@ -6,10 +6,11 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Camila Cedano">
 <meta name="dcterms.date" content="2026-08-20">
-<meta name="description" content="An analysis of monthly ridership patterns across CTA Blue Line stations.">
+<meta name="description" content="Analyzing monthly ridership trends across CTA Blue Line stations using R.">
 
-<title>CTA Blue Line Ridership Analysis – Camila Cedano | Data, Policy &amp; Community</title>
+<title>Exploring CTA Blue Line Ridership with R – Camila Cedano | Data, Policy &amp; Community</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,6 +22,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -123,23 +159,29 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">CTA Blue Line Ridership Analysis</h1>
+<h1 class="title">Exploring CTA Blue Line Ridership with R</h1>
   <div class="quarto-categories">
     <div class="quarto-category">data analysis</div>
     <div class="quarto-category">featured</div>
-    <div class="quarto-category">transportation</div>
+    <div class="quarto-category">public transportation</div>
   </div>
   </div>
 
 <div>
   <div class="description">
-    An analysis of monthly ridership patterns across CTA Blue Line stations.
+    Analyzing monthly ridership trends across CTA Blue Line stations using R.
   </div>
 </div>
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Camila Cedano </p>
+          </div>
+  </div>
     
     <div>
     <div class="quarto-title-meta-heading">Published</div>
@@ -156,13 +198,70 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="introduction" class="level2">
-<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
-<p>The CTA Blue Line is one of Chicago’s major rail lines, connecting O’Hare International Airport and the Northwest Side to Downtown Chicago before continuing west through the Near West Side, West Side, and into the western suburbs.</p>
-<p>This analysis examines monthly station ridership across the Blue Line to identify differences in ridership patterns between stations and different parts of the route.</p>
-<p>Rather than examining the Blue Line as a single system, stations are grouped geographically to better understand how ridership varies across different sections of the line.</p>
-<p>The analysis uses monthly CTA station-entry data.</p>
-<hr>
+<section id="overview" class="level2">
+<h2 class="anchored" data-anchor-id="overview">Overview</h2>
+<p>The CTA Blue Line is one of Chicago’s major rapid transit routes, running between O’Hare International Airport on the Northwest Side and Forest Park in the western suburbs. Along the way, the line passes through Northwest Side neighborhoods, the Milwaukee Avenue corridor, Downtown Chicago, and the West Side.</p>
+<p>This project is also a little personal to me. For four years, I took the Blue Line almost every day to get to school, so it became a major part of my daily routine and one of the parts of Chicago’s transit system I know best. I also spend a lot of time in Logan Square, one of my favorite neighborhoods to hang out in, so I’ve experienced the Blue Line not only as a commuter, but also as a way to explore and enjoy the city.</p>
+<p>That personal connection made me curious about what the ridership data could tell me about a route I already knew so well. Why do some stations attract significantly more riders than others? How does ridership change depending on where you are along the line? And what can the patterns tell us about the different roles Blue Line stations play within Chicago’s transportation system?</p>
+<p>This project examines monthly ridership at stations served by the Blue Line to explore those questions. Rather than looking only at total Blue Line ridership, the analysis focuses on individual stations and considers how transportation connections, major destinations, neighborhood location, and seasonality may relate to the patterns observed in the data.</p>
+<p>The analysis covers <strong>August 2024 through June 2026</strong>.</p>
+</section>
+<section id="tools" class="level2">
+<h2 class="anchored" data-anchor-id="tools">Tools</h2>
+<ul>
+<li><strong>R</strong> for data cleaning and analysis</li>
+<li><strong>dplyr</strong> for filtering and transforming the data</li>
+<li><strong>ggplot2</strong> for data visualization</li>
+<li><strong>Quarto</strong> for documenting and presenting the analysis</li>
+</ul>
+</section>
+<section id="preparing-the-data" class="level2">
+<h2 class="anchored" data-anchor-id="preparing-the-data">Preparing the Data</h2>
+<p>The dataset contains monthly CTA station ridership totals along with information about which rail routes serve each station.</p>
+<p>Before analyzing the Blue Line, the data was prepared by loading the necessary R packages, importing the CTA ridership dataset, and converting the month variable into a date format that could be used for visualization.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>ctastations <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">"CTA-ridership-routes.csv"</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>ctastations<span class="sc">$</span>month_beginning <span class="ot">&lt;-</span> <span class="fu">as.Date</span>(</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  ctastations<span class="sc">$</span>month_beginning</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Each observation represents the monthly number of station entries recorded at a CTA rail station.</p>
+<p>Because some CTA stations serve multiple rail lines, the route variable may contain more than one route. This is important when interpreting station-level ridership because entries at transfer stations cannot necessarily be attributed exclusively to the Blue Line.</p>
+</section>
+<section id="filtering-blue-line-stations" class="level2">
+<h2 class="anchored" data-anchor-id="filtering-blue-line-stations">Filtering Blue Line Stations</h2>
+<p>To focus the analysis on stations served by the Blue Line, the full CTA dataset was filtered using the <code>route</code> variable.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>blueline <span class="ot">&lt;-</span> ctastations <span class="sc">%&gt;%</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">grepl</span>(<span class="st">"Blue"</span>, route))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>This creates a new dataset called <code>blueline</code> containing only stations where the Blue Line is listed as one of the routes serving the station.</p>
+<p>The stations were then organized geographically to make comparisons between different portions of the route easier.</p>
+<p>The analysis uses the following groups:</p>
+<ul>
+<li><strong>O’Hare</strong></li>
+<li><strong>Far Northwest Side:</strong> Rosemont through Irving Park</li>
+<li><strong>Northwest Side:</strong> Addison through Damen</li>
+<li><strong>Near Northwest Side:</strong> Division through Grand</li>
+<li><strong>Downtown:</strong> Clark/Lake through LaSalle</li>
+<li><strong>Near West Side:</strong> Clinton through Kedzie-Homan</li>
+<li><strong>West Side:</strong> Pulaski through Forest Park</li>
+</ul>
+<p>These categories are used for this analysis and are not official CTA geographic classifications.</p>
+</section>
+<section id="ridership-by-station" class="level2">
+<h2 class="anchored" data-anchor-id="ridership-by-station">Ridership by Station</h2>
+<p>Rather than combining all Blue Line stations into a single ridership total, monthly ridership was plotted separately for each station.</p>
+<p>This makes it possible to identify patterns that would be difficult to see at the route level, including seasonal changes, differences between neighboring stations, unusually high-ridership stations, and changes that affect only certain portions of the Blue Line.</p>
+<p>For example, O’Hare is shown separately because its ridership is substantially higher than many nearby stations and because its role as an airport station makes it fundamentally different from a typical neighborhood station.</p>
+<p>Stations within each geographic section are displayed using the same y-axis scale whenever possible. This allows the relative size of ridership differences between stations in the same section to be compared directly.</p>
+<p>The following sections examine these patterns beginning at O’Hare and moving east toward Downtown before continuing west to Forest Park.</p>
 </section>
 <section id="ohare" class="level2">
 <h2 class="anchored" data-anchor-id="ohare">O’Hare</h2>
