@@ -1,0 +1,15 @@
+---
+title: "Public Policy"
+subtitle: "Examining the policies, decisions, and systems that shape cities and communities."
+page-layout: full
+
+listing:
+  contents: posts
+  type: grid
+  sort: "date desc"
+  categories: false
+  include:
+    categories: "public policy"
+  fields: [image, title, description, date, categories]
+  grid-columns: 3
+---
