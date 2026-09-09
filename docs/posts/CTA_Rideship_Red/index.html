@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.27">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Camila Cedano">
+<meta name="dcterms.date" content="2026-08-20">
+<meta name="description" content="Analyzing monthly ridership trends across CTA Red Line stations using R.">
+
+<title>Exploring CTA Red Line Ridership with R – Camila Cedano | Data, Policy &amp; Community</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-4d0a8ab1528a2302dba6d67982759051.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed fullcontent quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Camila Cedano | Data, Policy &amp; Community</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/milacedano"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/maria-camila-cedano/"> <i class="bi bi-linkedin" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Exploring CTA Red Line Ridership with R</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">data analysis</div>
+    <div class="quarto-category">transportation</div>
+    <div class="quarto-category">featured</div>
+  </div>
+  </div>
+
+<div>
+  <div class="description">
+    Analyzing monthly ridership trends across CTA Red Line stations using R.
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Camila Cedano </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">August 20, 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="overview" class="level2">
+<h2 class="anchored" data-anchor-id="overview">Overview</h2>
+<p>How does ridership vary across CTA Red Line stations?</p>
+<p>In this project, I used R to explore monthly CTA station ridership data, focusing specifically on the Red Line. I cleaned and organized the dataset, identified stations served by the Red Line, and created time-series visualizations to compare ridership patterns across stations.</p>
+<p>Because the Red Line extends across a large portion of Chicago, displaying every station in a single visualization made the results difficult to interpret. I divided the stations into five geographic groups to make differences in ridership more visible:</p>
+<ul>
+<li>Far North Side</li>
+<li>North Side</li>
+<li>Near North / Downtown</li>
+<li>South Side</li>
+<li>Far South Side</li>
+</ul>
+</section>
+<section id="tools" class="level2">
+<h2 class="anchored" data-anchor-id="tools">Tools</h2>
+<ul>
+<li>R</li>
+<li>ggplot2</li>
+<li>dplyr</li>
+<li>tidyr ## Preparing the Data I began by importing the CTA ridership dataset into R.</li>
+</ul>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>ctastations <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"CTA-ridership-routes.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>The monthly ridership totals were initially stored as text, so I converted them into numeric values. I also converted the month variable into a date format so that it could be used correctly in visualizations.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>ctastations <span class="ot">&lt;-</span> ctastations <span class="sc">%&gt;%</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">monthtotal =</span> <span class="fu">as.numeric</span>(</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>      <span class="fu">gsub</span>(<span class="st">","</span>, <span class="st">""</span>, monthtotal)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">month_beginning =</span> <span class="fu">as.Date</span>(</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>      month_beginning,</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>      <span class="at">format =</span> <span class="st">"%m/%d/%Y"</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="filtering-red-line-stations" class="level2">
+<h2 class="anchored" data-anchor-id="filtering-red-line-stations">Filtering Red Line Stations</h2>
+<p>Some CTA stations serve more than one rail line. Because of this, I filtered for any station whose route information included the Red Line.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>redline <span class="ot">&lt;-</span> ctastations <span class="sc">%&gt;%</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">grepl</span>(<span class="st">"Red"</span>, route))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>This allowed transfer stations that serve the Red Line alongside other routes to remain part of the analysis.</p>
+</section>
+<section id="ridership-by-station" class="level2">
+<h2 class="anchored" data-anchor-id="ridership-by-station">Ridership by Station</h2>
+<p>Initially, I plotted every Red Line station together. However, having a separate line for every station made the visualization difficult to read.</p>
+<p>Instead, I grouped stations geographically and created small-multiple charts. Each panel represents one station and shows how its monthly ridership changed over time.</p>
+</section>
+<section id="far-north-side" class="level2">
+<h2 class="anchored" data-anchor-id="far-north-side">Far North Side</h2>
+<p>The Far North Side group includes stations from Howard through Berwyn.</p>
+<p><img src="images/red-line-super-north.png" class="img-fluid"></p>
+<section id="key-findings" class="level3">
+<h3 class="anchored" data-anchor-id="key-findings">Key Findings</h3>
+<ul>
+<li><p><strong>Howard:</strong> Howard has some of the highest ridership in this section, averaging approximately 89,000 monthly rides during the period analyzed. As the northern terminal of the Red Line, Howard also connects passengers with the Purple and Yellow lines and several bus routes. This allows the station to serve riders from the Far North Side as well as passengers traveling from areas farther north.</p></li>
+<li><p><strong>Jarvis:</strong> Jarvis has the lowest ridership in the Far North Side group, averaging approximately 29,000 monthly rides. Unlike Howard, it primarily functions as a neighborhood station and does not serve as a major rail transfer point. Its location between Howard and Morse also means nearby residents have multiple Red Line stations available to them.</p></li>
+<li><p><strong>Morse:</strong> Morse maintains substantially higher ridership than Jarvis and primarily serves the surrounding Rogers Park neighborhood. Its ridership is relatively consistent compared with stations affected by closures or major seasonal destinations.</p></li>
+<li><p><strong>Loyola:</strong> Loyola is the busiest station in this section, averaging approximately 93,000 monthly rides. The station directly serves Loyola University’s Lake Shore Campus, making it an important destination for students, faculty, staff, and visitors. Its ridership likely reflects both neighborhood travel and university-related demand.</p></li>
+<li><p><strong>Granville:</strong> Granville maintains moderate ridership compared with neighboring Loyola and Thorndale. It primarily functions as a neighborhood station serving Edgewater rather than as a major transfer or destination station.</p></li>
+<li><p><strong>Thorndale:</strong> Thorndale records lower ridership than nearby Loyola and Granville. Like Jarvis, it primarily serves the surrounding residential neighborhood and does not provide major rail connections. Its proximity to several other Red Line stations may also distribute local riders among multiple stations.</p></li>
+<li><p><strong>Bryn Mawr:</strong> Bryn Mawr experiences a noticeable shift in ridership after July 2025. During the first half of the period analyzed, the temporary station provided southbound service only. The rebuilt Bryn Mawr station opened in July 2025, restoring service in both directions. Following the reopening, monthly ridership increased steadily and exceeded 80,000 rides by June 2026. The restoration of full service may help explain this increase.</p></li>
+<li><p><strong>Berwyn:</strong> Berwyn records zero ridership until July 2025 before quickly returning to substantial monthly ridership. The station was closed from May 2021 through June 2025 for reconstruction, meaning the zero values represent a station closure rather than an absence of passenger demand.</p></li>
+</ul>
+<p><img src="images/Berwyn Before and After.png" class="img-fluid"></p>
+</section>
+</section>
+<section id="north-side" class="level2">
+<h2 class="anchored" data-anchor-id="north-side">North Side</h2>
+<p>The North Side group includes stations from Argyle through Fullerton.</p>
+<p><img src="images/red-line-north.png" class="img-fluid"></p>
+<section id="key-findings-1" class="level3">
+<h3 class="anchored" data-anchor-id="key-findings-1">Key Findings</h3>
+<ul>
+<li><p><strong>Argyle:</strong> Argyle maintains ridership throughout the period analyzed, although the station was affected by construction associated with the Red and Purple Modernization project. Unlike Lawrence, Berwyn, and Bryn Mawr, Argyle remained accessible to riders through a temporary station during construction. Changes in its ridership during this period should therefore be interpreted with the construction project in mind, but the station did not experience the same zero-ridership period seen at the fully closed stations.</p></li>
+<li><p><strong>Lawrence:</strong> Lawrence records zero ridership through June 2025 before ridership appears in July. The station had been closed since 2021 for reconstruction, so its graph primarily captures the station’s return to service rather than a normal multi-year ridership trend.</p></li>
+</ul>
+<p><img src="images/Lawrence Before and After.png" class="img-fluid"></p>
+<ul>
+<li><p><strong>Wilson:</strong> Wilson has comparatively strong ridership within this section. In addition to serving Uptown, Wilson is served by both Red and Purple Line trains during Purple Line Express operating periods, giving it a different role from nearby Red-only stations.</p></li>
+<li><p><strong>Sheridan:</strong> Sheridan maintains moderate ridership but generally remains below Belmont and Fullerton. It primarily serves surrounding Lakeview neighborhoods and does not provide the same rail-transfer opportunities as the two major stations immediately to its south.</p></li>
+<li><p><strong>Addison:</strong> Addison displays one of the clearest seasonal patterns on the Red Line. Ridership rises substantially during the warmer months, reaching approximately 262,000 rides in August 2025. The station directly serves Wrigley Field, and the timing of these increases overlaps with the Chicago Cubs baseball season. The station-level data alone cannot establish that Cubs games caused the increase, but Wrigley Field activity is a plausible contributor to the seasonal pattern.</p></li>
+<li><p><strong>Belmont:</strong> Belmont is one of the busiest stations in the North Side group. However, it is served by the Red, Brown, and Purple lines, meaning its station-entry totals cannot be interpreted as Red Line ridership alone. Its role as a major transfer point and its location in a dense part of Lakeview likely contribute to its high usage.</p></li>
+<li><p><strong>Fullerton:</strong> Fullerton also records some of the highest ridership in this section and, like Belmont, is served by the Red, Brown, and Purple lines. The station also serves Lincoln Park and is located near DePaul University’s Lincoln Park Campus. Its high ridership may therefore reflect a combination of transfers, neighborhood activity, and university-related travel.</p></li>
+</ul>
+</section>
+</section>
+<section id="near-north-downtown" class="level2">
+<h2 class="anchored" data-anchor-id="near-north-downtown">Near North / Downtown</h2>
+<p>This group follows the Red Line from North/Clybourn through Roosevelt.</p>
+<p><img src="images/red-line-downtown.png" class="img-fluid"></p>
+<section id="key-findings-2" class="level3">
+<h3 class="anchored" data-anchor-id="key-findings-2">Key Findings</h3>
+<ul>
+<li><p><strong>North/Clybourn:</strong> North/Clybourn has lower ridership than the busiest Downtown stations but serves an important commercial and residential area around North and Clybourn. Its ridership is relatively stable compared with stations associated with major seasonal destinations.</p></li>
+<li><p><strong>Clark/Division:</strong> Clark/Division maintains relatively strong ridership and serves the Near North Side, including portions of the Gold Coast and Old Town. Unlike some Downtown stations, it does not directly connect with another CTA rail line, so its ridership is more closely associated with surrounding neighborhoods, businesses, destinations, and bus connections.</p></li>
+<li><p><strong>Chicago:</strong> Chicago has consistently high ridership and serves one of the busiest portions of the Near North Side. Its location near Michigan Avenue, Water Tower Place, Northwestern University’s downtown campus, hospitals, offices, retail, and tourist destinations provides several potential sources of passenger demand.</p></li>
+<li><p><strong>Grand:</strong> Grand also maintains substantial ridership and serves the River North area. Its location near hotels, restaurants, nightlife, offices, and tourist destinations means its passenger base may include commuters, residents, and visitors rather than being dominated by a single type of trip.</p></li>
+<li><p><strong>Lake:</strong> Lake has the highest average ridership in this section, averaging approximately 292,000 monthly rides. Its high ridership should be interpreted in the context of its central Downtown location and its role as a major transfer point. Lake connects Red Line riders with the nearby elevated State/Lake station, which historically served the Brown, Green, Orange, Pink, and Purple lines. The State/Lake station closed for reconstruction on January 5, 2026, which may affect transfer patterns toward the end of the period analyzed.</p></li>
+<li><p><strong>Monroe:</strong> Monroe maintains substantial Downtown ridership but does not have the extensive rail-transfer connections available at Lake. Its location in the central Loop places it near major employment, retail, cultural, and tourist destinations, demonstrating how Downtown activity can generate high ridership even without direct transfers to another rail line.</p></li>
+<li><p><strong>Jackson:</strong> Jackson is another important Downtown station and provides a pedestrian connection between the Red and Blue lines. Its ridership therefore may include passengers using the station as a transfer point in addition to passengers traveling to destinations within the surrounding Loop.</p></li>
+<li><p><strong>Harrison:</strong> Harrison has the lowest average ridership in this section at approximately 69,000 monthly rides. This is particularly notable because it is located only a short distance from much busier Downtown stations. The difference demonstrates that being located in Downtown alone does not guarantee equally high station usage.</p></li>
+<li><p><strong>Roosevelt:</strong> Roosevelt is one of the most important transfer stations south of the Loop. It is served by the Red, Green, and Orange lines and provides access to the South Loop and nearby destinations such as Museum Campus. Its station totals therefore reflect passengers using multiple CTA rail services rather than Red Line passengers alone.</p></li>
+</ul>
+</section>
+</section>
+<section id="south-side" class="level2">
+<h2 class="anchored" data-anchor-id="south-side">South Side</h2>
+<p>The South Side group includes stations from Cermak-Chinatown through Garfield.</p>
+<p><img src="images/red-line-south.png" class="img-fluid"></p>
+<section id="key-findings-3" class="level3">
+<h3 class="anchored" data-anchor-id="key-findings-3">Key Findings</h3>
+<ul>
+<li><p><strong>Cermak-Chinatown:</strong> Cermak-Chinatown has the highest ridership among the stations in this group, averaging approximately 132,000 monthly rides. The station serves Chinatown and the surrounding Near South Side, giving it access to a major residential, commercial, dining, and visitor destination. Its location immediately south of Downtown may also contribute to its comparatively high usage.</p></li>
+<li><p><strong>Sox-35th:</strong> Sox-35th has the second-highest average ridership in this section at approximately 83,000 monthly rides and shows noticeable seasonal variation. The station directly serves Rate Field, home of the Chicago White Sox. Increased activity during baseball season may therefore contribute to warmer-month ridership, although the monthly station data alone cannot establish causation.</p></li>
+<li><p><strong>47th:</strong> 47th has substantially lower ridership than Cermak-Chinatown and Sox-35th. It primarily functions as a neighborhood and bus-connection station rather than serving a major regional destination, which may partly explain the difference.</p></li>
+<li><p><strong>Garfield:</strong> Garfield maintains moderate ridership and serves as an important connection between the Red Line and east-west bus service. Its role is primarily that of a neighborhood transportation connection rather than a major entertainment or Downtown destination.</p></li>
+</ul>
+<p>Overall, combined monthly ridership across these South Side stations increased from approximately 298,000 in August 2024 to 425,000 in June 2026, an increase of roughly 43%.</p>
+</section>
+</section>
+<section id="far-south-side" class="level2">
+<h2 class="anchored" data-anchor-id="far-south-side">Far South Side</h2>
+<p>The Far South Side group includes stations from 63rd through 95th/Dan Ryan.</p>
+<p><img src="images/red-line-super-south.png" class="img-fluid"></p>
+<section id="key-findings-4" class="level3">
+<h3 class="anchored" data-anchor-id="key-findings-4">Key Findings</h3>
+<ul>
+<li><p><strong>63rd:</strong> 63rd records the lowest ridership among the Far South Side stations. It primarily serves surrounding neighborhoods and connecting bus passengers and does not have the terminal function or extensive regional bus connections found at 95th/Dan Ryan.</p></li>
+<li><p><strong>69th:</strong> 69th averages approximately 71,000 monthly rides and maintains higher ridership than 63rd. Its location along a major east-west corridor and connections with CTA bus service allow it to serve riders traveling from neighborhoods beyond the immediate station area.</p></li>
+<li><p><strong>79th:</strong> 79th is the second-busiest station in this section, averaging approximately 98,000 monthly rides. 79th Street is a major east-west transportation corridor, and bus connections allow the station to draw riders from communities located east and west of the Dan Ryan Expressway.</p></li>
+<li><p><strong>87th:</strong> 87th maintains substantial ridership but remains below 79th and 95th/Dan Ryan. Like the other intermediate Dan Ryan stations, it serves as an important connection between east-west bus routes and north-south Red Line service.</p></li>
+<li><p><strong>95th/Dan Ryan:</strong> 95th/Dan Ryan is the busiest station in the Far South Side group, averaging approximately 145,000 monthly rides. Its importance extends beyond the immediate neighborhood because it is the southern terminal of the Red Line and a major bus terminal. CTA and Pace routes connect the station with Far South Side neighborhoods and nearby south suburban communities, allowing passengers from areas without direct rail service to transfer to the Red Line. Its high ridership therefore reflects its role as a regional transportation gateway as well as a neighborhood station.</p></li>
+</ul>
+<p>Combined monthly ridership across the Far South Side stations increased from approximately 370,000 in August 2024 to 459,000 in June 2026, an increase of roughly 24%. All five stations recorded higher ridership in June 2026 than in August 2024.</p>
+</section>
+</section>
+<section id="overall-findings" class="level2">
+<h2 class="anchored" data-anchor-id="overall-findings">Overall Findings</h2>
+<p>Several broader patterns emerge when Red Line ridership is examined geographically.</p>
+<p>First, <strong>stations appear to play different roles within the Red Line network</strong>. Some stations primarily serve surrounding neighborhoods, while others function as major destinations, transfer hubs, or regional gateways. These differences help explain why stations located relatively close to one another can have substantially different ridership levels.</p>
+<p><strong>Major destinations appear to be associated with distinctive ridership patterns.</strong> Loyola directly serves Loyola University, Addison serves Wrigley Field, and Sox-35th serves Rate Field. Addison and Sox-35th also show seasonal patterns that correspond with baseball season, while Loyola maintains relatively high ridership near a major university.</p>
+<p><strong>Transfer stations are among some of the highest-ridership stations on the line.</strong> Howard connects the Red Line with the Purple and Yellow lines, Belmont and Fullerton connect with the Brown and Purple lines, Lake provides connections with several elevated lines, Jackson connects with the Blue Line, and Roosevelt is served by the Red, Green, and Orange lines. Station entries at these locations therefore reflect their role within the broader CTA rail network rather than Red Line usage alone.</p>
+<p><strong>The terminal stations function as regional transportation gateways.</strong> Howard serves as a connection point for riders traveling between Chicago’s Far North Side and areas farther north, while 95th/Dan Ryan connects the Red Line with numerous bus routes serving the Far South Side and nearby suburbs. Their ridership demonstrates how the geographic reach of a CTA station can extend well beyond the neighborhood immediately surrounding it.</p>
+<p><strong>High ridership and ridership growth are not necessarily the same thing.</strong> North Side and Downtown stations include many of the highest-ridership stations in the dataset, while the South Side and Far South Side groups experienced substantial increases during the period analyzed.</p>
+<p>Finally, <strong>station construction and service changes create patterns that require additional context.</strong> Berwyn and Lawrence were closed for reconstruction during part of the period analyzed, resulting in periods of zero ridership before reopening in 2025. Bryn Mawr and Argyle remained in service through temporary stations, although construction affected how those stations operated. In particular, Bryn Mawr provided southbound service only until the rebuilt station opened in July 2025. These differences demonstrate why changes in station ridership should be interpreted alongside changes in station availability and service.</p>
+<p>Together, these patterns suggest that Red Line station ridership is shaped by a combination of station function, transportation connections, nearby destinations, geography, and changes to the transit system itself.</p>
+</section>
+<section id="data-limitations" class="level2">
+<h2 class="anchored" data-anchor-id="data-limitations">Data Limitations</h2>
+<p>These findings describe <strong>station entries</strong>, not the exact number of passengers riding Red Line trains.</p>
+<p>Several Red Line stations are served by multiple CTA rail lines. At these transfer stations, the dataset records station ridership but does not identify which rail line each passenger ultimately used. Therefore, the analysis should be interpreted as ridership at <strong>stations served by the Red Line</strong>, rather than exact Red Line train ridership.</p>
+<p>The dataset also does not identify passengers’ origins, destinations, reasons for traveling, or how they reached a station. For example, the data cannot determine how many passengers entering Loyola were traveling to the university, how many Addison riders were attending Cubs games, or how many passengers at 95th/Dan Ryan arrived using connecting bus service.</p>
+<p>Monthly station totals can also be influenced by factors that are not directly represented in the dataset, including the number of days in each month, construction, station closures, service disruptions, weather, special events, and changes in connecting transit service.</p>
+<p>For these reasons, nearby universities, sporting venues, transfer opportunities, and bus connections provide useful context for interpreting the graphs but should not be treated as proof that they caused the observed ridership patterns. Additional data would be necessary to establish those relationships.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

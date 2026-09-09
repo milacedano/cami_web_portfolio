@@ -1,2 +1,14 @@
+<<<<<<< HEAD
 .Rproj.user/
 12755500
+=======
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+/.quarto
+
+/.quarto/
+
+**/*.quarto_ipynb
+>>>>>>> 1e2852f447be533e28ec7be6f242e848244ab833

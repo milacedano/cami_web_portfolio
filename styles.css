@@ -1,0 +1,766 @@
+/* =========================================
+   CAMILA CEDANO — PORTFOLIO
+   Editorial + Colorful + Professional
+   ========================================= */
+
+:root {
+
+  /* =========================================
+     BASE COLORS
+     ========================================= */
+
+  --cream: #faf7f2;
+  --white: #ffffff;
+
+  --ink: #292a2d;
+  --text: #55545a;
+  --muted: #7a787d;
+
+  /* =========================================
+     BOLD ACCENTS
+     ========================================= */
+
+  --blue: #4263a8;
+  --teal: #3d8b82;
+  --mustard: #d5a93c;
+  --terracotta: #c96f4b;
+  --sage: #82977a;
+
+  /* =========================================
+     LIGHT ACCENTS
+     ========================================= */
+
+  --blue-light: #e1e7f2;
+  --teal-light: #ddede9;
+  --mustard-light: #f4e8bd;
+  --terracotta-light: #f2ded4;
+  --sage-light: #e2e9de;
+
+  /* =========================================
+     FEATURED PROJECTS
+     ========================================= */
+
+  --featured: #edc1b5;
+  --featured-accent: #b95f4b;
+
+  /* =========================================
+     BORDERS
+     ========================================= */
+
+  --border: #ddd8d1;
+}
+
+
+/* =========================================
+   PAGE
+   ========================================= */
+
+body {
+  background-color: var(--cream);
+  color: var(--text);
+  font-family:
+    "Inter",
+    "Segoe UI",
+    Arial,
+    sans-serif;
+  line-height: 1.7;
+}
+
+main {
+  max-width: 1150px;
+  margin: auto;
+}
+
+
+/* =========================================
+   NAVBAR
+   ========================================= */
+
+.navbar {
+  background-color: rgba(250, 247, 242, 0.97) !important;
+  border-bottom: 1px solid var(--border);
+  padding: 1rem 2rem;
+}
+
+.navbar-brand {
+  color: var(--ink) !important;
+  font-weight: 700;
+  font-size: 1.15rem;
+  letter-spacing: -0.02em;
+}
+
+.navbar-nav .nav-link {
+  color: var(--ink) !important;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.navbar-nav .nav-link:hover {
+  color: var(--terracotta) !important;
+}
+
+
+/* =========================================
+   HERO
+   ========================================= */
+
+.hero {
+  position: relative;
+
+  padding: 6rem 2rem 5rem;
+
+  max-width: 950px;
+  margin: auto;
+
+  text-align: center;
+
+  overflow: hidden;
+}
+
+
+/* =========================================
+   HERO TITLE
+   ========================================= */
+
+.hero h1 {
+  position: relative;
+  z-index: 2;
+
+  color: var(--ink);
+
+  font-size: clamp(3.4rem, 7vw, 5.4rem);
+
+  font-weight: 750;
+
+  line-height: 1;
+
+  letter-spacing: -0.055em;
+
+  margin-bottom: 1.6rem;
+}
+
+
+/* =========================================
+   HERO TEXT
+   ========================================= */
+
+.hero p {
+  position: relative;
+  z-index: 2;
+
+  max-width: 720px;
+
+  margin-left: auto;
+  margin-right: auto;
+
+  font-size: 1.18rem;
+
+  line-height: 1.8;
+}
+
+
+/* =========================================
+   HEADINGS
+   ========================================= */
+
+h1,
+h2,
+h3,
+h4 {
+  color: var(--ink);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+}
+
+h2 {
+  font-size: 2rem;
+
+  margin-top: 4.5rem;
+  margin-bottom: 2rem;
+}
+
+
+/* =========================================
+   LINKS
+   ========================================= */
+
+a {
+  color: var(--blue);
+  text-decoration: none;
+
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--terracotta);
+}
+
+
+/* =========================================
+   BUTTONS
+   ========================================= */
+
+.btn {
+  border-radius: 999px;
+
+  padding: 0.72rem 1.55rem;
+
+  margin: 1rem 0.25rem 0;
+
+  font-weight: 600;
+
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
+}
+
+
+/* =========================================
+   PRIMARY BUTTON
+   View My Work
+   ========================================= */
+
+.btn-primary {
+  background-color: var(--ink);
+
+  border: 2px solid var(--ink);
+
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: var(--blue);
+
+  border-color: var(--blue);
+
+  color: white;
+
+  transform: translateY(-2px);
+}
+
+
+/* =========================================
+   SECONDARY BUTTON
+   Background
+   ========================================= */
+
+.btn-outline-primary {
+  background-color: transparent;
+
+  border: 2px solid var(--terracotta);
+
+  color: var(--terracotta);
+}
+
+.btn-outline-primary:hover {
+  background-color: var(--terracotta-light);
+
+  border-color: var(--terracotta);
+
+  color: var(--terracotta);
+
+  transform: translateY(-2px);
+}
+
+
+/* =========================================
+   PROJECT LISTING
+   ========================================= */
+
+.quarto-listing-container-grid {
+  margin-top: 2rem;
+}
+
+.quarto-listing-container-grid .list-grid {
+  gap: 1.75rem;
+}
+
+
+/* =========================================
+   FEATURED PROJECT CARDS
+   ========================================= */
+
+.quarto-grid-item {
+  position: relative;
+
+  background-color: var(--featured) !important;
+
+  border: 1px solid rgba(185, 95, 75, 0.18) !important;
+
+  border-radius: 22px !important;
+
+  overflow: hidden;
+
+  box-shadow:
+    0 5px 18px rgba(41, 42, 45, 0.07) !important;
+
+  transition:
+    transform 0.22s ease,
+    box-shadow 0.22s ease;
+
+  isolation: isolate;
+}
+
+
+/* decorative project shape */
+
+.quarto-grid-item::after {
+  content: "";
+
+  position: absolute;
+
+  width: 100px;
+  height: 100px;
+
+  right: -40px;
+  bottom: -40px;
+
+  background-color: var(--featured-accent);
+
+  opacity: 0.14;
+
+  border-radius:
+    62% 38% 53% 47% /
+    42% 57% 43% 58%;
+
+  transform: rotate(20deg);
+
+  pointer-events: none;
+
+  z-index: 0;
+}
+
+
+/* project hover */
+
+.quarto-grid-item:hover {
+  transform: translateY(-5px);
+
+  box-shadow:
+    0 13px 28px rgba(41, 42, 45, 0.12) !important;
+}
+
+
+/* =========================================
+   PROJECT IMAGES
+   ========================================= */
+
+.quarto-grid-item .card-img-top {
+  position: relative;
+  z-index: 1;
+
+  width: 100%;
+
+  height: 190px;
+
+  object-fit: cover;
+}
+
+
+/* =========================================
+   PROJECT CARD CONTENT
+   ========================================= */
+
+.quarto-grid-item .card-body {
+  position: relative;
+
+  z-index: 2;
+
+  padding: 1.7rem;
+}
+
+.quarto-grid-item .listing-title {
+  color: var(--ink);
+
+  font-size: 1.35rem;
+
+  font-weight: 700;
+
+  line-height: 1.3;
+
+  margin-bottom: 0.75rem;
+}
+
+.quarto-grid-item .listing-title a {
+  color: var(--ink);
+}
+
+.quarto-grid-item .listing-title a:hover {
+  color: var(--featured-accent);
+}
+
+.quarto-grid-item .listing-description {
+  color: var(--text);
+
+  font-size: 0.95rem;
+
+  line-height: 1.65;
+}
+
+
+/* =========================================
+   HIDE BLOG INFORMATION
+   ========================================= */
+
+.quarto-grid-item .listing-date,
+.quarto-grid-item .listing-author {
+  display: none;
+}
+
+
+/* =========================================
+   CATEGORY TAGS
+   ========================================= */
+
+.quarto-grid-item .listing-category {
+  background-color: rgba(255, 255, 255, 0.65);
+
+  color: var(--ink);
+
+  border: 1px solid rgba(41, 42, 45, 0.09);
+
+  border-radius: 999px;
+
+  padding: 0.28rem 0.7rem;
+
+  font-size: 0.75rem;
+
+  font-weight: 500;
+}
+
+
+/* =========================================
+   WHAT I DO
+   ========================================= */
+
+.what-i-do {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 1.5rem;
+
+  margin: 1.5rem 0 4rem;
+}
+
+
+/* =========================================
+   SKILL CARDS
+   ========================================= */
+
+.skill-card {
+  position: relative;
+
+  padding: 2rem;
+
+  border-radius: 22px;
+
+  border: 1px solid var(--border);
+
+  overflow: hidden;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+
+  isolation: isolate;
+}
+
+.skill-card:hover {
+  transform: translateY(-4px);
+
+  box-shadow:
+    0 10px 25px rgba(41, 42, 45, 0.09);
+}
+
+
+/* =========================================
+   SKILL CARD DECORATION
+   ========================================= */
+
+.skill-card::after {
+  content: "";
+
+  position: absolute;
+
+  width: 90px;
+  height: 90px;
+
+  right: -30px;
+  bottom: -30px;
+
+  border-radius:
+    60% 40% 55% 45% /
+    45% 60% 40% 55%;
+
+  opacity: 0.18;
+
+  transform: rotate(20deg);
+
+  pointer-events: none;
+
+  z-index: 0;
+}
+
+
+/* =========================================
+   DATA ANALYSIS
+   ========================================= */
+
+.data-card {
+  background-color: var(--blue-light);
+
+  border-color: rgba(66, 99, 168, 0.20);
+}
+
+.data-card::after {
+  background-color: var(--blue);
+}
+
+
+/* =========================================
+   RESEARCH
+   ========================================= */
+
+.research-card {
+  background-color: var(--teal-light);
+
+  border-color: rgba(61, 139, 130, 0.20);
+}
+
+.research-card::after {
+  background-color: var(--teal);
+}
+
+
+/* =========================================
+   PUBLIC POLICY
+   ========================================= */
+
+.policy-card {
+  background-color: var(--mustard-light);
+
+  border-color: rgba(213, 169, 60, 0.25);
+}
+
+.policy-card::after {
+  background-color: var(--mustard);
+}
+
+
+/* =========================================
+   SKILL CARD TEXT
+   ========================================= */
+
+.skill-card h3,
+.skill-card p,
+.skill-card code {
+  position: relative;
+
+  z-index: 2;
+}
+
+.skill-card h3 {
+  margin-top: 0;
+
+  margin-bottom: 1rem;
+
+  color: var(--ink);
+
+  font-size: 1.35rem;
+}
+
+.skill-card p {
+  color: var(--text);
+
+  font-size: 0.95rem;
+
+  line-height: 1.7;
+}
+
+
+/* =========================================
+   SKILL CARD LINKS
+   ========================================= */
+
+.skill-card h3 a {
+  color: var(--ink);
+
+  font-weight: 700;
+
+  text-decoration: none;
+}
+
+.skill-card h3 a:hover {
+  color: var(--terracotta);
+}
+
+
+/* =========================================
+   SKILL TAGS
+   ========================================= */
+
+.skill-card code {
+  display: inline-block;
+
+  background-color: rgba(255, 255, 255, 0.65);
+
+  color: var(--ink);
+
+  border: 1px solid rgba(41, 42, 45, 0.08);
+
+  border-radius: 999px;
+
+  padding: 0.3rem 0.68rem;
+
+  margin: 0.15rem;
+
+  font-family:
+    "Inter",
+    "Segoe UI",
+    Arial,
+    sans-serif;
+
+  font-size: 0.78rem;
+}
+
+
+/* =========================================
+   ABOUT SECTION
+   ========================================= */
+
+#about,
+.about {
+  position: relative;
+}
+
+
+/* =========================================
+   INDIVIDUAL PROJECT PAGE
+   ========================================= */
+
+main.content {
+  padding-top: 2rem !important;
+
+  margin-top: 0 !important;
+}
+
+#quarto-document-content {
+  max-width: 900px;
+
+  width: 100%;
+}
+
+
+/* =========================================
+   ARTICLE TEXT
+   ========================================= */
+
+#quarto-document-content p {
+  line-height: 1.8;
+}
+
+
+/* =========================================
+   BLOCKQUOTES
+   ========================================= */
+
+blockquote {
+  border-left: 4px solid var(--terracotta);
+
+  background-color: var(--terracotta-light);
+
+  padding: 1rem 1.5rem;
+
+  border-radius: 0 14px 14px 0;
+
+  color: var(--text);
+}
+
+
+/* =========================================
+   HORIZONTAL RULES
+   ========================================= */
+
+hr {
+  border: none;
+
+  border-top: 1px solid var(--border);
+
+  margin: 3rem 0;
+}
+
+
+/* =========================================
+   CODE
+   ========================================= */
+
+pre {
+  border-radius: 12px;
+}
+
+code {
+  border-radius: 6px;
+}
+
+
+/* =========================================
+   TEXT SELECTION
+   ========================================= */
+
+::selection {
+  background-color: var(--mustard-light);
+
+  color: var(--ink);
+}
+
+
+/* =========================================
+   MOBILE
+   ========================================= */
+
+@media (max-width: 800px) {
+
+  .hero {
+    padding:
+      4.5rem
+      1.25rem
+      3.5rem;
+  }
+
+  .hero h1 {
+    font-size: 3.2rem;
+  }
+
+  .hero p {
+    font-size: 1.05rem;
+  }
+
+  .hero::before {
+    width: 120px;
+    height: 120px;
+
+    left: -75px;
+  }
+
+  .hero::after {
+    width: 100px;
+    height: 100px;
+
+    right: -60px;
+  }
+
+  .navbar {
+    padding: 0.75rem 1rem;
+  }
+
+  .what-i-do {
+    grid-template-columns: 1fr;
+  }
+
+  h2 {
+    margin-top: 3.5rem;
+  }
+}

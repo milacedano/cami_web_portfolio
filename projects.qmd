@@ -1,0 +1,16 @@
+---
+title: "Projects & Research"
+subtitle: "A collection of my work in data analysis, mathematics, research, and public policy."
+page-layout: full
+listing:
+  contents: posts
+  type: grid
+  sort: "date desc"
+  categories: true
+  sort-ui: false
+  filter-ui: true
+  fields: [image, title, description, date, categories]
+  grid-columns: 3
+---
+
+Here are all of my projects, organized from newest to oldest. Click on the categories to filter them out.
