@@ -6,7 +6,9 @@ date: 2026-08-20
 categories: [data analysis, transportation, featured]
 image: images/red-line-pic.jpg
 ---
+
 ## Overview
+
 How does ridership vary across CTA Red Line stations?
 
 In this project, I used R to explore monthly CTA station ridership data, focusing specifically on the Red Line. I cleaned and organized the dataset, identified stations served by the Red Line, and created time-series visualizations to compare ridership patterns across stations.
@@ -20,12 +22,11 @@ Because the Red Line extends across a large portion of Chicago, displaying every
 - Far South Side
 
 ## Tools
+
 - R
 - ggplot2
 - dplyr
-- tidyr
-## Preparing the Data
-I began by importing the CTA ridership dataset into R.
+- tidyr \## Preparing the Data I began by importing the CTA ridership dataset into R.
 
 ```{r}
 library(ggplot2)
@@ -51,6 +52,7 @@ ctastations <- ctastations %>%
 ```
 
 ## Filtering Red Line Stations
+
 Some CTA stations serve more than one rail line. Because of this, I filtered for any station whose route information included the Red Line.
 
 ```{r}
@@ -61,6 +63,7 @@ redline <- ctastations %>%
 This allowed transfer stations that serve the Red Line alongside other routes to remain part of the analysis.
 
 ## Ridership by Station
+
 Initially, I plotted every Red Line station together. However, having a separate line for every station made the visualization difficult to read.
 
 Instead, I grouped stations geographically and created small-multiple charts. Each panel represents one station and shows how its monthly ridership changed over time.
@@ -89,8 +92,7 @@ The Far North Side group includes stations from Howard through Berwyn.
 
 - **Berwyn:** Berwyn records zero ridership until July 2025 before quickly returning to substantial monthly ridership. The station was closed from May 2021 through June 2025 for reconstruction, meaning the zero values represent a station closure rather than an absence of passenger demand.
 
-![](images/Berwyn Before and After.png)
-
+![](images/Berwyn%20Before%20and%20After.png)
 
 ## North Side
 
@@ -104,7 +106,7 @@ The North Side group includes stations from Argyle through Fullerton.
 
 - **Lawrence:** Lawrence records zero ridership through June 2025 before ridership appears in July. The station had been closed since 2021 for reconstruction, so its graph primarily captures the station's return to service rather than a normal multi-year ridership trend.
 
-![](images/Lawrence Before and After.png)
+![](images/Lawrence%20Before%20and%20After.png)
 
 - **Wilson:** Wilson has comparatively strong ridership within this section. In addition to serving Uptown, Wilson is served by both Red and Purple Line trains during Purple Line Express operating periods, giving it a different role from nearby Red-only stations.
 
@@ -115,7 +117,6 @@ The North Side group includes stations from Argyle through Fullerton.
 - **Belmont:** Belmont is one of the busiest stations in the North Side group. However, it is served by the Red, Brown, and Purple lines, meaning its station-entry totals cannot be interpreted as Red Line ridership alone. Its role as a major transfer point and its location in a dense part of Lakeview likely contribute to its high usage.
 
 - **Fullerton:** Fullerton also records some of the highest ridership in this section and, like Belmont, is served by the Red, Brown, and Purple lines. The station also serves Lincoln Park and is located near DePaul University's Lincoln Park Campus. Its high ridership may therefore reflect a combination of transfers, neighborhood activity, and university-related travel.
-
 
 ## Near North / Downtown
 
@@ -143,7 +144,6 @@ This group follows the Red Line from North/Clybourn through Roosevelt.
 
 - **Roosevelt:** Roosevelt is one of the most important transfer stations south of the Loop. It is served by the Red, Green, and Orange lines and provides access to the South Loop and nearby destinations such as Museum Campus. Its station totals therefore reflect passengers using multiple CTA rail services rather than Red Line passengers alone.
 
-
 ## South Side
 
 The South Side group includes stations from Cermak-Chinatown through Garfield.
@@ -161,7 +161,6 @@ The South Side group includes stations from Cermak-Chinatown through Garfield.
 - **Garfield:** Garfield maintains moderate ridership and serves as an important connection between the Red Line and east-west bus service. Its role is primarily that of a neighborhood transportation connection rather than a major entertainment or Downtown destination.
 
 Overall, combined monthly ridership across these South Side stations increased from approximately 298,000 in August 2024 to 425,000 in June 2026, an increase of roughly 43%.
-
 
 ## Far South Side
 
@@ -183,7 +182,6 @@ The Far South Side group includes stations from 63rd through 95th/Dan Ryan.
 
 Combined monthly ridership across the Far South Side stations increased from approximately 370,000 in August 2024 to 459,000 in June 2026, an increase of roughly 24%. All five stations recorded higher ridership in June 2026 than in August 2024.
 
-
 ## Overall Findings
 
 Several broader patterns emerge when Red Line ridership is examined geographically.
@@ -201,7 +199,6 @@ First, **stations appear to play different roles within the Red Line network**. 
 Finally, **station construction and service changes create patterns that require additional context.** Berwyn and Lawrence were closed for reconstruction during part of the period analyzed, resulting in periods of zero ridership before reopening in 2025. Bryn Mawr and Argyle remained in service through temporary stations, although construction affected how those stations operated. In particular, Bryn Mawr provided southbound service only until the rebuilt station opened in July 2025. These differences demonstrate why changes in station ridership should be interpreted alongside changes in station availability and service.
 
 Together, these patterns suggest that Red Line station ridership is shaped by a combination of station function, transportation connections, nearby destinations, geography, and changes to the transit system itself.
-
 
 ## Data Limitations
 

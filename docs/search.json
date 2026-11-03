@@ -1,10 +1,108 @@
 [
   {
-    "objectID": "projects.html",
-    "href": "projects.html",
-    "title": "Projects & Research",
+    "objectID": "research.html",
+    "href": "research.html",
+    "title": "Research",
     "section": "",
-    "text": "Here are all of my projects, organized from newest to oldest. Click on the categories to filter them out.\n\n\n\n\n\n\n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nExploring CTA Blue Line Ridership with R\n\n\n\ndata analysis\n\nfeatured\n\npublic transportation\n\n\n\nAnalyzing monthly ridership trends across CTA Blue Line stations using R.\n\n\n\nAug 20, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\nExploring CTA Red Line Ridership with R\n\n\n\ndata analysis\n\ntransportation\n\nfeatured\n\n\n\nAnalyzing monthly ridership trends across CTA Red Line stations using R.\n\n\n\nAug 20, 2026\n\n\n\n\n\n\n\n\n\n\n\nWhat Chicagoans Should Know from the July 15 City Council Meeting\n\n\n\npublic policy\n\nfeatured\n\n\n\n\n\n\n\nJun 19, 2026\n\n\n\n\n\n\nNo matching items"
+    "text": "No matching items"
+  },
+  {
+    "objectID": "public-policy.html",
+    "href": "public-policy.html",
+    "title": "Public Policy",
+    "section": "",
+    "text": "Mapping Transportation Access Across Chicago\n\n\n\ndata analysis\n\nfeatured\n\npublic transportation\n\npublic policy\n\n\n\nComparing CTA rail and Divvy station availability across Chicago’s 77 community areas.\n\n\n\nSep 17, 2026\n\n\n\n\n\n\n\n\n\n\n\nWhat Chicagoans Should Know from the July 15 City Council Meeting\n\n\n\npublic policy\n\n\n\n\n\n\n\nJun 19, 2026\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "posts/transportation_access_chi/index.html",
+    "href": "posts/transportation_access_chi/index.html",
+    "title": "Mapping Transportation Access Across Chicago",
+    "section": "",
+    "text": "Chicago has one of the largest public transportation networks in the United States, but access to different transportation options varies considerably across the city.\nSome community areas have several CTA rail stations, dense Divvy bike-share infrastructure, or both. Others have far fewer stations within their boundaries.\nThis project examines the geographic distribution of CTA rail stations and Divvy stations across Chicago’s 77 community areas. Rather than analyzing ridership, the project focuses on where transportation infrastructure is physically available and how that availability differs throughout the city.\nThe analysis uses spatial data in R to connect CTA and Divvy station locations with Chicago community area boundaries. It then compares both the physical distribution of stations and their relative availability across the city."
+  },
+  {
+    "objectID": "posts/transportation_access_chi/index.html#overview",
+    "href": "posts/transportation_access_chi/index.html#overview",
+    "title": "Mapping Transportation Access Across Chicago",
+    "section": "",
+    "text": "Chicago has one of the largest public transportation networks in the United States, but access to different transportation options varies considerably across the city.\nSome community areas have several CTA rail stations, dense Divvy bike-share infrastructure, or both. Others have far fewer stations within their boundaries.\nThis project examines the geographic distribution of CTA rail stations and Divvy stations across Chicago’s 77 community areas. Rather than analyzing ridership, the project focuses on where transportation infrastructure is physically available and how that availability differs throughout the city.\nThe analysis uses spatial data in R to connect CTA and Divvy station locations with Chicago community area boundaries. It then compares both the physical distribution of stations and their relative availability across the city."
+  },
+  {
+    "objectID": "posts/transportation_access_chi/index.html#tools",
+    "href": "posts/transportation_access_chi/index.html#tools",
+    "title": "Mapping Transportation Access Across Chicago",
+    "section": "Tools",
+    "text": "Tools\n\nR for data cleaning and analysis\nsf for spatial data analysis\ndplyr for filtering and transforming data\ntidyr for restructuring data\nggplot2 for mapping and visualization\nQuarto for documenting and presenting the analysis"
+  },
+  {
+    "objectID": "posts/transportation_access_chi/index.html#preparing-the-data",
+    "href": "posts/transportation_access_chi/index.html#preparing-the-data",
+    "title": "Mapping Transportation Access Across Chicago",
+    "section": "Preparing the Data",
+    "text": "Preparing the Data\nThree datasets were used:\n\nChicago Community Area boundaries\nCTA rail station locations\nDivvy station locations\n\nThe necessary packages and datasets were first loaded into R.\n\nlibrary(sf)\nlibrary(ggplot2)\nlibrary(dplyr)\nlibrary(tidyr)\n\ncommunity_areas &lt;- st_read(\n  \"data/community_areas.geojson\"\n)\n\nReading layer `community_areas' from data source \n  `C:\\Users\\Camila\\Documents\\Website\\posts\\transportation_access_chi\\data\\community_areas.geojson' \n  using driver `GeoJSON'\nSimple feature collection with 77 features and 9 fields\nGeometry type: MULTIPOLYGON\nDimension:     XY\nBounding box:  xmin: -87.94011 ymin: 41.64454 xmax: -87.52414 ymax: 42.02304\nGeodetic CRS:  WGS 84\n\ncta_stations &lt;- read.csv(\n  \"data/cta_stations.csv\"\n)\n\ndivvy_stations &lt;- read.csv(\n  \"data/divvy_stations.csv\"\n)\n\nThe community area dataset contains the geographic boundaries for Chicago’s 77 officially designated community areas.\nThe CTA and Divvy datasets contain station locations that can be converted into geographic points and matched to those boundaries."
+  },
+  {
+    "objectID": "posts/transportation_access_chi/index.html#preparing-cta-stations",
+    "href": "posts/transportation_access_chi/index.html#preparing-cta-stations",
+    "title": "Mapping Transportation Access Across Chicago",
+    "section": "Preparing CTA Stations",
+    "text": "Preparing CTA Stations\nThe CTA dataset stores latitude and longitude together in a single Location variable.\nThe coordinates were separated and converted into numeric values before the stations were transformed into spatial points.\n\ncta_stations &lt;- cta_stations %&gt;%\n  separate(\n    Location,\n    into = c(\"latitude\", \"longitude\"),\n    sep = \",\"\n  ) %&gt;%\n  mutate(\n    latitude = as.numeric(gsub(\"\\\\(\", \"\", latitude)),\n    longitude = as.numeric(gsub(\"\\\\)\", \"\", longitude))\n  )\n\nThe raw CTA file also contains more than one record for some physical stations because individual platforms or directions may appear separately.\nTo avoid counting the same physical station more than once, stations were reduced to one record using the unique MAP_ID.\n\ncta_stations_unique &lt;- cta_stations %&gt;%\n  distinct(MAP_ID, .keep_all = TRUE)\n\nThis approach also avoids treating stations with the same name as the same physical location. For example, the Blue and Red Lines both have stations named Belmont and Addison, but their different MAP_ID values preserve them as separate stations."
+  },
+  {
+    "objectID": "posts/transportation_access_chi/index.html#matching-cta-stations-to-community-areas",
+    "href": "posts/transportation_access_chi/index.html#matching-cta-stations-to-community-areas",
+    "title": "Mapping Transportation Access Across Chicago",
+    "section": "Matching CTA Stations to Community Areas",
+    "text": "Matching CTA Stations to Community Areas\nThe CTA station data was converted into a spatial object using its longitude and latitude coordinates.\n\ncta_stations_sf &lt;- st_as_sf(\n  cta_stations_unique,\n  coords = c(\"longitude\", \"latitude\"),\n  crs = 4326\n)\n\nEach station was then matched to the Chicago community area in which it is located.\n\ncta_with_community &lt;- st_join(\n  cta_stations_sf,\n  community_areas[\"community\"],\n  join = st_intersects\n)\n\nSome CTA stations could not be assigned to a Chicago community area because the CTA rail system extends beyond Chicago’s municipal boundaries.\nStations outside the city were therefore excluded from the community-area analysis.\n\ncta_chicago &lt;- cta_with_community %&gt;%\n  filter(!is.na(community))"
+  },
+  {
+    "objectID": "posts/transportation_access_chi/index.html#identifying-cta-transfer-stations",
+    "href": "posts/transportation_access_chi/index.html#identifying-cta-transfer-stations",
+    "title": "Mapping Transportation Access Across Chicago",
+    "section": "Identifying CTA Transfer Stations",
+    "text": "Identifying CTA Transfer Stations\nBecause some CTA stations serve multiple rail lines, an additional measure was created to identify transfer stations.\n\ncta_chicago &lt;- cta_chicago %&gt;%\n  mutate(\n    line_count = rowSums(\n      across(\n        c(RED, BLUE, G, BRN, P, Pnk, O, Y),\n        ~ toupper(as.character(.)) == \"TRUE\"\n      )\n    )\n  )\n\ntransfer_stations &lt;- cta_chicago %&gt;%\n  filter(line_count &gt; 1)\n\nThis allows major transfer stations to be distinguished from stations served by only one rail line."
+  },
+  {
+    "objectID": "posts/transportation_access_chi/index.html#preparing-divvy-stations",
+    "href": "posts/transportation_access_chi/index.html#preparing-divvy-stations",
+    "title": "Mapping Transportation Access Across Chicago",
+    "section": "Preparing Divvy Stations",
+    "text": "Preparing Divvy Stations\nUnlike the CTA dataset, the Divvy dataset already contains separate latitude and longitude variables.\nThe stations were converted directly into spatial points.\n\ndivvy_stations_sf &lt;- st_as_sf(\n  divvy_stations,\n  coords = c(\"Longitude\", \"Latitude\"),\n  crs = 4326\n)\n\nThe same spatial matching process was then used to assign each Divvy station to a Chicago community area.\n\ndivvy_with_community &lt;- st_join(\n  divvy_stations_sf,\n  community_areas[\"community\"],\n  join = st_intersects\n)\n\ndivvy_chicago &lt;- divvy_with_community %&gt;%\n  filter(!is.na(community))"
+  },
+  {
+    "objectID": "posts/transportation_access_chi/index.html#transportation-infrastructure-across-chicago",
+    "href": "posts/transportation_access_chi/index.html#transportation-infrastructure-across-chicago",
+    "title": "Mapping Transportation Access Across Chicago",
+    "section": "Transportation Infrastructure Across Chicago",
+    "text": "Transportation Infrastructure Across Chicago\nThe first map shows the physical locations of CTA rail and Divvy stations throughout Chicago.\n\nCTA rail stations are shown in red, while Divvy stations are shown in blue. CTA transfer stations are marked with an additional ring.\n\nKey Findings\n\nCTA rail follows distinct geographic corridors. Rail stations extend outward from Downtown along relatively narrow routes rather than being distributed evenly throughout the city.\nDivvy has a much broader geographic footprint. Bike-share stations cover large portions of Chicago that do not contain CTA rail stations.\nDowntown has the strongest concentration of CTA rail infrastructure. Many CTA lines converge near the center of the city, producing a dense cluster of rail stations and transfer opportunities.\nDivvy is particularly dense across Downtown and the North Side. Although stations extend considerably farther south and west, the highest concentration of bike-share infrastructure remains in the city’s central and northern areas.\nSome community areas have access to one system but relatively little of the other. This suggests that transportation availability depends heavily on the mode being examined."
+  },
+  {
+    "objectID": "posts/transportation_access_chi/index.html#measuring-relative-station-availability",
+    "href": "posts/transportation_access_chi/index.html#measuring-relative-station-availability",
+    "title": "Mapping Transportation Access Across Chicago",
+    "section": "Measuring Relative Station Availability",
+    "text": "Measuring Relative Station Availability\nCTA and Divvy contain very different numbers of stations.\nBecause of this, directly comparing raw station counts would make Divvy appear substantially larger simply because the bike-share system contains far more individual stations.\nFirst, the number of CTA and Divvy stations within each community area was calculated.\n\ncta_station_counts &lt;- cta_chicago %&gt;%\n  st_drop_geometry() %&gt;%\n  count(\n    community,\n    name = \"cta_stations\"\n  )\n\ndivvy_station_counts &lt;- divvy_chicago %&gt;%\n  st_drop_geometry() %&gt;%\n  count(\n    community,\n    name = \"divvy_stations\"\n  )\n\nThe station counts were then joined back to the community area boundaries. Community areas without a station were assigned a count of zero.\n\naccess_map &lt;- community_areas %&gt;%\n  left_join(\n    cta_station_counts,\n    by = \"community\"\n  ) %&gt;%\n  left_join(\n    divvy_station_counts,\n    by = \"community\"\n  ) %&gt;%\n  mutate(\n    cta_stations = replace_na(cta_stations, 0),\n    divvy_stations = replace_na(divvy_stations, 0)\n  )\n\nTo compare their geographic patterns more clearly, station counts were converted into a relative station availability measure ranging from 0 to 1.\n\naccess_map &lt;- access_map %&gt;%\n  mutate(\n    cta_access = cta_stations / max(cta_stations),\n    divvy_access = divvy_stations / max(divvy_stations)\n  )\n\nA value of 1 represents the community area with the highest observed station count for that transportation mode.\nFor example, if the highest CTA station count among all community areas is 16, a community area with 8 CTA stations would receive a relative station availability value of 0.50.\nThis measure does not represent “perfect” transportation access. Instead, it shows how each community area compares with the highest observed station availability for CTA rail or Divvy."
+  },
+  {
+    "objectID": "posts/transportation_access_chi/index.html#relative-transportation-access",
+    "href": "posts/transportation_access_chi/index.html#relative-transportation-access",
+    "title": "Mapping Transportation Access Across Chicago",
+    "section": "Relative Transportation Access",
+    "text": "Relative Transportation Access\n\nThe two maps use the same 0-to-1 scale, making it easier to compare the geographic concentration of each transportation system.\n\nKey Findings\n\nCTA rail availability is highly concentrated. The darkest areas are clustered primarily around Downtown and communities located along major rail corridors.\nDivvy availability is more geographically continuous. Instead of following narrow corridors, bike-share stations form larger connected areas of relatively high availability.\nNorth and central Chicago generally show stronger access to both systems. Community areas in these portions of the city frequently appear darker on both maps.\nLarge portions of the South and Far South Sides show comparatively low station availability. This is particularly visible for CTA rail, although Divvy infrastructure extends into more of these community areas.\nThe two networks complement each other in some locations but not uniformly across the city. Areas without strong CTA rail availability may still have some Divvy infrastructure, while other areas show relatively limited access to both systems."
+  },
+  {
+    "objectID": "posts/transportation_access_chi/index.html#overall-findings",
+    "href": "posts/transportation_access_chi/index.html#overall-findings",
+    "title": "Mapping Transportation Access Across Chicago",
+    "section": "Overall Findings",
+    "text": "Overall Findings\nSeveral broader patterns emerge from the geographic comparison.\nFirst, CTA rail and Divvy represent very different types of transportation networks. CTA rail is corridor-based, with stations concentrated along fixed rail lines and around major transfer points. Divvy is distributed more broadly and can place stations throughout neighborhoods without requiring rail infrastructure.\nSecond, Downtown remains the strongest center of CTA rail access. Because several rail lines converge in and around the Loop, central Chicago contains a much greater concentration of rail infrastructure than most other parts of the city.\nThird, Divvy expands transportation options beyond the CTA rail network. Many community areas without direct rail access still contain bike-share stations. This gives Divvy the potential to supplement other forms of transportation, although station presence alone does not establish whether residents can realistically use the system for their daily travel needs.\nFourth, transportation infrastructure is not distributed evenly across Chicago. The maps show substantial differences between neighborhoods in both CTA rail and Divvy station availability.\nFinally, transportation access cannot be fully understood by examining a single mode. A community area without a rail station may still have substantial bus service, Divvy infrastructure, Metra service, or other transportation options. Looking at CTA rail and Divvy together provides a broader picture, but it still represents only part of Chicago’s transportation network."
+  },
+  {
+    "objectID": "posts/transportation_access_chi/index.html#data-limitations",
+    "href": "posts/transportation_access_chi/index.html#data-limitations",
+    "title": "Mapping Transportation Access Across Chicago",
+    "section": "Data Limitations",
+    "text": "Data Limitations\nThis analysis measures station availability, not complete transportation accessibility.\nThe presence of a station within a community area does not necessarily mean that every resident has convenient access to that station.\nCommunity areas vary significantly in geographic size and population. A large community area may contain several stations while still leaving many residents relatively far from them.\nThe analysis also does not include:\n\nCTA bus routes\nbus or rail service frequency\nwalking distance to stations\ntravel time\nstation accessibility\npopulation density\nhousehold income\nemployment locations\nDivvy bike availability\nDivvy dock availability\nMetra service\nPace service\n\nStation counts also treat each station equally even though stations can differ substantially in service level, connectivity, ridership, and accessibility.\nFor these reasons, the maps should be interpreted as showing the geographic distribution of CTA rail and Divvy infrastructure, rather than a complete measure of mobility or transportation equity.\nFuture analysis could incorporate population, bus service, travel times, station accessibility, and demographic data to develop a more comprehensive measure of transportation access across Chicago."
   },
   {
     "objectID": "posts/July_15_CC/city-council-july15.html",
@@ -175,123 +273,11 @@
     "text": "Data Limitations\nThis analysis measures entries into CTA stations, not complete passenger trips. The dataset does not identify where passengers traveled after entering a station, where they exited, why they traveled, or how they reached the station.\nTransportation connections provide useful context but should not be interpreted as proof that those connections caused a station’s ridership level. For example, Jefferson Park’s extensive transfer network may contribute to its high ridership, but this dataset does not identify how many passengers arrived by Metra, Pace, CTA bus, walking, biking, or another mode.\nThe same limitation applies to nearby destinations. Patterns at O’Hare, UIC-Halsted, Illinois Medical District, and other stations are consistent with the types of destinations they serve, but station-level monthly data cannot determine how many riders were airport passengers, students, employees, patients, visitors, or residents.\nMonthly totals are also affected by the number of days in each month, and temporary factors such as construction, station closures, service disruptions, weather, special events, and changes in connecting transit service can affect individual months.\nFor these reasons, the findings should be interpreted as patterns and possible relationships rather than causal conclusions. Additional data on daily ridership, transfers, service levels, land use, population, employment, and major destinations would be needed to determine why individual stations experience different levels and patterns of ridership."
   },
   {
-    "objectID": "public-policy.html",
-    "href": "public-policy.html",
-    "title": "Public Policy",
+    "objectID": "data-analysis.html",
+    "href": "data-analysis.html",
+    "title": "Data Analysis",
     "section": "",
-    "text": "What Chicagoans Should Know from the July 15 City Council Meeting\n\n\n\npublic policy\n\nfeatured\n\n\n\n\n\n\n\nJun 19, 2026\n\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "readme.html",
-    "href": "readme.html",
-    "title": "Using this quarto course blog template",
-    "section": "",
-    "text": "This is a template for using quarto to create a course blog. A course blog can be used in many ways to engage with course content. For example, you could use the blog to post assignments, or to dive more deeply into course material that interests you. By the end of the course, your blog can serve as a portfolio of ways that you engaged in the material. By learning how to use quarto for your blog, you will also be learning new skills for creating and sharing reproducible documents that could be useful to you in the future.\nThe purpose of this page is to provide tips and pointers about blogging with quarto. Quarto is simple enough for creating a basic course blog. However, it is also very deep and can be used to create all sorts of documents, from website, to slide decks, and books.\n\n\nMany questions about quarto can be answered from the quarto documentation located at: https://quarto.org.\nIf you are looking for something specific and don’t know where to find it on the website, use the search tool in the top right corner.\n\n\n\n\nTo use this template you will need a Github.com account, and access to R and Rstudio.\nYou can get access by creating a Github.com account, and downloading the necessary open-source software to your machine.\nIt is also possible to use Rstudio in your web-browser, which does not require downloading any software. There are two sets of instructions, one for the downloading approach, and the other for using Rstudio cloud. Scroll to the bottom for instructions on using Rstudio cloud.\n\n\n\nIn order to use this template you will need to install some free open-source software on your computer.\n\nSign up for a free account at https://github.com. This a website for sharing open-source software, but it can also be used to serve your blog as a website for free.\nDownload Github Desktop and install it on your machine. This should install the version control software git on your system, and you can use Github Desktop to easily push your blog from your local computer so that it can be viewed on Github.com.\nDownload R and install it on your machine. R is a programming language capable of many things, and it needs to be on your machine before you can run R Studio.\nDownload R Studio Desktop and install it on your machine. R Studio is called an “IDE” or integrated development environment, that you can use to write your blog with quarto.\n\n\n\n\nOnce you have the software installed, the next step is to create a quarto blog project in R studio. The collection of files in this template is a pre-made quarto blog project that you can modify for your own purposes. You can also make one yourself in Rstudio.\nAssuming you have downloaded this template, and you have installed the above software, then you need to open quartoCourseBlog.Rproj.\n\n\n\n\nTo find out if everything is working, try rendering the blog. Go to the “Build” Tab and press “Render Website”.\n\nAfter the rendering is complete, you should be able to view your blog. It might show up in the viewer pane like this:\n\nAnd if you press the ‘window-with-an-arrow’ button, you can view the website in your default browser. Quarto websites automatically adjust for the size of the window, so it may appear differently in the viewer pane versus the browser.\n\n\n\nAll of the blog posts are located in the posts folder.\n\nTo make a new post, copy an existing post and then modify it. For example, my posts folder currently contains one post, and it is inside the my_first_post folder.\n\nI can copy the folder and make a new one with the same contents from the Rstudio gear-box menu:\n\nI made a folder for a second post called Example_assignment.\n\nThese are the two files inside the folder. The .qmd file is a plain text file where you will write the blog post. This folder can also be used to store other assets you might put in the post, such as pictures.\n\n\n\nTo write a new post, open the .qmd file, edit the text, and then re-render the website. This is what the text in the .qmd file looked like when I copied it.\n\nThe text at the top between the “—” is called YAML, and provides meta-data for your document. This is where you can change the title, date, name, and add keywords if you want.\nThe rest of the document is for the main body of the post. For example, I changed the text to read:\n\n\n\n\n\nRender the website from the build tab again to see your new post.\n\n\n\nTo share your blog online you will have to publish it on a server that can be accessed by other people on the internet. There are multiple ways to do this step, and I recommend using Github pages. You can view more in-depth instructions from quarto here https://quarto.org/docs/publishing/github-pages.html.\nHere are the steps:\n\nOpen Github Desktop\nGo to preferences and sign in to your Github.com account\n“Add” your blog project folder to Github Desktop\nThere should be an option for a commit message, write a note in there like “first commit”.\nPublish to github.com and uncheck private repository so that other people will be able to see your repository.\nYou should now be able to see your new repository in your github.com profile, which means you should be able to see a copy of your blog files in the repository.\nActivate Github pages for your repository (under repository settings), and serve the page from the “docs” folder.\nAccess the blog from the url generated by the github pages settings page.\n\n\n\n\nWhenever you make changes to your blog project that you want to share online follow these steps:\n\nMake changes to your blog, like writing a new post, or editing an old one.\nRender the website in R-studio. What you see here should be what you will see later on Github.com\nOpen Github Desktop and Commit your changes, by writing brief commit title, and pressing commit.\nThen, use Github Desktop to Push your changes to github.com.\nWait half a minute or so, and you should see your new content appear on the website.\n\n\n\n\nI am planning to add a video overview of these steps soon. In the meantime, these instructions may be enough to get started with R studio cloud and github.com.\n\nSign up for a free account with posit cloud here https://posit.cloud/plans/free\nSign up for a free https://github.com account.\nLog in to Github, and search for this repository https://github.com/CrumpLab/quartoCourseBlog.\n\n\nClick the green “Use this template” Button\nThis will make a copy of the template in your github account, it will show up as one of your repositories\nGive your new repository a name\n\n\nActivate Github pages for your repository (under repository settings), and serve the page from the “docs” folder. You should now be able to view the blog from the url given by github pages.\nLog into Posit Cloud\nCreate a New Project, choose “New Project from Git Repository”\n\n\nenter the URL to the github repository you just made\n\n\nLoad the project, and edit/modify the files (see above for examples of creating new posts etc.)\nTo send your changed files back to github.com you need to do a few steps\n\n\nFrom the Git tab: stage your changes, commit your changes, and push your changes using the green up arrow.\nYou will also need to authenticate your git credentials, and allow Rstudio cloud to update your github repository\nIn the terminal run these two lines, but replace with your name and email\n\n\ngit config --global user.name \"Your Name\"\ngit config --global user.email \"you@example.com\"\n\nWhen you “push” your changes back to Github using the green up arrow, you will be asked to enter a username and password. You can enter the username for your Github.com account, but your password won’t work. You need to set up a personal access token.\nGo to your github.com profile &gt; settings page. Scroll down, click on “&lt;&gt; Developer Settings”, on the left\nClick on personal access tokens, generate a new token, give it repo access. Save the text somewhere and use it as your github password when pushing from RStudio.\n\n\nAt this point you should be able to work on your blog in Rstudio Cloud, and push your changes to have them updated on github.com, which serves your blog online.\n\n\n\n\nSee this growing list of quarto resources for much, much more:\nhttps://github.com/mcanouil/awesome-quarto"
-  },
-  {
-    "objectID": "readme.html#quarto-documentation",
-    "href": "readme.html#quarto-documentation",
-    "title": "Using this quarto course blog template",
-    "section": "",
-    "text": "Many questions about quarto can be answered from the quarto documentation located at: https://quarto.org.\nIf you are looking for something specific and don’t know where to find it on the website, use the search tool in the top right corner."
-  },
-  {
-    "objectID": "readme.html#using-this-template",
-    "href": "readme.html#using-this-template",
-    "title": "Using this quarto course blog template",
-    "section": "",
-    "text": "To use this template you will need a Github.com account, and access to R and Rstudio.\nYou can get access by creating a Github.com account, and downloading the necessary open-source software to your machine.\nIt is also possible to use Rstudio in your web-browser, which does not require downloading any software. There are two sets of instructions, one for the downloading approach, and the other for using Rstudio cloud. Scroll to the bottom for instructions on using Rstudio cloud."
-  },
-  {
-    "objectID": "readme.html#downloading-the-free-software",
-    "href": "readme.html#downloading-the-free-software",
-    "title": "Using this quarto course blog template",
-    "section": "",
-    "text": "In order to use this template you will need to install some free open-source software on your computer.\n\nSign up for a free account at https://github.com. This a website for sharing open-source software, but it can also be used to serve your blog as a website for free.\nDownload Github Desktop and install it on your machine. This should install the version control software git on your system, and you can use Github Desktop to easily push your blog from your local computer so that it can be viewed on Github.com.\nDownload R and install it on your machine. R is a programming language capable of many things, and it needs to be on your machine before you can run R Studio.\nDownload R Studio Desktop and install it on your machine. R Studio is called an “IDE” or integrated development environment, that you can use to write your blog with quarto."
-  },
-  {
-    "objectID": "readme.html#make-a-quarto-blog-project",
-    "href": "readme.html#make-a-quarto-blog-project",
-    "title": "Using this quarto course blog template",
-    "section": "",
-    "text": "Once you have the software installed, the next step is to create a quarto blog project in R studio. The collection of files in this template is a pre-made quarto blog project that you can modify for your own purposes. You can also make one yourself in Rstudio.\nAssuming you have downloaded this template, and you have installed the above software, then you need to open quartoCourseBlog.Rproj."
-  },
-  {
-    "objectID": "readme.html#render-the-blog",
-    "href": "readme.html#render-the-blog",
-    "title": "Using this quarto course blog template",
-    "section": "",
-    "text": "To find out if everything is working, try rendering the blog. Go to the “Build” Tab and press “Render Website”.\n\nAfter the rendering is complete, you should be able to view your blog. It might show up in the viewer pane like this:\n\nAnd if you press the ‘window-with-an-arrow’ button, you can view the website in your default browser. Quarto websites automatically adjust for the size of the window, so it may appear differently in the viewer pane versus the browser."
-  },
-  {
-    "objectID": "readme.html#make-a-new-blog-post",
-    "href": "readme.html#make-a-new-blog-post",
-    "title": "Using this quarto course blog template",
-    "section": "",
-    "text": "All of the blog posts are located in the posts folder.\n\nTo make a new post, copy an existing post and then modify it. For example, my posts folder currently contains one post, and it is inside the my_first_post folder.\n\nI can copy the folder and make a new one with the same contents from the Rstudio gear-box menu:\n\nI made a folder for a second post called Example_assignment.\n\nThese are the two files inside the folder. The .qmd file is a plain text file where you will write the blog post. This folder can also be used to store other assets you might put in the post, such as pictures.\n\n\n\nTo write a new post, open the .qmd file, edit the text, and then re-render the website. This is what the text in the .qmd file looked like when I copied it.\n\nThe text at the top between the “—” is called YAML, and provides meta-data for your document. This is where you can change the title, date, name, and add keywords if you want.\nThe rest of the document is for the main body of the post. For example, I changed the text to read:"
-  },
-  {
-    "objectID": "readme.html#re-render-to-see-your-changes",
-    "href": "readme.html#re-render-to-see-your-changes",
-    "title": "Using this quarto course blog template",
-    "section": "",
-    "text": "Render the website from the build tab again to see your new post."
-  },
-  {
-    "objectID": "readme.html#share-your-blog-on-github.com",
-    "href": "readme.html#share-your-blog-on-github.com",
-    "title": "Using this quarto course blog template",
-    "section": "",
-    "text": "To share your blog online you will have to publish it on a server that can be accessed by other people on the internet. There are multiple ways to do this step, and I recommend using Github pages. You can view more in-depth instructions from quarto here https://quarto.org/docs/publishing/github-pages.html.\nHere are the steps:\n\nOpen Github Desktop\nGo to preferences and sign in to your Github.com account\n“Add” your blog project folder to Github Desktop\nThere should be an option for a commit message, write a note in there like “first commit”.\nPublish to github.com and uncheck private repository so that other people will be able to see your repository.\nYou should now be able to see your new repository in your github.com profile, which means you should be able to see a copy of your blog files in the repository.\nActivate Github pages for your repository (under repository settings), and serve the page from the “docs” folder.\nAccess the blog from the url generated by the github pages settings page."
-  },
-  {
-    "objectID": "readme.html#pushing-new-posts-to-github.com",
-    "href": "readme.html#pushing-new-posts-to-github.com",
-    "title": "Using this quarto course blog template",
-    "section": "",
-    "text": "Whenever you make changes to your blog project that you want to share online follow these steps:\n\nMake changes to your blog, like writing a new post, or editing an old one.\nRender the website in R-studio. What you see here should be what you will see later on Github.com\nOpen Github Desktop and Commit your changes, by writing brief commit title, and pressing commit.\nThen, use Github Desktop to Push your changes to github.com.\nWait half a minute or so, and you should see your new content appear on the website."
-  },
-  {
-    "objectID": "readme.html#posit-cloud-formerly-rstudio-cloud",
-    "href": "readme.html#posit-cloud-formerly-rstudio-cloud",
-    "title": "Using this quarto course blog template",
-    "section": "",
-    "text": "I am planning to add a video overview of these steps soon. In the meantime, these instructions may be enough to get started with R studio cloud and github.com.\n\nSign up for a free account with posit cloud here https://posit.cloud/plans/free\nSign up for a free https://github.com account.\nLog in to Github, and search for this repository https://github.com/CrumpLab/quartoCourseBlog.\n\n\nClick the green “Use this template” Button\nThis will make a copy of the template in your github account, it will show up as one of your repositories\nGive your new repository a name\n\n\nActivate Github pages for your repository (under repository settings), and serve the page from the “docs” folder. You should now be able to view the blog from the url given by github pages.\nLog into Posit Cloud\nCreate a New Project, choose “New Project from Git Repository”\n\n\nenter the URL to the github repository you just made\n\n\nLoad the project, and edit/modify the files (see above for examples of creating new posts etc.)\nTo send your changed files back to github.com you need to do a few steps\n\n\nFrom the Git tab: stage your changes, commit your changes, and push your changes using the green up arrow.\nYou will also need to authenticate your git credentials, and allow Rstudio cloud to update your github repository\nIn the terminal run these two lines, but replace with your name and email\n\n\ngit config --global user.name \"Your Name\"\ngit config --global user.email \"you@example.com\"\n\nWhen you “push” your changes back to Github using the green up arrow, you will be asked to enter a username and password. You can enter the username for your Github.com account, but your password won’t work. You need to set up a personal access token.\nGo to your github.com profile &gt; settings page. Scroll down, click on “&lt;&gt; Developer Settings”, on the left\nClick on personal access tokens, generate a new token, give it repo access. Save the text somewhere and use it as your github password when pushing from RStudio.\n\n\nAt this point you should be able to work on your blog in Rstudio Cloud, and push your changes to have them updated on github.com, which serves your blog online."
-  },
-  {
-    "objectID": "readme.html#more-quarto",
-    "href": "readme.html#more-quarto",
-    "title": "Using this quarto course blog template",
-    "section": "",
-    "text": "See this growing list of quarto resources for much, much more:\nhttps://github.com/mcanouil/awesome-quarto"
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Hi, I’m Camila",
-    "section": "",
-    "text": "I’m a mathematics student interested in data, public policy, cities, and community research.\nI use quantitative tools to explore how neighborhoods work, how policy affects people, and how data can help tell those stories.\nView My Work Background"
-  },
-  {
-    "objectID": "index.html#projects",
-    "href": "index.html#projects",
-    "title": "Hi, I’m Camila",
-    "section": "Featured Projects",
-    "text": "Featured Projects\n\n\n\n\n\n\n\n\n\n\nExploring CTA Blue Line Ridership with R\n\n\n\ndata analysis\n\nfeatured\n\npublic transportation\n\n\n\nAnalyzing monthly ridership trends across CTA Blue Line stations using R.\n\n\n\n\n\n\n\n\n\n\n\n\nExploring CTA Red Line Ridership with R\n\n\n\ndata analysis\n\ntransportation\n\nfeatured\n\n\n\nAnalyzing monthly ridership trends across CTA Red Line stations using R.\n\n\n\n\n\n\n\n\n\n\nWhat Chicagoans Should Know from the July 15 City Council Meeting\n\n\n\npublic policy\n\nfeatured\n\n\n\n\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "index.html#what-i-do",
-    "href": "index.html#what-i-do",
-    "title": "Hi, I’m Camila",
-    "section": "What I Do",
-    "text": "What I Do\n\n\nData Analysis\nI use R, statistics, and data visualization to explore patterns, answer questions, and communicate findings clearly.\nR Statistics Data Visualization\n\n\nResearch\nI combine quantitative analysis and community perspectives to investigate questions about cities and the people who live in them.\nQuantitative Research Community Research Data Collection\n\n\nPublic Policy\nI’m interested in using data and research to understand local government, urban policy, and community issues, especially in Chicago.\nPolicy Analysis Local Government Urban Issues"
-  },
-  {
-    "objectID": "index.html#a-little-about-me",
-    "href": "index.html#a-little-about-me",
-    "title": "Hi, I’m Camila",
-    "section": "A Little About Me",
-    "text": "A Little About Me\nChicago has always been home, and growing up here has given me a real appreciation for the city, its neighborhoods, and the communities that make each one unique. As a Colombian-American, I also value the different cultures and perspectives that shape the places around us, which is something that has naturally influenced my interest in community and public policy.\nOutside of work and school, I spend a lot of my free time on puzzles, especially GeoGuessr and, lately, puzzles from the Magic Puzzle Company. I’m also a big coffee person and always appreciate finding a good coffee shop around the city.\nView My Background"
+    "text": "Predicting Lumber Volume from Tree Diameter\n\n\n\ndata analysis\n\nfeatured\n\nmathematical modeling\n\n\n\nComparing mathematical models using Excel.\n\n\n\nOct 2, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\nMapping Transportation Access Across Chicago\n\n\n\ndata analysis\n\nfeatured\n\npublic transportation\n\npublic policy\n\n\n\nComparing CTA rail and Divvy station availability across Chicago’s 77 community areas.\n\n\n\nSep 17, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\nExploring CTA Blue Line Ridership with R\n\n\n\ndata analysis\n\npublic transportation\n\n\n\nAnalyzing monthly ridership trends across CTA Blue Line stations using R.\n\n\n\nAug 20, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\nExploring CTA Red Line Ridership with R\n\n\n\ndata analysis\n\ntransportation\n\nfeatured\n\n\n\nAnalyzing monthly ridership trends across CTA Red Line stations using R.\n\n\n\nAug 20, 2026\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "about.html",
@@ -315,11 +301,32 @@
     "text": "Experience\n26th Ward - Alderperson Jessie Fuentes | Intern | June 2026 - Present\nAs an intern with the 26th Ward Office of Alderperson Jessie Fuentes, I support community engagement, constituent services, policy-related research, and neighborhood initiatives. My work includes engaging directly with residents through canvassing and community events, assisting with constituent needs and access to city resources, organizing and analyzing information related to community issues, and supporting projects and events across the ward. This experience has given me firsthand insight into local government and strengthened my interest in using data, research, and community input to better understand neighborhood needs and inform public policy.\nAfter School Matters | Communication & Leadership Instructor | September 2025 - Present\nAs a Communication and Leadership Instructor, I design and facilitate programming that helps Chicago teens strengthen their leadership, communication, research, and civic engagement skills. I guide participants through independent research projects on issues affecting Chicago communities, teaching them how to evaluate sources, analyze data, conduct surveys and interviews, engage with community stakeholders, and develop evidence-based recommendations. I also lead activities including debates, Model United Nations simulations, financial literacy programming, and discussions on local government and current issues. Through this role, I create opportunities for young people to connect their interests and lived experiences to research, public policy, and meaningful civic participation.\nAfter School Matters | ComEd Youth Ambassadors Instructor | June 2025 - August 2025\nAs a ComEd Youth Ambassadors Instructor, I teach Chicago teens about energy, sustainability, and technology through hands-on learning. I introduce students to basic C++ programming and Arduino, guiding them through coding and electronics projects that build foundational programming, problem-solving, and technical skills. I also facilitate activities focused on energy and environmental topics while helping participants strengthen their communication, teamwork, leadership, and professional skills."
   },
   {
-    "objectID": "research.html",
-    "href": "research.html",
-    "title": "Research",
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Hi, I’m Camila",
     "section": "",
-    "text": "No matching items"
+    "text": "I’m a mathematics student interested in data, public policy, cities, and community research.\nI use quantitative tools to explore how neighborhoods work, how policy affects people, and how data can help tell those stories.\nView My Work Background"
+  },
+  {
+    "objectID": "index.html#projects",
+    "href": "index.html#projects",
+    "title": "Hi, I’m Camila",
+    "section": "Featured Projects",
+    "text": "Featured Projects\n\n\n\n\n\n\n\n\nPredicting Lumber Volume from Tree Diameter\n\n\n\ndata analysis\n\nfeatured\n\nmathematical modeling\n\n\n\nComparing mathematical models using Excel.\n\n\n\n\n\n\n\n\n\n\n\n\nMapping Transportation Access Across Chicago\n\n\n\ndata analysis\n\nfeatured\n\npublic transportation\n\npublic policy\n\n\n\nComparing CTA rail and Divvy station availability across Chicago’s 77 community areas.\n\n\n\n\n\n\n\n\n\n\n\n\nExploring CTA Red Line Ridership with R\n\n\n\ndata analysis\n\ntransportation\n\nfeatured\n\n\n\nAnalyzing monthly ridership trends across CTA Red Line stations using R.\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "index.html#what-i-do",
+    "href": "index.html#what-i-do",
+    "title": "Hi, I’m Camila",
+    "section": "What I Do",
+    "text": "What I Do\n\n\nData Analysis\nI use R, statistics, and data visualization to explore patterns, answer questions, and communicate findings clearly.\nR Statistics Data Visualization\n\n\nResearch\nI combine quantitative analysis and community perspectives to investigate questions about cities and the people who live in them.\nQuantitative Research Community Research Data Collection\n\n\nPublic Policy\nI’m interested in using data and research to understand local government, urban policy, and community issues, especially in Chicago.\nPolicy Analysis Local Government Urban Issues"
+  },
+  {
+    "objectID": "index.html#a-little-about-me",
+    "href": "index.html#a-little-about-me",
+    "title": "Hi, I’m Camila",
+    "section": "A Little About Me",
+    "text": "A Little About Me\nChicago has always been home, and growing up here has given me a real appreciation for the city, its neighborhoods, and the communities that make each one unique. As a Colombian-American, I also value the different cultures and perspectives that shape the places around us, which is something that has naturally influenced my interest in community and public policy.\nOutside of work and school, I spend a lot of my free time on puzzles, especially GeoGuessr and, lately, puzzles from the Magic Puzzle Company. I’m also a big coffee person and always appreciate finding a good coffee shop around the city.\nView My Background"
   },
   {
     "objectID": "posts/CTA_Rideship_Red/index.html",
@@ -406,10 +413,143 @@
     "text": "Data Limitations\nThese findings describe station entries, not the exact number of passengers riding Red Line trains.\nSeveral Red Line stations are served by multiple CTA rail lines. At these transfer stations, the dataset records station ridership but does not identify which rail line each passenger ultimately used. Therefore, the analysis should be interpreted as ridership at stations served by the Red Line, rather than exact Red Line train ridership.\nThe dataset also does not identify passengers’ origins, destinations, reasons for traveling, or how they reached a station. For example, the data cannot determine how many passengers entering Loyola were traveling to the university, how many Addison riders were attending Cubs games, or how many passengers at 95th/Dan Ryan arrived using connecting bus service.\nMonthly station totals can also be influenced by factors that are not directly represented in the dataset, including the number of days in each month, construction, station closures, service disruptions, weather, special events, and changes in connecting transit service.\nFor these reasons, nearby universities, sporting venues, transfer opportunities, and bus connections provide useful context for interpreting the graphs but should not be treated as proof that they caused the observed ridership patterns. Additional data would be necessary to establish those relationships."
   },
   {
-    "objectID": "data-analysis.html",
-    "href": "data-analysis.html",
-    "title": "Data Analysis",
+    "objectID": "posts/Lumber_vs_Diameter_Project/index.html",
+    "href": "posts/Lumber_vs_Diameter_Project/index.html",
+    "title": "Predicting Lumber Volume from Tree Diameter",
     "section": "",
-    "text": "Exploring CTA Blue Line Ridership with R\n\n\n\ndata analysis\n\nfeatured\n\npublic transportation\n\n\n\nAnalyzing monthly ridership trends across CTA Blue Line stations using R.\n\n\n\nAug 20, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\nExploring CTA Red Line Ridership with R\n\n\n\ndata analysis\n\ntransportation\n\nfeatured\n\n\n\nAnalyzing monthly ridership trends across CTA Red Line stations using R.\n\n\n\nAug 20, 2026\n\n\n\n\n\n\nNo matching items"
+    "text": "As part of MATH 340, my mathematical modeling course at Dominican University, I explored the question: How can tree diameter be used to predict lumber volume? This project involved comparing two models with different assumptions about the relationship between a tree’s diameter, height, and volume.\nUsing Excel, I fit both models to the data and compared their prediction errors. Below, I walk through the assumptions behind each model, the analysis, and what the results suggest about predicting lumber volume from tree diameter."
+  },
+  {
+    "objectID": "posts/Lumber_vs_Diameter_Project/index.html#introduction",
+    "href": "posts/Lumber_vs_Diameter_Project/index.html#introduction",
+    "title": "Predicting Lumber Volume from Tree Diameter",
+    "section": "",
+    "text": "As part of MATH 340, my mathematical modeling course at Dominican University, I explored the question: How can tree diameter be used to predict lumber volume? This project involved comparing two models with different assumptions about the relationship between a tree’s diameter, height, and volume.\nUsing Excel, I fit both models to the data and compared their prediction errors. Below, I walk through the assumptions behind each model, the analysis, and what the results suggest about predicting lumber volume from tree diameter."
+  },
+  {
+    "objectID": "posts/Lumber_vs_Diameter_Project/index.html#the-models",
+    "href": "posts/Lumber_vs_Diameter_Project/index.html#the-models",
+    "title": "Predicting Lumber Volume from Tree Diameter",
+    "section": "The Models",
+    "text": "The Models\nI compared two models for predicting lumber volume from tree diameter. In both models, \\(x\\) represents tree diameter in inches, \\(y\\) represents the number of board feet divided by 10, and \\(a\\) is a constant estimated from the data.\n\nModel 1: Constant Height\nThe first model assumes that tree height stays constant as diameter increases. Since a tree’s cross-sectional area is proportional to its diameter squared, this gives the model:\n\\[y = ax^2\\]\n\n\nModel 2: Height Proportional to Diameter\nThe second model assumes that taller trees also have larger diameters, with height increasing in direct proportion to diameter. Combining this assumption with cross-sectional area gives the model:\n\\[y = ax^3\\]\nTo determine which model better described the data, I used Excel to estimate each model’s constant and compare the total squared prediction errors."
+  },
+  {
+    "objectID": "projects.html",
+    "href": "projects.html",
+    "title": "Projects & Research",
+    "section": "",
+    "text": "Here are all of my projects, organized from newest to oldest. Click on the categories to filter them out.\n\n\n\n\n\n\n    \n      \n      \n    \n\n\n\n\n\n\n\n\nPredicting Lumber Volume from Tree Diameter\n\n\n\ndata analysis\n\nfeatured\n\nmathematical modeling\n\n\n\nComparing mathematical models using Excel.\n\n\n\nOct 2, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\nMapping Transportation Access Across Chicago\n\n\n\ndata analysis\n\nfeatured\n\npublic transportation\n\npublic policy\n\n\n\nComparing CTA rail and Divvy station availability across Chicago’s 77 community areas.\n\n\n\nSep 17, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\nExploring CTA Blue Line Ridership with R\n\n\n\ndata analysis\n\npublic transportation\n\n\n\nAnalyzing monthly ridership trends across CTA Blue Line stations using R.\n\n\n\nAug 20, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\nExploring CTA Red Line Ridership with R\n\n\n\ndata analysis\n\ntransportation\n\nfeatured\n\n\n\nAnalyzing monthly ridership trends across CTA Red Line stations using R.\n\n\n\nAug 20, 2026\n\n\n\n\n\n\n\n\n\n\n\nWhat Chicagoans Should Know from the July 15 City Council Meeting\n\n\n\npublic policy\n\n\n\n\n\n\n\nJun 19, 2026\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "readme.html",
+    "href": "readme.html",
+    "title": "Using this quarto course blog template",
+    "section": "",
+    "text": "This is a template for using quarto to create a course blog. A course blog can be used in many ways to engage with course content. For example, you could use the blog to post assignments, or to dive more deeply into course material that interests you. By the end of the course, your blog can serve as a portfolio of ways that you engaged in the material. By learning how to use quarto for your blog, you will also be learning new skills for creating and sharing reproducible documents that could be useful to you in the future.\nThe purpose of this page is to provide tips and pointers about blogging with quarto. Quarto is simple enough for creating a basic course blog. However, it is also very deep and can be used to create all sorts of documents, from website, to slide decks, and books.\n\n\nMany questions about quarto can be answered from the quarto documentation located at: https://quarto.org.\nIf you are looking for something specific and don’t know where to find it on the website, use the search tool in the top right corner.\n\n\n\n\nTo use this template you will need a Github.com account, and access to R and Rstudio.\nYou can get access by creating a Github.com account, and downloading the necessary open-source software to your machine.\nIt is also possible to use Rstudio in your web-browser, which does not require downloading any software. There are two sets of instructions, one for the downloading approach, and the other for using Rstudio cloud. Scroll to the bottom for instructions on using Rstudio cloud.\n\n\n\nIn order to use this template you will need to install some free open-source software on your computer.\n\nSign up for a free account at https://github.com. This a website for sharing open-source software, but it can also be used to serve your blog as a website for free.\nDownload Github Desktop and install it on your machine. This should install the version control software git on your system, and you can use Github Desktop to easily push your blog from your local computer so that it can be viewed on Github.com.\nDownload R and install it on your machine. R is a programming language capable of many things, and it needs to be on your machine before you can run R Studio.\nDownload R Studio Desktop and install it on your machine. R Studio is called an “IDE” or integrated development environment, that you can use to write your blog with quarto.\n\n\n\n\nOnce you have the software installed, the next step is to create a quarto blog project in R studio. The collection of files in this template is a pre-made quarto blog project that you can modify for your own purposes. You can also make one yourself in Rstudio.\nAssuming you have downloaded this template, and you have installed the above software, then you need to open quartoCourseBlog.Rproj.\n\n\n\n\nTo find out if everything is working, try rendering the blog. Go to the “Build” Tab and press “Render Website”.\n\nAfter the rendering is complete, you should be able to view your blog. It might show up in the viewer pane like this:\n\nAnd if you press the ‘window-with-an-arrow’ button, you can view the website in your default browser. Quarto websites automatically adjust for the size of the window, so it may appear differently in the viewer pane versus the browser.\n\n\n\nAll of the blog posts are located in the posts folder.\n\nTo make a new post, copy an existing post and then modify it. For example, my posts folder currently contains one post, and it is inside the my_first_post folder.\n\nI can copy the folder and make a new one with the same contents from the Rstudio gear-box menu:\n\nI made a folder for a second post called Example_assignment.\n\nThese are the two files inside the folder. The .qmd file is a plain text file where you will write the blog post. This folder can also be used to store other assets you might put in the post, such as pictures.\n\n\n\nTo write a new post, open the .qmd file, edit the text, and then re-render the website. This is what the text in the .qmd file looked like when I copied it.\n\nThe text at the top between the “—” is called YAML, and provides meta-data for your document. This is where you can change the title, date, name, and add keywords if you want.\nThe rest of the document is for the main body of the post. For example, I changed the text to read:\n\n\n\n\n\nRender the website from the build tab again to see your new post.\n\n\n\nTo share your blog online you will have to publish it on a server that can be accessed by other people on the internet. There are multiple ways to do this step, and I recommend using Github pages. You can view more in-depth instructions from quarto here https://quarto.org/docs/publishing/github-pages.html.\nHere are the steps:\n\nOpen Github Desktop\nGo to preferences and sign in to your Github.com account\n“Add” your blog project folder to Github Desktop\nThere should be an option for a commit message, write a note in there like “first commit”.\nPublish to github.com and uncheck private repository so that other people will be able to see your repository.\nYou should now be able to see your new repository in your github.com profile, which means you should be able to see a copy of your blog files in the repository.\nActivate Github pages for your repository (under repository settings), and serve the page from the “docs” folder.\nAccess the blog from the url generated by the github pages settings page.\n\n\n\n\nWhenever you make changes to your blog project that you want to share online follow these steps:\n\nMake changes to your blog, like writing a new post, or editing an old one.\nRender the website in R-studio. What you see here should be what you will see later on Github.com\nOpen Github Desktop and Commit your changes, by writing brief commit title, and pressing commit.\nThen, use Github Desktop to Push your changes to github.com.\nWait half a minute or so, and you should see your new content appear on the website.\n\n\n\n\nI am planning to add a video overview of these steps soon. In the meantime, these instructions may be enough to get started with R studio cloud and github.com.\n\nSign up for a free account with posit cloud here https://posit.cloud/plans/free\nSign up for a free https://github.com account.\nLog in to Github, and search for this repository https://github.com/CrumpLab/quartoCourseBlog.\n\n\nClick the green “Use this template” Button\nThis will make a copy of the template in your github account, it will show up as one of your repositories\nGive your new repository a name\n\n\nActivate Github pages for your repository (under repository settings), and serve the page from the “docs” folder. You should now be able to view the blog from the url given by github pages.\nLog into Posit Cloud\nCreate a New Project, choose “New Project from Git Repository”\n\n\nenter the URL to the github repository you just made\n\n\nLoad the project, and edit/modify the files (see above for examples of creating new posts etc.)\nTo send your changed files back to github.com you need to do a few steps\n\n\nFrom the Git tab: stage your changes, commit your changes, and push your changes using the green up arrow.\nYou will also need to authenticate your git credentials, and allow Rstudio cloud to update your github repository\nIn the terminal run these two lines, but replace with your name and email\n\n\ngit config --global user.name \"Your Name\"\ngit config --global user.email \"you@example.com\"\n\nWhen you “push” your changes back to Github using the green up arrow, you will be asked to enter a username and password. You can enter the username for your Github.com account, but your password won’t work. You need to set up a personal access token.\nGo to your github.com profile &gt; settings page. Scroll down, click on “&lt;&gt; Developer Settings”, on the left\nClick on personal access tokens, generate a new token, give it repo access. Save the text somewhere and use it as your github password when pushing from RStudio.\n\n\nAt this point you should be able to work on your blog in Rstudio Cloud, and push your changes to have them updated on github.com, which serves your blog online.\n\n\n\n\nSee this growing list of quarto resources for much, much more:\nhttps://github.com/mcanouil/awesome-quarto"
+  },
+  {
+    "objectID": "readme.html#quarto-documentation",
+    "href": "readme.html#quarto-documentation",
+    "title": "Using this quarto course blog template",
+    "section": "",
+    "text": "Many questions about quarto can be answered from the quarto documentation located at: https://quarto.org.\nIf you are looking for something specific and don’t know where to find it on the website, use the search tool in the top right corner."
+  },
+  {
+    "objectID": "readme.html#using-this-template",
+    "href": "readme.html#using-this-template",
+    "title": "Using this quarto course blog template",
+    "section": "",
+    "text": "To use this template you will need a Github.com account, and access to R and Rstudio.\nYou can get access by creating a Github.com account, and downloading the necessary open-source software to your machine.\nIt is also possible to use Rstudio in your web-browser, which does not require downloading any software. There are two sets of instructions, one for the downloading approach, and the other for using Rstudio cloud. Scroll to the bottom for instructions on using Rstudio cloud."
+  },
+  {
+    "objectID": "readme.html#downloading-the-free-software",
+    "href": "readme.html#downloading-the-free-software",
+    "title": "Using this quarto course blog template",
+    "section": "",
+    "text": "In order to use this template you will need to install some free open-source software on your computer.\n\nSign up for a free account at https://github.com. This a website for sharing open-source software, but it can also be used to serve your blog as a website for free.\nDownload Github Desktop and install it on your machine. This should install the version control software git on your system, and you can use Github Desktop to easily push your blog from your local computer so that it can be viewed on Github.com.\nDownload R and install it on your machine. R is a programming language capable of many things, and it needs to be on your machine before you can run R Studio.\nDownload R Studio Desktop and install it on your machine. R Studio is called an “IDE” or integrated development environment, that you can use to write your blog with quarto."
+  },
+  {
+    "objectID": "readme.html#make-a-quarto-blog-project",
+    "href": "readme.html#make-a-quarto-blog-project",
+    "title": "Using this quarto course blog template",
+    "section": "",
+    "text": "Once you have the software installed, the next step is to create a quarto blog project in R studio. The collection of files in this template is a pre-made quarto blog project that you can modify for your own purposes. You can also make one yourself in Rstudio.\nAssuming you have downloaded this template, and you have installed the above software, then you need to open quartoCourseBlog.Rproj."
+  },
+  {
+    "objectID": "readme.html#render-the-blog",
+    "href": "readme.html#render-the-blog",
+    "title": "Using this quarto course blog template",
+    "section": "",
+    "text": "To find out if everything is working, try rendering the blog. Go to the “Build” Tab and press “Render Website”.\n\nAfter the rendering is complete, you should be able to view your blog. It might show up in the viewer pane like this:\n\nAnd if you press the ‘window-with-an-arrow’ button, you can view the website in your default browser. Quarto websites automatically adjust for the size of the window, so it may appear differently in the viewer pane versus the browser."
+  },
+  {
+    "objectID": "readme.html#make-a-new-blog-post",
+    "href": "readme.html#make-a-new-blog-post",
+    "title": "Using this quarto course blog template",
+    "section": "",
+    "text": "All of the blog posts are located in the posts folder.\n\nTo make a new post, copy an existing post and then modify it. For example, my posts folder currently contains one post, and it is inside the my_first_post folder.\n\nI can copy the folder and make a new one with the same contents from the Rstudio gear-box menu:\n\nI made a folder for a second post called Example_assignment.\n\nThese are the two files inside the folder. The .qmd file is a plain text file where you will write the blog post. This folder can also be used to store other assets you might put in the post, such as pictures.\n\n\n\nTo write a new post, open the .qmd file, edit the text, and then re-render the website. This is what the text in the .qmd file looked like when I copied it.\n\nThe text at the top between the “—” is called YAML, and provides meta-data for your document. This is where you can change the title, date, name, and add keywords if you want.\nThe rest of the document is for the main body of the post. For example, I changed the text to read:"
+  },
+  {
+    "objectID": "readme.html#re-render-to-see-your-changes",
+    "href": "readme.html#re-render-to-see-your-changes",
+    "title": "Using this quarto course blog template",
+    "section": "",
+    "text": "Render the website from the build tab again to see your new post."
+  },
+  {
+    "objectID": "readme.html#share-your-blog-on-github.com",
+    "href": "readme.html#share-your-blog-on-github.com",
+    "title": "Using this quarto course blog template",
+    "section": "",
+    "text": "To share your blog online you will have to publish it on a server that can be accessed by other people on the internet. There are multiple ways to do this step, and I recommend using Github pages. You can view more in-depth instructions from quarto here https://quarto.org/docs/publishing/github-pages.html.\nHere are the steps:\n\nOpen Github Desktop\nGo to preferences and sign in to your Github.com account\n“Add” your blog project folder to Github Desktop\nThere should be an option for a commit message, write a note in there like “first commit”.\nPublish to github.com and uncheck private repository so that other people will be able to see your repository.\nYou should now be able to see your new repository in your github.com profile, which means you should be able to see a copy of your blog files in the repository.\nActivate Github pages for your repository (under repository settings), and serve the page from the “docs” folder.\nAccess the blog from the url generated by the github pages settings page."
+  },
+  {
+    "objectID": "readme.html#pushing-new-posts-to-github.com",
+    "href": "readme.html#pushing-new-posts-to-github.com",
+    "title": "Using this quarto course blog template",
+    "section": "",
+    "text": "Whenever you make changes to your blog project that you want to share online follow these steps:\n\nMake changes to your blog, like writing a new post, or editing an old one.\nRender the website in R-studio. What you see here should be what you will see later on Github.com\nOpen Github Desktop and Commit your changes, by writing brief commit title, and pressing commit.\nThen, use Github Desktop to Push your changes to github.com.\nWait half a minute or so, and you should see your new content appear on the website."
+  },
+  {
+    "objectID": "readme.html#posit-cloud-formerly-rstudio-cloud",
+    "href": "readme.html#posit-cloud-formerly-rstudio-cloud",
+    "title": "Using this quarto course blog template",
+    "section": "",
+    "text": "I am planning to add a video overview of these steps soon. In the meantime, these instructions may be enough to get started with R studio cloud and github.com.\n\nSign up for a free account with posit cloud here https://posit.cloud/plans/free\nSign up for a free https://github.com account.\nLog in to Github, and search for this repository https://github.com/CrumpLab/quartoCourseBlog.\n\n\nClick the green “Use this template” Button\nThis will make a copy of the template in your github account, it will show up as one of your repositories\nGive your new repository a name\n\n\nActivate Github pages for your repository (under repository settings), and serve the page from the “docs” folder. You should now be able to view the blog from the url given by github pages.\nLog into Posit Cloud\nCreate a New Project, choose “New Project from Git Repository”\n\n\nenter the URL to the github repository you just made\n\n\nLoad the project, and edit/modify the files (see above for examples of creating new posts etc.)\nTo send your changed files back to github.com you need to do a few steps\n\n\nFrom the Git tab: stage your changes, commit your changes, and push your changes using the green up arrow.\nYou will also need to authenticate your git credentials, and allow Rstudio cloud to update your github repository\nIn the terminal run these two lines, but replace with your name and email\n\n\ngit config --global user.name \"Your Name\"\ngit config --global user.email \"you@example.com\"\n\nWhen you “push” your changes back to Github using the green up arrow, you will be asked to enter a username and password. You can enter the username for your Github.com account, but your password won’t work. You need to set up a personal access token.\nGo to your github.com profile &gt; settings page. Scroll down, click on “&lt;&gt; Developer Settings”, on the left\nClick on personal access tokens, generate a new token, give it repo access. Save the text somewhere and use it as your github password when pushing from RStudio.\n\n\nAt this point you should be able to work on your blog in Rstudio Cloud, and push your changes to have them updated on github.com, which serves your blog online."
+  },
+  {
+    "objectID": "readme.html#more-quarto",
+    "href": "readme.html#more-quarto",
+    "title": "Using this quarto course blog template",
+    "section": "",
+    "text": "See this growing list of quarto resources for much, much more:\nhttps://github.com/mcanouil/awesome-quarto"
+  },
+  {
+    "objectID": "posts/Lumber_vs_Diameter_Project/index.html#the-data",
+    "href": "posts/Lumber_vs_Diameter_Project/index.html#the-data",
+    "title": "Predicting Lumber Volume from Tree Diameter",
+    "section": "The Data",
+    "text": "The Data\nThe assignment provided measurements for ten ponderosa pine trees with diameters ranging from 17 to 41 inches. Diameter was measured at waist height, and lumber quantity was recorded in board feet divided by 10.\n\n\n\nDiameter (inches)\nLumber quantity (board feet ÷ 10)\n\n\n\n\n17\n19\n\n\n19\n25\n\n\n20\n32\n\n\n23\n57\n\n\n25\n71\n\n\n28\n113\n\n\n32\n123\n\n\n38\n252\n\n\n39\n259\n\n\n41\n294\n\n\n\nSource: Course textbook, Section 2.3, Project 4, pages 94–95."
+  },
+  {
+    "objectID": "posts/Lumber_vs_Diameter_Project/index.html#fitting-the-models-in-excel",
+    "href": "posts/Lumber_vs_Diameter_Project/index.html#fitting-the-models-in-excel",
+    "title": "Predicting Lumber Volume from Tree Diameter",
+    "section": "Fitting the Models in Excel",
+    "text": "Fitting the Models in Excel\nI used least squares to estimate the constant in each model, with the intercept fixed at zero. This method selects the constant that minimizes the sum of squared differences between the observed and predicted lumber values.\nFor each tree, I calculated diameter squared and diameter cubed, used the fitted models to predict lumber quantity, and calculated the prediction errors. I then squared each error and added them to compare the models.\nThe fitted equations were:\n\nModel 1: Constant Height\n\\[\ny = 0.157918674x^2\n\\]\n\n\nModel 2: Height Proportional to Diameter\n\\[\ny = 0.004362035x^3\n\\] ## Comparing the Results\nI compared the models using their total squared errors. A smaller total means the predictions were closer to the observed lumber values overall.\n\n\n\nModel\nHeight assumption\nTotal squared error\n\n\n\n\nModel 1\nApproximately constant\n7,534.77\n\n\nModel 2\nProportional to diameter\n960.82\n\n\n\nModel 2 had approximately 87.2% less total squared error than Model 1. This supports the assumption that allowing height to increase with diameter produces better predictions for this data set.\n\n\nAn Example: A 17-Inch Tree\nFor a tree with a diameter of 17 inches, the actual lumber quantity was 190 board feet. Converting each model’s prediction back into board feet gives:\n\n\n\n\nPredicted lumber (board feet)\n\n\n\n\nModel 1\n456.4\n\n\nModel 2\n214.3\n\n\n\nBoth models overestimated the lumber quantity for this tree, but Model 2’s prediction was much closer to the actual value."
+  },
+  {
+    "objectID": "posts/Lumber_vs_Diameter_Project/index.html#model-1-constant-height-1",
+    "href": "posts/Lumber_vs_Diameter_Project/index.html#model-1-constant-height-1",
+    "title": "Predicting Lumber Volume from Tree Diameter",
+    "section": "Model 1: Constant Height",
+    "text": "Model 1: Constant Height\n\\[\ny = 0.157918674x^2\n\\]"
+  },
+  {
+    "objectID": "posts/Lumber_vs_Diameter_Project/index.html#model-2-height-proportional-to-diameter-1",
+    "href": "posts/Lumber_vs_Diameter_Project/index.html#model-2-height-proportional-to-diameter-1",
+    "title": "Predicting Lumber Volume from Tree Diameter",
+    "section": "Model 2: Height Proportional to Diameter",
+    "text": "Model 2: Height Proportional to Diameter\n\\[\ny = 0.004362035x^3\n\\] ## Comparing the Results\nI compared the models using their total squared errors. A smaller total means the predictions were closer to the observed lumber values overall.\n\n\n\nModel\nHeight assumption\nTotal squared error\n\n\n\n\nModel 1\nApproximately constant\n7,534.77\n\n\nModel 2\nProportional to diameter\n960.82\n\n\n\nModel 2 had approximately 87.2% less total squared error than Model 1. This supports the assumption that allowing height to increase with diameter produces better predictions for this data set.\n\nAn Example: A 17-Inch Tree\nFor a tree with a diameter of 17 inches, the actual lumber quantity was 190 board feet. Converting each model’s prediction back into board feet gives:\n\n\n\n\nPredicted lumber (board feet)\n\n\n\n\nModel 1\n456.4\n\n\nModel 2\n214.3\n\n\n\nBoth models overestimated the lumber quantity for this tree, but Model 2’s prediction was much closer to the actual value."
   }
 ]

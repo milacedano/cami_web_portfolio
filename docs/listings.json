@@ -1,35 +1,40 @@
 [
   {
-    "listing": "/projects.html",
-    "items": [
-      "/posts/CTA_Rideship_Blue/index.html",
-      "/posts/CTA_Rideship_Red/index.html",
-      "/posts/July_15_CC/city-council-july15.html"
-    ]
+    "listing": "/research.html",
+    "items": []
   },
   {
     "listing": "/public-policy.html",
     "items": [
+      "/posts/transportation_access_chi/index.html",
       "/posts/July_15_CC/city-council-july15.html"
+    ]
+  },
+  {
+    "listing": "/data-analysis.html",
+    "items": [
+      "/posts/Lumber_vs_Diameter_Project/index.html",
+      "/posts/transportation_access_chi/index.html",
+      "/posts/CTA_Rideship_Blue/index.html",
+      "/posts/CTA_Rideship_Red/index.html"
     ]
   },
   {
     "listing": "/index.html",
     "items": [
-      "/posts/CTA_Rideship_Blue/index.html",
-      "/posts/CTA_Rideship_Red/index.html",
-      "/posts/July_15_CC/city-council-july15.html"
+      "/posts/Lumber_vs_Diameter_Project/index.html",
+      "/posts/transportation_access_chi/index.html",
+      "/posts/CTA_Rideship_Red/index.html"
     ]
   },
   {
-    "listing": "/research.html",
-    "items": []
-  },
-  {
-    "listing": "/data-analysis.html",
+    "listing": "/projects.html",
     "items": [
+      "/posts/Lumber_vs_Diameter_Project/index.html",
+      "/posts/transportation_access_chi/index.html",
       "/posts/CTA_Rideship_Blue/index.html",
-      "/posts/CTA_Rideship_Red/index.html"
+      "/posts/CTA_Rideship_Red/index.html",
+      "/posts/July_15_CC/city-council-july15.html"
     ]
   }
 ]

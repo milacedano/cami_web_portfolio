@@ -1,0 +1,90 @@
+---
+title: "Predicting Lumber Volume from Tree Diameter"
+description: "Comparing mathematical models using Excel."
+date: "2026-10-02"
+categories: [data analysis, featured, mathematical modeling]
+---
+
+## Introduction
+
+As part of MATH 340, my mathematical modeling course at Dominican University, I explored the question: **How can tree diameter be used to predict lumber volume?** This project involved comparing two models with different assumptions about the relationship between a tree’s diameter, height, and volume.
+
+Using Excel, I fit both models to the data and compared their prediction errors. Below, I walk through the assumptions behind each model, the analysis, and what the results suggest about predicting lumber volume from tree diameter.
+
+## The Models
+
+I compared two models for predicting lumber volume from tree diameter. In both models, $x$ represents tree diameter in inches, $y$ represents the number of board feet divided by 10, and $a$ is a constant estimated from the data.
+
+### Model 1: Constant Height
+
+The first model assumes that tree height stays constant as diameter increases. Since a tree’s cross-sectional area is proportional to its diameter squared, this gives the model:
+
+$$y = ax^2$$
+
+### Model 2: Height Proportional to Diameter
+
+The second model assumes that taller trees also have larger diameters, with height increasing in direct proportion to diameter. Combining this assumption with cross-sectional area gives the model:
+
+$$y = ax^3$$
+
+To determine which model better described the data, I used Excel to estimate each model’s constant and compare the total squared prediction errors.
+
+## The Data
+
+The assignment provided measurements for ten ponderosa pine trees with diameters ranging from 17 to 41 inches. Diameter was measured at waist height, and lumber quantity was recorded in board feet divided by 10.
+
+| Diameter (inches) | Lumber quantity (board feet ÷ 10) |
+|-----------------:|---------------------------------:|
+| 17 | 19 |
+| 19 | 25 |
+| 20 | 32 |
+| 23 | 57 |
+| 25 | 71 |
+| 28 | 113 |
+| 32 | 123 |
+| 38 | 252 |
+| 39 | 259 |
+| 41 | 294 |
+
+*Source: Course textbook, Section 2.3, Project 4, pages 94–95.*
+
+## Fitting the Models in Excel
+
+I used least squares to estimate the constant in each model, with the intercept fixed at zero. This method selects the constant that minimizes the sum of squared differences between the observed and predicted lumber values.
+
+For each tree, I calculated diameter squared and diameter cubed, used the fitted models to predict lumber quantity, and calculated the prediction errors. I then squared each error and added them to compare the models.
+
+The fitted equations were:
+
+## Model 1: Constant Height
+
+$$
+y = 0.157918674x^2
+$$
+
+## Model 2: Height Proportional to Diameter
+
+$$
+y = 0.004362035x^3
+$$
+## Comparing the Results
+
+I compared the models using their total squared errors. A smaller total means the predictions were closer to the observed lumber values overall.
+
+| Model | Height assumption | Total squared error |
+|:------|:------------------|--------------------:|
+| Model 1 | Approximately constant | 7,534.77 |
+| Model 2 | Proportional to diameter | 960.82 |
+
+Model 2 had approximately **87.2% less total squared error** than Model 1. This supports the assumption that allowing height to increase with diameter produces better predictions for this data set.
+
+### An Example: A 17-Inch Tree
+
+For a tree with a diameter of 17 inches, the actual lumber quantity was **190 board feet**. Converting each model's prediction back into board feet gives:
+
+| | Predicted lumber (board feet) |
+|:--|-----------------------------:|
+| Model 1 | 456.4 |
+| Model 2 | 214.3 |
+
+Both models overestimated the lumber quantity for this tree, but Model 2's prediction was much closer to the actual value.

@@ -48,7 +48,7 @@ redline %>%
   )) +
   geom_line(
     color = "#C60C30",
-    linewidth = 1
+    linewidth = 2
   ) +
   facet_wrap(
     ~ stationame,
@@ -82,8 +82,8 @@ redline %>%
   ) +
   theme_minimal() +
   theme(
-    strip.text = element_text(face = "bold"),
-    panel.grid.minor = element_blank()
+    strip.text = element_text(face = "bold", size = 14),
+    panel.grid.minor = element_blank(), plot.title = element_text(size = 18, face = "bold")
   )
 
 ggsave(
@@ -122,7 +122,7 @@ redline %>%
   )) +
   geom_line(
     color = "#C60C30",
-    linewidth = 1
+    linewidth = 2
   ) +
   facet_wrap(
     ~ stationame,
@@ -155,10 +155,9 @@ redline %>%
   ) +
   theme_minimal() +
   theme(
-    strip.text = element_text(face = "bold"),
-    panel.grid.minor = element_blank()
+    strip.text = element_text(face = "bold", size = 14),
+    panel.grid.minor = element_blank(), plot.title = element_text(size = 18, face = "bold")
   )
-
 ggsave(
   "posts/CTA_Rideship_Red/images/red-line-north.png",
   width = 10,
@@ -197,7 +196,7 @@ redline %>%
   )) +
   geom_line(
     color = "#C60C30",
-    linewidth = 1
+    linewidth = 2
   ) +
   facet_wrap(
     ~ stationame,
@@ -232,8 +231,8 @@ redline %>%
   ) +
   theme_minimal() +
   theme(
-    strip.text = element_text(face = "bold"),
-    panel.grid.minor = element_blank()
+    strip.text = element_text(face = "bold", size = 14),
+    panel.grid.minor = element_blank(), plot.title = element_text(size = 18, face = "bold")
   )
 
 ggsave(
@@ -269,7 +268,7 @@ redline %>%
   )) +
   geom_line(
     color = "#C60C30",
-    linewidth = 1
+    linewidth = 2
   ) +
   facet_wrap(
     ~ stationame,
@@ -299,8 +298,8 @@ redline %>%
   ) +
   theme_minimal() +
   theme(
-    strip.text = element_text(face = "bold"),
-    panel.grid.minor = element_blank()
+    strip.text = element_text(face = "bold", size = 14),
+    panel.grid.minor = element_blank(), plot.title = element_text(size = 18, face = "bold")
   )
 
 ggsave(
@@ -337,7 +336,7 @@ redline %>%
   )) +
   geom_line(
     color = "#C60C30",
-    linewidth = 1
+    linewidth = 2
   ) +
   facet_wrap(
     ~ stationame,
@@ -368,8 +367,8 @@ redline %>%
   ) +
   theme_minimal() +
   theme(
-    strip.text = element_text(face = "bold"),
-    panel.grid.minor = element_blank()
+    strip.text = element_text(face = "bold", size = 14),
+    panel.grid.minor = element_blank(), plot.title = element_text(size = 18, face = "bold")
   )
 
 ggsave(

@@ -3,7 +3,7 @@ title: "What Chicagoans Should Know from the July 15 City Council Meeting"
 subtitle: "Referendums, EV charging, housing, public space, and other decisions that could shape Chicago"
 author: "Maria Camila Cedano"
 date: "2026-06-19"
-categories: [public policy,featured]
+categories: [public policy]
 project-type: policy
 ---
 
@@ -117,7 +117,7 @@ Council approved the use of Open Space Impact Fee funds for six projects across 
 The projects include:
 
 | Project | Location |
-|---|---|
+|----|----|
 | Chicago Farmworks | 409 N. Albany Ave. and 411–419 N. Kedzie Ave. |
 | Montrose Metra Garden | 4350 N. Ravenswood Ave. |
 | Goose Island Overlook | 1111 N. Elston Ave. |
@@ -209,7 +209,7 @@ And perhaps most importantly: **how much say should Chicagoans have in those dec
 
 The individual ordinances may look technical. Their effects are not.
 
----
+------------------------------------------------------------------------
 
 ### Sources
 

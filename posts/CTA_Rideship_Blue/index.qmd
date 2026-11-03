@@ -3,7 +3,7 @@ title: "Exploring CTA Blue Line Ridership with R"
 description: "Analyzing monthly ridership trends across CTA Blue Line stations using R."
 author: "Camila Cedano"
 date: "2026-08-20"
-categories: [data analysis, featured, public transportation]
+categories: [data analysis, public transportation]
 image: images-bl/california-blue-line.jpg
 ---
 
@@ -96,7 +96,6 @@ O'Hare is analyzed separately from the other Far Northwest Side stations because
 
 - **O'Hare Airport:** O'Hare has some of the highest ridership on the Blue Line and shows a strong seasonal pattern. Ridership falls substantially during the winter and rebounds during the spring and summer. Unlike a typical neighborhood station, O'Hare directly connects the CTA system with O'Hare International Airport and the Airport Transit System. Its ridership therefore includes airport passengers and employees in addition to other CTA riders. Seasonal changes in air travel may contribute to the pattern seen in the graph, although station-level data alone cannot establish causation.
 
-
 ## Far Northwest Side
 
 The Far Northwest Side follows the O'Hare branch from Rosemont through Irving Park.
@@ -116,7 +115,6 @@ The Far Northwest Side follows the O'Hare branch from Rosemont through Irving Pa
 - **Montrose-O'Hare:** Montrose has comparatively low ridership despite having access to the nearby Mayfair Metra station and the #78 Montrose bus. This provides an interesting contrast with Jefferson Park and suggests that the presence of a Metra connection alone does not necessarily generate high CTA station ridership.
 
 - **Irving Park-O'Hare:** Irving Park has stronger ridership than several nearby stations and is located near the Irving Park Metra station on the Union Pacific Northwest Line. It also connects with multiple CTA bus routes. These connections may allow the station to attract riders from a wider area than stations with fewer transportation options.
-
 
 ## Northwest Side
 
@@ -138,7 +136,6 @@ This section follows the Milwaukee Avenue corridor from Addison through Damen.
 
 - **Damen/Milwaukee:** Damen is one of the highest-ridership stations in this section despite not connecting with another rail line. Its location in the Wicker Park commercial district places it near dense housing, restaurants, retail, nightlife, and other destinations, while several CTA bus routes provide additional connections. Its ridership likely reflects a mixture of commuting and non-work travel.
 
-
 ## Near Northwest Side
 
 The Near Northwest Side group includes Division, Chicago, and Grand.
@@ -152,7 +149,6 @@ The Near Northwest Side group includes Division, Chicago, and Grand.
 - **Chicago/Milwaukee:** Chicago shows a noticeable decline during the later portion of the period before beginning to recover. The station connects with the #56 Milwaukee and #66 Chicago buses, but its graph differs considerably from nearby Division. The available connection information does not provide an obvious explanation for the decline, making this a pattern that would require additional research.
 
 - **Grand/Milwaukee:** Grand shows substantial growth toward the end of the period analyzed. The station connects with bus service along Grand, Halsted, and Milwaukee. Its increase is especially interesting when compared with Chicago because the two stations are geographically close but follow different ridership trends. This suggests that ridership changes can be highly localized rather than occurring uniformly along a section of the Blue Line.
-
 
 ## Downtown
 
@@ -171,7 +167,6 @@ The Downtown section follows the Dearborn subway from Clark/Lake through LaSalle
 - **Jackson/Dearborn:** Jackson functions as another important Downtown transfer point. Passengers can connect with the Red Line at Jackson and reach the elevated Brown, Orange, Pink, and Purple lines through the nearby Harold Washington Library station. These connections may contribute to its relatively strong ridership.
 
 - **LaSalle:** LaSalle has the lowest ridership among the Downtown stations analyzed despite its location in the Loop. The station provides access to the nearby LaSalle Street Station and Metra's Rock Island District, but its ridership remains substantially below Clark/Lake and Washington. This demonstrates that simply being located Downtown or near another rail service does not guarantee high CTA station entries.
-
 
 ## Near West Side
 
@@ -193,7 +188,6 @@ The Near West Side section follows the Forest Park branch from Clinton through K
 
 - **Kedzie-Homan:** Kedzie-Homan also records relatively low ridership despite connections with several CTA bus routes. Together with Western, its graph marks the beginning of a sustained stretch of lower-ridership stations along the western portion of the Forest Park branch.
 
-
 ## West Side
 
 The West Side section follows the Forest Park branch from Pulaski to Forest Park.
@@ -214,7 +208,6 @@ The West Side section follows the Forest Park branch from Pulaski to Forest Park
 
 - **Forest Park:** Forest Park has the highest ridership in this section. As the western terminal of the Blue Line, it includes parking and connections to numerous Pace bus routes serving surrounding suburban communities. This gives the station a much larger potential service area than stations that primarily serve nearby neighborhoods.
 
-
 ## Overall Findings
 
 Several broader patterns emerge when Blue Line ridership is examined geographically.
@@ -228,7 +221,6 @@ Third, **major destinations can generate distinctive ridership patterns even wit
 Fourth, **more transportation connections do not automatically result in higher ridership**. Montrose provides access to nearby Metra service but remains substantially below Jefferson Park. Cicero connects with both CTA and Pace buses but remains a relatively low-ridership station. LaSalle is located near Metra service but records considerably fewer entries than Clark/Lake. The type of connection, surrounding land use, nearby destinations, service frequency, and ease of transferring may therefore matter as much as the number of connections.
 
 Finally, **there is a major geographic difference between the O'Hare and Forest Park branches**. Much of the O'Hare branch and the Milwaukee Avenue corridor records substantially higher station ridership than the western portion of the Forest Park branch. The connection data suggests that differences in regional connectivity may explain part of this pattern, but infrastructure conditions, service quality, neighborhood characteristics, population, employment, and land use would need to be examined before determining why the difference exists.
-
 
 ## Data Limitations
 

@@ -1,6 +1,6 @@
 ---
 title: "Background"
-image: pfp.jpg
+image: new_pfp.jpg
 about:
   template: solana
   links:
