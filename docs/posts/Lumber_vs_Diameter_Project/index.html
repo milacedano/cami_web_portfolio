@@ -187,6 +187,12 @@ window.Quarto = {
 </header>
 
 
+<p>This project was completed collaboratively for MATH 340. The full paper includes our model derivations, calculations, graphs, and conclusions.</p>
+<div style="text-align: center; margin: 24px 0;">
+  <a href="lumber-modeling-paper.pdf" class="btn btn-primary" target="_blank">
+    Read the Full Paper (PDF)
+  </a>
+</div>
 <section id="introduction" class="level2">
 <h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
 <p>As part of MATH 340, my mathematical modeling course at Dominican University, I explored the question: <strong>How can tree diameter be used to predict lumber volume?</strong> This project involved comparing two models with different assumptions about the relationship between a tree’s diameter, height, and volume.</p>
@@ -269,15 +275,15 @@ window.Quarto = {
 <p>The fitted equations were:</p>
 <section id="model-1-constant-height-1" class="level3">
 <h3 class="anchored" data-anchor-id="model-1-constant-height-1">Model 1: Constant Height</h3>
-<p><span class="math display">\[
-y = 0.157918674x^2
-\]</span></p>
+<p><span class="math display">\[y = 0.157918674x^2\]</span></p>
 </section>
 <section id="model-2-height-proportional-to-diameter-1" class="level3">
 <h3 class="anchored" data-anchor-id="model-2-height-proportional-to-diameter-1">Model 2: Height Proportional to Diameter</h3>
-<p><span class="math display">\[
-y = 0.004362035x^3
-\]</span> ## Comparing the Results</p>
+<p><span class="math display">\[y = 0.004362035x^3\]</span></p>
+</section>
+</section>
+<section id="comparing-the-results" class="level2">
+<h2 class="anchored" data-anchor-id="comparing-the-results">Comparing the Results</h2>
 <p>I compared the models using their total squared errors. A smaller total means the predictions were closer to the observed lumber values overall.</p>
 <table class="caption-top table">
 <thead>
@@ -301,7 +307,6 @@ y = 0.004362035x^3
 </tbody>
 </table>
 <p>Model 2 had approximately <strong>87.2% less total squared error</strong> than Model 1. This supports the assumption that allowing height to increase with diameter produces better predictions for this data set.</p>
-</section>
 <section id="an-example-a-17-inch-tree" class="level3">
 <h3 class="anchored" data-anchor-id="an-example-a-17-inch-tree">An Example: A 17-Inch Tree</h3>
 <p>For a tree with a diameter of 17 inches, the actual lumber quantity was <strong>190 board feet</strong>. Converting each model’s prediction back into board feet gives:</p>
