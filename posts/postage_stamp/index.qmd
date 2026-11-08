@@ -1,0 +1,148 @@
+
+---
+title: "Modeling U.S. Postage Stamp Prices Over Time"
+description: "Comparing quadratic and cubic least-squares models to analyze historical postage rates and predict future prices."
+date: "2026-10-30"
+categories: [featured, mathematical modeling, data analysis]
+image: images/stamps_cover.jpg
+---
+
+This project was completed collaboratively for MATH 340: Mathematical Modeling at Dominican University. The full paper includes our mathematical derivations, Excel calculations, graphs, model comparisons, and conclusions.
+
+::: {style="text-align: center; margin: 24px 0;"}
+[Read the Full Paper (PDF)](stamp-modeling-paper.pdf){.btn .btn-primary target="_blank"}
+:::
+
+## Introduction
+
+The cost of first-class postage stamps in the United States has changed considerably over time. In 1885, a stamp cost just $0.02, while the historical dataset used in this project recorded a price of $0.82 in 2026.
+
+This raised an interesting question: **Can historical postage rates be used to predict future stamp prices?**
+
+As part of MATH 340, my mathematical modeling course at Dominican University, I explored this question by developing and comparing quadratic and cubic least-squares models.
+
+The goal was to determine which model best represented historical postage rates, predict the price of a stamp in 2027, and estimate when stamp prices might reach $1.
+
+## The Data
+
+We analyzed 39 observations of first-class postage rates spanning 1885 through 2026.
+
+To simplify the calculations, we scaled the years using:
+
+$$
+t = \text{Year} - 1885
+$$
+
+where $t$ represents the number of years since 1885.
+
+We retained all observations, including historical price increases and decreases, to preserve the overall behavior of the dataset.
+
+### Analyzing the Trend
+
+Before selecting our models, we constructed a divided difference table through the tenth order to investigate whether the data followed a recognizable polynomial pattern.
+
+The divided differences fluctuated between positive and negative values without settling into a constant pattern. This made it difficult to identify a single polynomial degree based on divided differences alone.
+
+However, the scatterplot showed an upward curvature, suggesting that quadratic and cubic models could reasonably describe the overall trend.
+
+## Developing the Models
+
+We developed two polynomial models using the least-squares method, which minimizes the sum of squared errors between observed and predicted values.
+
+### Model 1: Quadratic Least-Squares Model
+
+The quadratic model takes the general form:
+
+$$
+P_2(t) = c_0 + c_1t + c_2t^2
+$$
+
+To determine the coefficients, we minimized the sum of squared residuals:
+
+$$
+S = \sum_{i=1}^{m}(y_i-P_2(t_i))^2
+$$
+
+Taking partial derivatives with respect to the three coefficients and setting them equal to zero produced a system of equations.
+
+Using Excel, we calculated the necessary sums and solved the resulting system using matrix operations.
+
+The quadratic model produced a sum of squared errors of:
+
+$$
+SSE_{\text{quadratic}} = 0.08029
+$$
+
+### Model 2: Cubic Least-Squares Model
+
+The cubic model takes the form:
+
+$$
+P_3(t) = c_0 + c_1t + c_2t^2 + c_3t^3
+$$
+
+Using Excel, we obtained the following approximate model:
+
+$$
+P_3(t) = 0.0174 + 0.001186t - 0.0000459t^2 + 0.000000511t^3
+$$
+
+The cubic model produced a sum of squared errors of:
+
+$$
+SSE_{\text{cubic}} = 0.05362
+$$
+
+The smaller SSE suggested that the cubic model fit the historical data more closely than the quadratic model.
+
+## Comparing the Models
+
+After developing both models, we compared their performance using sum of squared errors and their behavior on the historical scatterplots.
+
+| Model | Sum of Squared Errors |
+|---|---:|
+| Quadratic | 0.08029 |
+| Cubic | 0.05362 |
+
+The cubic model had the smaller SSE, indicating a better fit to the observed data.
+
+The quadratic model also produced negative predicted stamp prices during part of the earlier historical period, which is unrealistic. The cubic model followed the historical observations more closely, particularly during those earlier years.
+
+Although the cubic model performed better, a smaller SSE does not necessarily guarantee more accurate predictions beyond the observed data.
+
+## Predicting Future Stamp Prices
+
+We used both models to estimate the cost of a first-class postage stamp on January 1, 2027, and the year in which prices might reach $1.
+
+| Prediction | Quadratic Model | Cubic Model |
+|---|---:|---:|
+| Stamp price in 2027 | $0.69 | $0.72 |
+| Year stamp reaches $1 | 2046 | 2040 |
+
+The cubic model predicted a slightly higher price for 2027 and estimated that postage rates would reach $1 approximately six years earlier than the quadratic model.
+
+However, both models predicted a 2027 price below the most recent observed price of $0.82 in our dataset.
+
+This suggested that neither model fully captured the recent acceleration in postage rates.
+
+## Model Limitations
+
+Although the cubic model provided a better fit to the historical data, both models have limitations.
+
+Postage rates are influenced by factors such as inflation, operating costs, and decisions made by the U.S. Postal Service. Our models relied only on historical prices and did not explicitly account for these external influences.
+
+Additionally, the higher-degree term in the cubic model could cause predicted prices to increase unrealistically when extrapolating further into the future.
+
+As a result, the predictions should be interpreted as mathematical estimates rather than definitive forecasts.
+
+## Conclusion
+
+This project demonstrated how mathematical models can be developed, evaluated, and used to make predictions from historical data.
+
+By constructing divided differences, deriving least-squares equations, and comparing prediction errors, we found that the cubic model provided a better fit to historical postage rates.
+
+However, the differences between the two models and their inability to fully capture recent price increases also highlighted an important lesson: **A model that fits historical data well is not necessarily the most reliable predictor of future outcomes.**
+
+Through this project, I gained experience applying polynomial modeling, matrix operations, error analysis, and Excel-based numerical methods to a real-world dataset.
+
+

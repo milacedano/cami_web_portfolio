@@ -2,6 +2,7 @@
   {
     "listing": "/projects.html",
     "items": [
+      "/posts/postage_stamp/index.html",
       "/posts/Lumber_vs_Diameter_Project/index.html",
       "/posts/transportation_access_chi/index.html",
       "/posts/CTA_Rideship_Blue/index.html",
@@ -12,6 +13,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/postage_stamp/index.html",
       "/posts/Lumber_vs_Diameter_Project/index.html",
       "/posts/CTA_Rideship_Red/index.html"
     ]
@@ -19,6 +21,7 @@
   {
     "listing": "/applied-math.html",
     "items": [
+      "/posts/postage_stamp/index.html",
       "/posts/Lumber_vs_Diameter_Project/index.html",
       "/posts/CTA_Rideship_Red/index.html"
     ]
@@ -26,6 +29,7 @@
   {
     "listing": "/data-analysis.html",
     "items": [
+      "/posts/postage_stamp/index.html",
       "/posts/Lumber_vs_Diameter_Project/index.html",
       "/posts/transportation_access_chi/index.html",
       "/posts/CTA_Rideship_Blue/index.html",
