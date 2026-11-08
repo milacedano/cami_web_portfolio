@@ -3,8 +3,7 @@ title: "What Chicagoans Should Know from the July 15 City Council Meeting"
 subtitle: "Referendums, EV charging, housing, public space, and other decisions that could shape Chicago"
 author: "Maria Camila Cedano"
 date: "2026-06-19"
-categories: [public policy]
-project-type: policy
+categories: [policy]
 ---
 
 Chicagoans could soon be voting on whether the city should bring back gunshot-detection technology. At the same time, City Council is moving forward with curbside EV charging, affordable housing developments, new neighborhood public spaces, and changes to how residents can access government records.
@@ -117,7 +116,7 @@ Council approved the use of Open Space Impact Fee funds for six projects across 
 The projects include:
 
 | Project | Location |
-|----|----|
+|------------------------------------|------------------------------------|
 | Chicago Farmworks | 409 N. Albany Ave. and 411–419 N. Kedzie Ave. |
 | Montrose Metra Garden | 4350 N. Ravenswood Ave. |
 | Goose Island Overlook | 1111 N. Elston Ave. |

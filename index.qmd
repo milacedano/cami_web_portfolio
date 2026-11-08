@@ -17,11 +17,13 @@ listing:
 ---
 
 ::: hero
-# Hi, I'm Camila
+# Hi, I'm Maria Camila
 
-I'm a mathematics student interested in **data, public policy, cities, and community research**.
+I'm a mathematics student with interests in data analysis, research, and problem-solving.
 
-I use quantitative tools to explore how neighborhoods work, how policy affects people, and how data can help tell those stories.
+I enjoy using quantitative methods to explore complex questions, identify patterns, and turn data into meaningful insights. My academic and professional experiences span mathematical modeling, public policy, community engagement, and applied research.
+
+Through this portfolio, I share projects that demonstrate how I approach problems, work with data, and communicate findings across different fields.
 
 [View My Work](projects.qmd){.btn .btn-primary} [Background](about.qmd){.btn .btn-outline-primary}
 :::
@@ -35,27 +37,27 @@ I use quantitative tools to explore how neighborhoods work, how policy affects p
 
 :::::: what-i-do
 ::: {.skill-card .data-card}
-### [Data Analysis](data-analysis.qmd)
+### [Data Analysis & Visualization](data-analysis.qmd)
 
-I use **R, statistics, and data visualization** to explore patterns, answer questions, and communicate findings clearly.
+Using statistical tools, programming, and visualizations to uncover patterns and communicate findings.
 
-`R` `Statistics` `Data Visualization`
+`R` `Excel` `Statistics` `Data Visualization`
 :::
 
 ::: {.skill-card .research-card}
-### [Research](research.qmd)
+### [Mathematical Modeling & Applied Mathematics](applied-math.qmd)
 
-I combine **quantitative analysis and community perspectives** to investigate questions about cities and the people who live in them.
+Applying mathematical methods to model real-world problems, analyze relationships, and evaluate solutions and predictions.
 
-`Quantitative Research` `Community Research` `Data Collection`
+`Mathematical Modeling` `Probability` `Regression` `Optimization`
 :::
 
 ::: {.skill-card .policy-card}
-### [Public Policy](public-policy.qmd)
+### [Pure Mathematics & Mathematical Reasoning](pure-math.qmd)
 
-I'm interested in using data and research to understand **local government, urban policy, and community issues**, especially in Chicago.
+Exploring abstract mathematical concepts through rigorous proofs, logical reasoning, and theoretical problem-solving.
 
-`Policy Analysis` `Local Government` `Urban Issues`
+`Prood Writing` `Logic` `Number Theory` `Abstract Algebra`
 :::
 ::::::
 

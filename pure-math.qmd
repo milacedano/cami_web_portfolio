@@ -1,0 +1,15 @@
+---
+title: "Pure Mathematics & Mathematical Reasoning"
+subtitle: "Exploring mathematical structures, abstract concepts, and rigorous reasoning through proofs and theoretical problem-solving."
+page-layout: full
+
+listing:
+  contents: posts
+  type: grid
+  sort: "date desc"
+  categories: false
+  include:
+    categories: "pure mathematics"
+  fields: [image, title, description, date, categories]
+  grid-columns: 3
+---

@@ -3,7 +3,7 @@ title: "Exploring CTA Red Line Ridership with R"
 description: "Analyzing monthly ridership trends across CTA Red Line stations using R."
 author: "Camila Cedano"
 date: 2026-08-20
-categories: [data analysis, transportation, featured]
+categories: [data analysis, mathematical modeling, featured]
 image: images/red-line-pic.jpg
 ---
 

@@ -3,7 +3,7 @@ title: "Mapping Transportation Access Across Chicago"
 description: "Comparing CTA rail and Divvy station availability across Chicago's 77 community areas."
 author: "Camila Cedano"
 date: "2026-09-17"
-categories: [data analysis, featured, public transportation, public policy]
+categories: [data analysis, policy]
 image: graphs/station_map.png
 ---
 

@@ -1,0 +1,15 @@
+---
+title: "Mathematical Modeling & Applied Mathematics"
+subtitle: "Applying mathematical methods to model real-world problems, analyze relationships, and evaluate solutions and predictions."
+page-layout: full
+
+listing:
+  contents: "posts/*/index.qmd"
+  type: grid
+  sort: "date desc"
+  categories: false
+  include:
+    categories: "mathematical modeling"
+  fields: [image, title, description, date, categories]
+  grid-columns: 3
+---
