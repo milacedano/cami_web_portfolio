@@ -17,13 +17,13 @@ listing:
 ---
 
 ::: hero
-# Hi, I'm Maria Camila
+# Hi, I'm Camila
 
-I'm a mathematics student with interests in data analysis, research, and problem-solving.
+I'm a mathematics student interested in data analysis, mathematical theory, and real-world applications.
 
-I enjoy using quantitative methods to explore complex questions, identify patterns, and turn data into meaningful insights. My academic and professional experiences span mathematical modeling, public policy, community engagement, and applied research.
+I enjoy using mathematical reasoning, statistical methods, and programming to explore complex questions and uncover meaningful patterns. My academic and professional experiences have allowed me to approach problems from both theoretical and practical perspectives.
 
-Through this portfolio, I share projects that demonstrate how I approach problems, work with data, and communicate findings across different fields.
+Through this portfolio, I share projects in data analysis, applied mathematics, and mathematical reasoning, highlighting my technical skills, curiosity, and approach to problem-solving.
 
 [View My Work](projects.qmd){.btn .btn-primary} [Background](about.qmd){.btn .btn-outline-primary}
 :::
@@ -57,7 +57,7 @@ Applying mathematical methods to model real-world problems, analyze relationship
 
 Exploring abstract mathematical concepts through rigorous proofs, logical reasoning, and theoretical problem-solving.
 
-`Prood Writing` `Logic` `Number Theory` `Abstract Algebra`
+`Proof Writing` `Logic` `Number Theory` `Abstract Algebra`
 :::
 ::::::
 
